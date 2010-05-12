@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DBF9A2DC119A602200CCFDC9 /* OAL_AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2BE119A5FFC00CCFDC9 /* OAL_AudioData.cpp */; };
+		DBF9A2DD119A602300CCFDC9 /* OAL_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2BF119A5FFC00CCFDC9 /* OAL_Buffer.cpp */; };
+		DBF9A2DE119A602300CCFDC9 /* OAL_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C0119A5FFC00CCFDC9 /* OAL_Device.cpp */; };
+		DBF9A2DF119A602400CCFDC9 /* OAL_Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C1119A5FFC00CCFDC9 /* OAL_Effect.cpp */; };
+		DBF9A2E0119A602500CCFDC9 /* OAL_Effect_Reverb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C2119A5FFC00CCFDC9 /* OAL_Effect_Reverb.cpp */; };
+		DBF9A2E1119A602500CCFDC9 /* OAL_EffectSlot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C3119A5FFC00CCFDC9 /* OAL_EffectSlot.cpp */; };
+		DBF9A2E2119A602600CCFDC9 /* OAL_EFX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C4119A5FFC00CCFDC9 /* OAL_EFX.cpp */; };
+		DBF9A2E3119A602600CCFDC9 /* OAL_EFXManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C5119A5FFC00CCFDC9 /* OAL_EFXManager.cpp */; };
+		DBF9A2E4119A602700CCFDC9 /* OAL_Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C7119A5FFC00CCFDC9 /* OAL_Helper.cpp */; };
+		DBF9A2E5119A602700CCFDC9 /* OAL_Init.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C8119A5FFC00CCFDC9 /* OAL_Init.cpp */; };
+		DBF9A2E6119A602800CCFDC9 /* OAL_Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C6119A5FFC00CCFDC9 /* OAL_Filter.cpp */; };
+		DBF9A2E7119A602A00CCFDC9 /* OAL_Loaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C9119A5FFC00CCFDC9 /* OAL_Loaders.cpp */; };
+		DBF9A2E8119A602A00CCFDC9 /* OAL_LoggerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CA119A5FFC00CCFDC9 /* OAL_LoggerObject.cpp */; };
+		DBF9A2E9119A602B00CCFDC9 /* OAL_OggHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CB119A5FFC00CCFDC9 /* OAL_OggHelper.cpp */; };
+		DBF9A2EA119A602B00CCFDC9 /* OAL_OggSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CC119A5FFC00CCFDC9 /* OAL_OggSample.cpp */; };
+		DBF9A2EB119A602C00CCFDC9 /* OAL_OggStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CD119A5FFC00CCFDC9 /* OAL_OggStream.cpp */; };
+		DBF9A2EC119A602C00CCFDC9 /* OAL_Playback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CE119A5FFC00CCFDC9 /* OAL_Playback.cpp */; };
+		DBF9A2ED119A602D00CCFDC9 /* OAL_Sample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CF119A5FFC00CCFDC9 /* OAL_Sample.cpp */; };
+		DBF9A2EE119A602D00CCFDC9 /* OAL_Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D0119A5FFC00CCFDC9 /* OAL_Source.cpp */; };
+		DBF9A2EF119A602E00CCFDC9 /* OAL_SourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D1119A5FFC00CCFDC9 /* OAL_SourceManager.cpp */; };
+		DBF9A2F0119A602F00CCFDC9 /* OAL_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D2119A5FFC00CCFDC9 /* OAL_Stream.cpp */; };
+		DBF9A2F1119A602F00CCFDC9 /* OAL_Types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D3119A5FFC00CCFDC9 /* OAL_Types.cpp */; };
+		DBF9A2F2119A603000CCFDC9 /* OAL_WAVSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D4119A5FFC00CCFDC9 /* OAL_WAVSample.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DBF9A2A3119A5FFC00CCFDC9 /* OAL_AudioData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_AudioData.h; sourceTree = "<group>"; };
+		DBF9A2A4119A5FFC00CCFDC9 /* OAL_Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Buffer.h; sourceTree = "<group>"; };
+		DBF9A2A5119A5FFC00CCFDC9 /* OAL_Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Device.h; sourceTree = "<group>"; };
+		DBF9A2A6119A5FFC00CCFDC9 /* OAL_Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Effect.h; sourceTree = "<group>"; };
+		DBF9A2A7119A5FFC00CCFDC9 /* OAL_Effect_Reverb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Effect_Reverb.h; sourceTree = "<group>"; };
+		DBF9A2A8119A5FFC00CCFDC9 /* OAL_EffectSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_EffectSlot.h; sourceTree = "<group>"; };
+		DBF9A2A9119A5FFC00CCFDC9 /* OAL_EFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_EFX.h; sourceTree = "<group>"; };
+		DBF9A2AA119A5FFC00CCFDC9 /* OAL_EFXManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_EFXManager.h; sourceTree = "<group>"; };
+		DBF9A2AB119A5FFC00CCFDC9 /* OAL_Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Filter.h; sourceTree = "<group>"; };
+		DBF9A2AC119A5FFC00CCFDC9 /* OAL_Funcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Funcs.h; sourceTree = "<group>"; };
+		DBF9A2AD119A5FFC00CCFDC9 /* OAL_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Helper.h; sourceTree = "<group>"; };
+		DBF9A2AE119A5FFC00CCFDC9 /* OAL_Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Init.h; sourceTree = "<group>"; };
+		DBF9A2AF119A5FFC00CCFDC9 /* OAL_Loaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Loaders.h; sourceTree = "<group>"; };
+		DBF9A2B0119A5FFC00CCFDC9 /* OAL_LoggerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_LoggerObject.h; sourceTree = "<group>"; };
+		DBF9A2B1119A5FFC00CCFDC9 /* OAL_LowLevelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_LowLevelObject.h; sourceTree = "<group>"; };
+		DBF9A2B2119A5FFC00CCFDC9 /* OAL_OggHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_OggHelper.h; sourceTree = "<group>"; };
+		DBF9A2B3119A5FFC00CCFDC9 /* OAL_OggSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_OggSample.h; sourceTree = "<group>"; };
+		DBF9A2B4119A5FFC00CCFDC9 /* OAL_OggStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_OggStream.h; sourceTree = "<group>"; };
+		DBF9A2B5119A5FFC00CCFDC9 /* OAL_Playback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Playback.h; sourceTree = "<group>"; };
+		DBF9A2B6119A5FFC00CCFDC9 /* OAL_Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Sample.h; sourceTree = "<group>"; };
+		DBF9A2B7119A5FFC00CCFDC9 /* OAL_Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Source.h; sourceTree = "<group>"; };
+		DBF9A2B8119A5FFC00CCFDC9 /* OAL_SourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_SourceManager.h; sourceTree = "<group>"; };
+		DBF9A2B9119A5FFC00CCFDC9 /* OAL_Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Stream.h; sourceTree = "<group>"; };
+		DBF9A2BA119A5FFC00CCFDC9 /* OAL_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Types.h; sourceTree = "<group>"; };
+		DBF9A2BB119A5FFC00CCFDC9 /* OAL_WAVSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_WAVSample.h; sourceTree = "<group>"; };
+		DBF9A2BE119A5FFC00CCFDC9 /* OAL_AudioData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_AudioData.cpp; sourceTree = "<group>"; };
+		DBF9A2BF119A5FFC00CCFDC9 /* OAL_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Buffer.cpp; sourceTree = "<group>"; };
+		DBF9A2C0119A5FFC00CCFDC9 /* OAL_Device.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Device.cpp; sourceTree = "<group>"; };
+		DBF9A2C1119A5FFC00CCFDC9 /* OAL_Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Effect.cpp; sourceTree = "<group>"; };
+		DBF9A2C2119A5FFC00CCFDC9 /* OAL_Effect_Reverb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Effect_Reverb.cpp; sourceTree = "<group>"; };
+		DBF9A2C3119A5FFC00CCFDC9 /* OAL_EffectSlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EffectSlot.cpp; sourceTree = "<group>"; };
+		DBF9A2C4119A5FFC00CCFDC9 /* OAL_EFX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EFX.cpp; sourceTree = "<group>"; };
+		DBF9A2C5119A5FFC00CCFDC9 /* OAL_EFXManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EFXManager.cpp; sourceTree = "<group>"; };
+		DBF9A2C6119A5FFC00CCFDC9 /* OAL_Filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Filter.cpp; sourceTree = "<group>"; };
+		DBF9A2C7119A5FFC00CCFDC9 /* OAL_Helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Helper.cpp; sourceTree = "<group>"; };
+		DBF9A2C8119A5FFC00CCFDC9 /* OAL_Init.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Init.cpp; sourceTree = "<group>"; };
+		DBF9A2C9119A5FFC00CCFDC9 /* OAL_Loaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Loaders.cpp; sourceTree = "<group>"; };
+		DBF9A2CA119A5FFC00CCFDC9 /* OAL_LoggerObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_LoggerObject.cpp; sourceTree = "<group>"; };
+		DBF9A2CB119A5FFC00CCFDC9 /* OAL_OggHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggHelper.cpp; sourceTree = "<group>"; };
+		DBF9A2CC119A5FFC00CCFDC9 /* OAL_OggSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggSample.cpp; sourceTree = "<group>"; };
+		DBF9A2CD119A5FFC00CCFDC9 /* OAL_OggStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggStream.cpp; sourceTree = "<group>"; };
+		DBF9A2CE119A5FFC00CCFDC9 /* OAL_Playback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Playback.cpp; sourceTree = "<group>"; };
+		DBF9A2CF119A5FFC00CCFDC9 /* OAL_Sample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Sample.cpp; sourceTree = "<group>"; };
+		DBF9A2D0119A5FFC00CCFDC9 /* OAL_Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Source.cpp; sourceTree = "<group>"; };
+		DBF9A2D1119A5FFC00CCFDC9 /* OAL_SourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_SourceManager.cpp; sourceTree = "<group>"; };
+		DBF9A2D2119A5FFC00CCFDC9 /* OAL_Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Stream.cpp; sourceTree = "<group>"; };
+		DBF9A2D3119A5FFC00CCFDC9 /* OAL_Types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Types.cpp; sourceTree = "<group>"; };
+		DBF9A2D4119A5FFC00CCFDC9 /* OAL_WAVSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_WAVSample.cpp; sourceTree = "<group>"; };
+		DBF9A2D9119A601600CCFDC9 /* libOALWrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOALWrapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DBF9A2D7119A601600CCFDC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DBF848380AC76CC500BB15CD = {
+			isa = PBXGroup;
+			children = (
+				DBF9A2A1119A5FFC00CCFDC9 /* include */,
+				DBF9A2BC119A5FFC00CCFDC9 /* sources */,
+				DBF8484C0AC76D1A00BB15CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DBF8484C0AC76D1A00BB15CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBF9A2D9119A601600CCFDC9 /* libOALWrapper.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBF9A2A1119A5FFC00CCFDC9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DBF9A2A2119A5FFC00CCFDC9 /* OpenAL */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		DBF9A2A2119A5FFC00CCFDC9 /* OpenAL */ = {
+			isa = PBXGroup;
+			children = (
+				DBF9A2A3119A5FFC00CCFDC9 /* OAL_AudioData.h */,
+				DBF9A2A4119A5FFC00CCFDC9 /* OAL_Buffer.h */,
+				DBF9A2A5119A5FFC00CCFDC9 /* OAL_Device.h */,
+				DBF9A2A6119A5FFC00CCFDC9 /* OAL_Effect.h */,
+				DBF9A2A7119A5FFC00CCFDC9 /* OAL_Effect_Reverb.h */,
+				DBF9A2A8119A5FFC00CCFDC9 /* OAL_EffectSlot.h */,
+				DBF9A2A9119A5FFC00CCFDC9 /* OAL_EFX.h */,
+				DBF9A2AA119A5FFC00CCFDC9 /* OAL_EFXManager.h */,
+				DBF9A2AB119A5FFC00CCFDC9 /* OAL_Filter.h */,
+				DBF9A2AC119A5FFC00CCFDC9 /* OAL_Funcs.h */,
+				DBF9A2AD119A5FFC00CCFDC9 /* OAL_Helper.h */,
+				DBF9A2AE119A5FFC00CCFDC9 /* OAL_Init.h */,
+				DBF9A2AF119A5FFC00CCFDC9 /* OAL_Loaders.h */,
+				DBF9A2B0119A5FFC00CCFDC9 /* OAL_LoggerObject.h */,
+				DBF9A2B1119A5FFC00CCFDC9 /* OAL_LowLevelObject.h */,
+				DBF9A2B2119A5FFC00CCFDC9 /* OAL_OggHelper.h */,
+				DBF9A2B3119A5FFC00CCFDC9 /* OAL_OggSample.h */,
+				DBF9A2B4119A5FFC00CCFDC9 /* OAL_OggStream.h */,
+				DBF9A2B5119A5FFC00CCFDC9 /* OAL_Playback.h */,
+				DBF9A2B6119A5FFC00CCFDC9 /* OAL_Sample.h */,
+				DBF9A2B7119A5FFC00CCFDC9 /* OAL_Source.h */,
+				DBF9A2B8119A5FFC00CCFDC9 /* OAL_SourceManager.h */,
+				DBF9A2B9119A5FFC00CCFDC9 /* OAL_Stream.h */,
+				DBF9A2BA119A5FFC00CCFDC9 /* OAL_Types.h */,
+				DBF9A2BB119A5FFC00CCFDC9 /* OAL_WAVSample.h */,
+			);
+			path = OpenAL;
+			sourceTree = "<group>";
+		};
+		DBF9A2BC119A5FFC00CCFDC9 /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				DBF9A2BD119A5FFC00CCFDC9 /* OpenAL */,
+			);
+			path = sources;
+			sourceTree = "<group>";
+		};
+		DBF9A2BD119A5FFC00CCFDC9 /* OpenAL */ = {
+			isa = PBXGroup;
+			children = (
+				DBF9A2BE119A5FFC00CCFDC9 /* OAL_AudioData.cpp */,
+				DBF9A2BF119A5FFC00CCFDC9 /* OAL_Buffer.cpp */,
+				DBF9A2C0119A5FFC00CCFDC9 /* OAL_Device.cpp */,
+				DBF9A2C1119A5FFC00CCFDC9 /* OAL_Effect.cpp */,
+				DBF9A2C2119A5FFC00CCFDC9 /* OAL_Effect_Reverb.cpp */,
+				DBF9A2C3119A5FFC00CCFDC9 /* OAL_EffectSlot.cpp */,
+				DBF9A2C4119A5FFC00CCFDC9 /* OAL_EFX.cpp */,
+				DBF9A2C5119A5FFC00CCFDC9 /* OAL_EFXManager.cpp */,
+				DBF9A2C6119A5FFC00CCFDC9 /* OAL_Filter.cpp */,
+				DBF9A2C7119A5FFC00CCFDC9 /* OAL_Helper.cpp */,
+				DBF9A2C8119A5FFC00CCFDC9 /* OAL_Init.cpp */,
+				DBF9A2C9119A5FFC00CCFDC9 /* OAL_Loaders.cpp */,
+				DBF9A2CA119A5FFC00CCFDC9 /* OAL_LoggerObject.cpp */,
+				DBF9A2CB119A5FFC00CCFDC9 /* OAL_OggHelper.cpp */,
+				DBF9A2CC119A5FFC00CCFDC9 /* OAL_OggSample.cpp */,
+				DBF9A2CD119A5FFC00CCFDC9 /* OAL_OggStream.cpp */,
+				DBF9A2CE119A5FFC00CCFDC9 /* OAL_Playback.cpp */,
+				DBF9A2CF119A5FFC00CCFDC9 /* OAL_Sample.cpp */,
+				DBF9A2D0119A5FFC00CCFDC9 /* OAL_Source.cpp */,
+				DBF9A2D1119A5FFC00CCFDC9 /* OAL_SourceManager.cpp */,
+				DBF9A2D2119A5FFC00CCFDC9 /* OAL_Stream.cpp */,
+				DBF9A2D3119A5FFC00CCFDC9 /* OAL_Types.cpp */,
+				DBF9A2D4119A5FFC00CCFDC9 /* OAL_WAVSample.cpp */,
+			);
+			path = OpenAL;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DBF9A2D5119A601600CCFDC9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DBF9A2D8119A601600CCFDC9 /* OALWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBF9A2F5119A604E00CCFDC9 /* Build configuration list for PBXNativeTarget "OALWrapper" */;
+			buildPhases = (
+				DBF9A2D5119A601600CCFDC9 /* Headers */,
+				DBF9A2D6119A601600CCFDC9 /* Sources */,
+				DBF9A2D7119A601600CCFDC9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OALWrapper;
+			productName = OALWrapper;
+			productReference = DBF9A2D9119A601600CCFDC9 /* libOALWrapper.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DBF8483A0AC76CC500BB15CD /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = DBF8483B0AC76CC500BB15CD /* Build configuration list for PBXProject "OALWrapper" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 0;
+			mainGroup = DBF848380AC76CC500BB15CD;
+			productRefGroup = DBF8484C0AC76D1A00BB15CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DBF9A2D8119A601600CCFDC9 /* OALWrapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DBF9A2D6119A601600CCFDC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBF9A2DC119A602200CCFDC9 /* OAL_AudioData.cpp in Sources */,
+				DBF9A2DD119A602300CCFDC9 /* OAL_Buffer.cpp in Sources */,
+				DBF9A2DE119A602300CCFDC9 /* OAL_Device.cpp in Sources */,
+				DBF9A2DF119A602400CCFDC9 /* OAL_Effect.cpp in Sources */,
+				DBF9A2E0119A602500CCFDC9 /* OAL_Effect_Reverb.cpp in Sources */,
+				DBF9A2E1119A602500CCFDC9 /* OAL_EffectSlot.cpp in Sources */,
+				DBF9A2E2119A602600CCFDC9 /* OAL_EFX.cpp in Sources */,
+				DBF9A2E3119A602600CCFDC9 /* OAL_EFXManager.cpp in Sources */,
+				DBF9A2E4119A602700CCFDC9 /* OAL_Helper.cpp in Sources */,
+				DBF9A2E5119A602700CCFDC9 /* OAL_Init.cpp in Sources */,
+				DBF9A2E6119A602800CCFDC9 /* OAL_Filter.cpp in Sources */,
+				DBF9A2E7119A602A00CCFDC9 /* OAL_Loaders.cpp in Sources */,
+				DBF9A2E8119A602A00CCFDC9 /* OAL_LoggerObject.cpp in Sources */,
+				DBF9A2E9119A602B00CCFDC9 /* OAL_OggHelper.cpp in Sources */,
+				DBF9A2EA119A602B00CCFDC9 /* OAL_OggSample.cpp in Sources */,
+				DBF9A2EB119A602C00CCFDC9 /* OAL_OggStream.cpp in Sources */,
+				DBF9A2EC119A602C00CCFDC9 /* OAL_Playback.cpp in Sources */,
+				DBF9A2ED119A602D00CCFDC9 /* OAL_Sample.cpp in Sources */,
+				DBF9A2EE119A602D00CCFDC9 /* OAL_Source.cpp in Sources */,
+				DBF9A2EF119A602E00CCFDC9 /* OAL_SourceManager.cpp in Sources */,
+				DBF9A2F0119A602F00CCFDC9 /* OAL_Stream.cpp in Sources */,
+				DBF9A2F1119A602F00CCFDC9 /* OAL_Types.cpp in Sources */,
+				DBF9A2F2119A603000CCFDC9 /* OAL_WAVSample.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DBF8483C0AC76CC500BB15CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				COPY_PHASE_STRIP = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					__MACOSX__,
+					AS_MAX_PORTABILITY,
+				);
+				GCC_VERSION = 4.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				PREBINDING = NO;
+				SDKROOT = macosx10.4;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DBF8483D0AC76CC500BB15CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					__MACOSX__,
+					AS_MAX_PORTABILITY,
+				);
+				GCC_VERSION = 4.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				PREBINDING = NO;
+				SDKROOT = macosx10.4;
+				SEPARATE_STRIP = YES;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DBF9A2DA119A601700CCFDC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					../dependencies/include,
+					include,
+					../HPL1Engine/include,
+				);
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = OALWrapper;
+			};
+			name = Debug;
+		};
+		DBF9A2DB119A601700CCFDC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				HEADER_SEARCH_PATHS = (
+					../dependencies/include,
+					include,
+					../HPL1Engine/include,
+				);
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = OALWrapper;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DBF8483B0AC76CC500BB15CD /* Build configuration list for PBXProject "OALWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBF8483C0AC76CC500BB15CD /* Debug */,
+				DBF8483D0AC76CC500BB15CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBF9A2F5119A604E00CCFDC9 /* Build configuration list for PBXNativeTarget "OALWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBF9A2DA119A601700CCFDC9 /* Debug */,
+				DBF9A2DB119A601700CCFDC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DBF8483A0AC76CC500BB15CD /* Project object */;
+}
