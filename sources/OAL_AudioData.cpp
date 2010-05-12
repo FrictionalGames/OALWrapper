@@ -5,9 +5,9 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_AudioData.h"
+#include "OALWrapper/OAL_AudioData.h"
 
-#include "OpenAL/OAL_Buffer.h"
+#include "OALWrapper/OAL_Buffer.h"
 
 #include "system/LowLevelSystem.h"
 

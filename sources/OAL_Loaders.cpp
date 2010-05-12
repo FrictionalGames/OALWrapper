@@ -13,10 +13,10 @@
 	Implementation of Loading/Unloading functions
 */
 
-#include "OpenAL/OAL_Loaders.h"
-#include "OpenAL/OAL_Device.h"
-#include "OpenAL/OAL_Sample.h"
-#include "OpenAL/OAL_Stream.h"
+#include "OALWrapper/OAL_Loaders.h"
+#include "OALWrapper/OAL_Device.h"
+#include "OALWrapper/OAL_Sample.h"
+#include "OALWrapper/OAL_Stream.h"
 
 extern cOAL_Device* gpDevice;
 

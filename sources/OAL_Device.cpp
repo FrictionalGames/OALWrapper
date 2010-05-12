@@ -13,15 +13,15 @@
 	Implementation of the cOAL_Device class
 */
 
-#include "OpenAL/OAL_Device.h"
-#include "OpenAL/OAL_Source.h"
-#include "OpenAL/OAL_OggSample.h"
-#include "OpenAL/OAL_WAVSample.h"
-#include "OpenAL/OAL_OggStream.h"
-#include "OpenAL/OAL_SourceManager.h"
+#include "OALWrapper/OAL_Device.h"
+#include "OALWrapper/OAL_Source.h"
+#include "OALWrapper/OAL_OggSample.h"
+#include "OALWrapper/OAL_WAVSample.h"
+#include "OALWrapper/OAL_OggStream.h"
+#include "OALWrapper/OAL_SourceManager.h"
 
-#include "OpenAL/OAL_Filter.h"
-#include "OpenAL/OAL_Effect_Reverb.h"
+#include "OALWrapper/OAL_Filter.h"
+#include "OALWrapper/OAL_Effect_Reverb.h"
 
 #include "system/LowLevelSystem.h"
 #include <cstring>

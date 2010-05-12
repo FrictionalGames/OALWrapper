@@ -5,14 +5,14 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_EFX.h"
-#include "OpenAL/OAL_Types.h"
-#include "OpenAL/OAL_Device.h"
-#include "OpenAL/OAL_Source.h"
-#include "OpenAL/OAL_SourceManager.h"
-#include "OpenAL/OAL_Effect_Reverb.h"
-#include "OpenAL/OAL_Filter.h"
-#include "OpenAL/OAL_EFXManager.h"
+#include "OALWrapper/OAL_EFX.h"
+#include "OALWrapper/OAL_Types.h"
+#include "OALWrapper/OAL_Device.h"
+#include "OALWrapper/OAL_Source.h"
+#include "OALWrapper/OAL_SourceManager.h"
+#include "OALWrapper/OAL_Effect_Reverb.h"
+#include "OALWrapper/OAL_Filter.h"
+#include "OALWrapper/OAL_EFXManager.h"
 
 extern cOAL_Device* gpDevice;
 

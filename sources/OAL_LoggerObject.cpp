@@ -6,8 +6,8 @@
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
 
-#include "OpenAL/OAL_LoggerObject.h"
-#include "OpenAL/OAL_Helper.h"
+#include "OALWrapper/OAL_LoggerObject.h"
+#include "OALWrapper/OAL_Helper.h"
 
 #include <stdlib.h>
 //#include <tchar.h>

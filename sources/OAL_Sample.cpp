@@ -13,12 +13,12 @@
 	Definition of Base class for containing samples
 */
 
-#include "OpenAL/OAL_Types.h"
-#include "OpenAL/OAL_Device.h"
-#include "OpenAL/OAL_Helper.h"
-#include "OpenAL/OAL_Sample.h"
-#include "OpenAL/OAL_Buffer.h"
-#include "OpenAL/OAL_Source.h"
+#include "OALWrapper/OAL_Types.h"
+#include "OALWrapper/OAL_Device.h"
+#include "OALWrapper/OAL_Helper.h"
+#include "OALWrapper/OAL_Sample.h"
+#include "OALWrapper/OAL_Buffer.h"
+#include "OALWrapper/OAL_Source.h"
 
 #include "system/MemoryManager.h"
 #include "system/LowLevelSystem.h"

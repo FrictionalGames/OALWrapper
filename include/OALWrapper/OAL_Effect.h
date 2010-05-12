@@ -8,7 +8,7 @@
 #ifndef _OAL_EFFECT_H
 #define _OAL_EFFECT_H
 
-#include "OpenAL/OAL_LowLevelObject.h"
+#include "OALWrapper/OAL_LowLevelObject.h"
 
 #include <SDL/SDL.h>
 

@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DBF9A2DC119A602200CCFDC9 /* OAL_AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2BE119A5FFC00CCFDC9 /* OAL_AudioData.cpp */; };
-		DBF9A2DD119A602300CCFDC9 /* OAL_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2BF119A5FFC00CCFDC9 /* OAL_Buffer.cpp */; };
-		DBF9A2DE119A602300CCFDC9 /* OAL_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C0119A5FFC00CCFDC9 /* OAL_Device.cpp */; };
-		DBF9A2DF119A602400CCFDC9 /* OAL_Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C1119A5FFC00CCFDC9 /* OAL_Effect.cpp */; };
-		DBF9A2E0119A602500CCFDC9 /* OAL_Effect_Reverb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C2119A5FFC00CCFDC9 /* OAL_Effect_Reverb.cpp */; };
-		DBF9A2E1119A602500CCFDC9 /* OAL_EffectSlot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C3119A5FFC00CCFDC9 /* OAL_EffectSlot.cpp */; };
-		DBF9A2E2119A602600CCFDC9 /* OAL_EFX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C4119A5FFC00CCFDC9 /* OAL_EFX.cpp */; };
-		DBF9A2E3119A602600CCFDC9 /* OAL_EFXManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C5119A5FFC00CCFDC9 /* OAL_EFXManager.cpp */; };
-		DBF9A2E4119A602700CCFDC9 /* OAL_Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C7119A5FFC00CCFDC9 /* OAL_Helper.cpp */; };
-		DBF9A2E5119A602700CCFDC9 /* OAL_Init.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C8119A5FFC00CCFDC9 /* OAL_Init.cpp */; };
-		DBF9A2E6119A602800CCFDC9 /* OAL_Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C6119A5FFC00CCFDC9 /* OAL_Filter.cpp */; };
-		DBF9A2E7119A602A00CCFDC9 /* OAL_Loaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2C9119A5FFC00CCFDC9 /* OAL_Loaders.cpp */; };
-		DBF9A2E8119A602A00CCFDC9 /* OAL_LoggerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CA119A5FFC00CCFDC9 /* OAL_LoggerObject.cpp */; };
-		DBF9A2E9119A602B00CCFDC9 /* OAL_OggHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CB119A5FFC00CCFDC9 /* OAL_OggHelper.cpp */; };
-		DBF9A2EA119A602B00CCFDC9 /* OAL_OggSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CC119A5FFC00CCFDC9 /* OAL_OggSample.cpp */; };
-		DBF9A2EB119A602C00CCFDC9 /* OAL_OggStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CD119A5FFC00CCFDC9 /* OAL_OggStream.cpp */; };
-		DBF9A2EC119A602C00CCFDC9 /* OAL_Playback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CE119A5FFC00CCFDC9 /* OAL_Playback.cpp */; };
-		DBF9A2ED119A602D00CCFDC9 /* OAL_Sample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2CF119A5FFC00CCFDC9 /* OAL_Sample.cpp */; };
-		DBF9A2EE119A602D00CCFDC9 /* OAL_Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D0119A5FFC00CCFDC9 /* OAL_Source.cpp */; };
-		DBF9A2EF119A602E00CCFDC9 /* OAL_SourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D1119A5FFC00CCFDC9 /* OAL_SourceManager.cpp */; };
-		DBF9A2F0119A602F00CCFDC9 /* OAL_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D2119A5FFC00CCFDC9 /* OAL_Stream.cpp */; };
-		DBF9A2F1119A602F00CCFDC9 /* OAL_Types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D3119A5FFC00CCFDC9 /* OAL_Types.cpp */; };
-		DBF9A2F2119A603000CCFDC9 /* OAL_WAVSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A2D4119A5FFC00CCFDC9 /* OAL_WAVSample.cpp */; };
+		DBF9A480119B18C100CCFDC9 /* OAL_AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A469119B18C100CCFDC9 /* OAL_AudioData.cpp */; };
+		DBF9A481119B18C100CCFDC9 /* OAL_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46A119B18C100CCFDC9 /* OAL_Buffer.cpp */; };
+		DBF9A482119B18C100CCFDC9 /* OAL_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46B119B18C100CCFDC9 /* OAL_Device.cpp */; };
+		DBF9A483119B18C100CCFDC9 /* OAL_Effect_Reverb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46C119B18C100CCFDC9 /* OAL_Effect_Reverb.cpp */; };
+		DBF9A484119B18C100CCFDC9 /* OAL_Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46D119B18C100CCFDC9 /* OAL_Effect.cpp */; };
+		DBF9A485119B18C100CCFDC9 /* OAL_EffectSlot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46E119B18C100CCFDC9 /* OAL_EffectSlot.cpp */; };
+		DBF9A486119B18C100CCFDC9 /* OAL_EFX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46F119B18C100CCFDC9 /* OAL_EFX.cpp */; };
+		DBF9A487119B18C100CCFDC9 /* OAL_EFXManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A470119B18C100CCFDC9 /* OAL_EFXManager.cpp */; };
+		DBF9A488119B18C100CCFDC9 /* OAL_Filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A471119B18C100CCFDC9 /* OAL_Filter.cpp */; };
+		DBF9A489119B18C100CCFDC9 /* OAL_Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A472119B18C100CCFDC9 /* OAL_Helper.cpp */; };
+		DBF9A48A119B18C100CCFDC9 /* OAL_Init.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A473119B18C100CCFDC9 /* OAL_Init.cpp */; };
+		DBF9A48B119B18C100CCFDC9 /* OAL_Loaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A474119B18C100CCFDC9 /* OAL_Loaders.cpp */; };
+		DBF9A48C119B18C100CCFDC9 /* OAL_LoggerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A475119B18C100CCFDC9 /* OAL_LoggerObject.cpp */; };
+		DBF9A48D119B18C100CCFDC9 /* OAL_OggHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A476119B18C100CCFDC9 /* OAL_OggHelper.cpp */; };
+		DBF9A48E119B18C100CCFDC9 /* OAL_OggSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A477119B18C100CCFDC9 /* OAL_OggSample.cpp */; };
+		DBF9A48F119B18C100CCFDC9 /* OAL_OggStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A478119B18C100CCFDC9 /* OAL_OggStream.cpp */; };
+		DBF9A490119B18C100CCFDC9 /* OAL_Playback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A479119B18C100CCFDC9 /* OAL_Playback.cpp */; };
+		DBF9A491119B18C100CCFDC9 /* OAL_Sample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A47A119B18C100CCFDC9 /* OAL_Sample.cpp */; };
+		DBF9A492119B18C100CCFDC9 /* OAL_Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A47B119B18C100CCFDC9 /* OAL_Source.cpp */; };
+		DBF9A493119B18C100CCFDC9 /* OAL_SourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A47C119B18C100CCFDC9 /* OAL_SourceManager.cpp */; };
+		DBF9A494119B18C100CCFDC9 /* OAL_Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A47D119B18C100CCFDC9 /* OAL_Stream.cpp */; };
+		DBF9A495119B18C100CCFDC9 /* OAL_Types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A47E119B18C100CCFDC9 /* OAL_Types.cpp */; };
+		DBF9A496119B18C100CCFDC9 /* OAL_WAVSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A47F119B18C100CCFDC9 /* OAL_WAVSample.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,30 +58,30 @@
 		DBF9A2B9119A5FFC00CCFDC9 /* OAL_Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Stream.h; sourceTree = "<group>"; };
 		DBF9A2BA119A5FFC00CCFDC9 /* OAL_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_Types.h; sourceTree = "<group>"; };
 		DBF9A2BB119A5FFC00CCFDC9 /* OAL_WAVSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_WAVSample.h; sourceTree = "<group>"; };
-		DBF9A2BE119A5FFC00CCFDC9 /* OAL_AudioData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_AudioData.cpp; sourceTree = "<group>"; };
-		DBF9A2BF119A5FFC00CCFDC9 /* OAL_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Buffer.cpp; sourceTree = "<group>"; };
-		DBF9A2C0119A5FFC00CCFDC9 /* OAL_Device.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Device.cpp; sourceTree = "<group>"; };
-		DBF9A2C1119A5FFC00CCFDC9 /* OAL_Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Effect.cpp; sourceTree = "<group>"; };
-		DBF9A2C2119A5FFC00CCFDC9 /* OAL_Effect_Reverb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Effect_Reverb.cpp; sourceTree = "<group>"; };
-		DBF9A2C3119A5FFC00CCFDC9 /* OAL_EffectSlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EffectSlot.cpp; sourceTree = "<group>"; };
-		DBF9A2C4119A5FFC00CCFDC9 /* OAL_EFX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EFX.cpp; sourceTree = "<group>"; };
-		DBF9A2C5119A5FFC00CCFDC9 /* OAL_EFXManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EFXManager.cpp; sourceTree = "<group>"; };
-		DBF9A2C6119A5FFC00CCFDC9 /* OAL_Filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Filter.cpp; sourceTree = "<group>"; };
-		DBF9A2C7119A5FFC00CCFDC9 /* OAL_Helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Helper.cpp; sourceTree = "<group>"; };
-		DBF9A2C8119A5FFC00CCFDC9 /* OAL_Init.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Init.cpp; sourceTree = "<group>"; };
-		DBF9A2C9119A5FFC00CCFDC9 /* OAL_Loaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Loaders.cpp; sourceTree = "<group>"; };
-		DBF9A2CA119A5FFC00CCFDC9 /* OAL_LoggerObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_LoggerObject.cpp; sourceTree = "<group>"; };
-		DBF9A2CB119A5FFC00CCFDC9 /* OAL_OggHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggHelper.cpp; sourceTree = "<group>"; };
-		DBF9A2CC119A5FFC00CCFDC9 /* OAL_OggSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggSample.cpp; sourceTree = "<group>"; };
-		DBF9A2CD119A5FFC00CCFDC9 /* OAL_OggStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggStream.cpp; sourceTree = "<group>"; };
-		DBF9A2CE119A5FFC00CCFDC9 /* OAL_Playback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Playback.cpp; sourceTree = "<group>"; };
-		DBF9A2CF119A5FFC00CCFDC9 /* OAL_Sample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Sample.cpp; sourceTree = "<group>"; };
-		DBF9A2D0119A5FFC00CCFDC9 /* OAL_Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Source.cpp; sourceTree = "<group>"; };
-		DBF9A2D1119A5FFC00CCFDC9 /* OAL_SourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_SourceManager.cpp; sourceTree = "<group>"; };
-		DBF9A2D2119A5FFC00CCFDC9 /* OAL_Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Stream.cpp; sourceTree = "<group>"; };
-		DBF9A2D3119A5FFC00CCFDC9 /* OAL_Types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Types.cpp; sourceTree = "<group>"; };
-		DBF9A2D4119A5FFC00CCFDC9 /* OAL_WAVSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_WAVSample.cpp; sourceTree = "<group>"; };
 		DBF9A2D9119A601600CCFDC9 /* libOALWrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOALWrapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF9A469119B18C100CCFDC9 /* OAL_AudioData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_AudioData.cpp; sourceTree = "<group>"; };
+		DBF9A46A119B18C100CCFDC9 /* OAL_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Buffer.cpp; sourceTree = "<group>"; };
+		DBF9A46B119B18C100CCFDC9 /* OAL_Device.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Device.cpp; sourceTree = "<group>"; };
+		DBF9A46C119B18C100CCFDC9 /* OAL_Effect_Reverb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Effect_Reverb.cpp; sourceTree = "<group>"; };
+		DBF9A46D119B18C100CCFDC9 /* OAL_Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Effect.cpp; sourceTree = "<group>"; };
+		DBF9A46E119B18C100CCFDC9 /* OAL_EffectSlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EffectSlot.cpp; sourceTree = "<group>"; };
+		DBF9A46F119B18C100CCFDC9 /* OAL_EFX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EFX.cpp; sourceTree = "<group>"; };
+		DBF9A470119B18C100CCFDC9 /* OAL_EFXManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_EFXManager.cpp; sourceTree = "<group>"; };
+		DBF9A471119B18C100CCFDC9 /* OAL_Filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Filter.cpp; sourceTree = "<group>"; };
+		DBF9A472119B18C100CCFDC9 /* OAL_Helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Helper.cpp; sourceTree = "<group>"; };
+		DBF9A473119B18C100CCFDC9 /* OAL_Init.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Init.cpp; sourceTree = "<group>"; };
+		DBF9A474119B18C100CCFDC9 /* OAL_Loaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Loaders.cpp; sourceTree = "<group>"; };
+		DBF9A475119B18C100CCFDC9 /* OAL_LoggerObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_LoggerObject.cpp; sourceTree = "<group>"; };
+		DBF9A476119B18C100CCFDC9 /* OAL_OggHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggHelper.cpp; sourceTree = "<group>"; };
+		DBF9A477119B18C100CCFDC9 /* OAL_OggSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggSample.cpp; sourceTree = "<group>"; };
+		DBF9A478119B18C100CCFDC9 /* OAL_OggStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_OggStream.cpp; sourceTree = "<group>"; };
+		DBF9A479119B18C100CCFDC9 /* OAL_Playback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Playback.cpp; sourceTree = "<group>"; };
+		DBF9A47A119B18C100CCFDC9 /* OAL_Sample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Sample.cpp; sourceTree = "<group>"; };
+		DBF9A47B119B18C100CCFDC9 /* OAL_Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Source.cpp; sourceTree = "<group>"; };
+		DBF9A47C119B18C100CCFDC9 /* OAL_SourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_SourceManager.cpp; sourceTree = "<group>"; };
+		DBF9A47D119B18C100CCFDC9 /* OAL_Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Stream.cpp; sourceTree = "<group>"; };
+		DBF9A47E119B18C100CCFDC9 /* OAL_Types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_Types.cpp; sourceTree = "<group>"; };
+		DBF9A47F119B18C100CCFDC9 /* OAL_WAVSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OAL_WAVSample.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,12 +115,12 @@
 		DBF9A2A1119A5FFC00CCFDC9 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				DBF9A2A2119A5FFC00CCFDC9 /* OpenAL */,
+				DBF9A2A2119A5FFC00CCFDC9 /* OALWrapper */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		DBF9A2A2119A5FFC00CCFDC9 /* OpenAL */ = {
+		DBF9A2A2119A5FFC00CCFDC9 /* OALWrapper */ = {
 			isa = PBXGroup;
 			children = (
 				DBF9A2A3119A5FFC00CCFDC9 /* OAL_AudioData.h */,
@@ -149,45 +149,37 @@
 				DBF9A2BA119A5FFC00CCFDC9 /* OAL_Types.h */,
 				DBF9A2BB119A5FFC00CCFDC9 /* OAL_WAVSample.h */,
 			);
-			path = OpenAL;
+			path = OALWrapper;
 			sourceTree = "<group>";
 		};
 		DBF9A2BC119A5FFC00CCFDC9 /* sources */ = {
 			isa = PBXGroup;
 			children = (
-				DBF9A2BD119A5FFC00CCFDC9 /* OpenAL */,
+				DBF9A469119B18C100CCFDC9 /* OAL_AudioData.cpp */,
+				DBF9A46A119B18C100CCFDC9 /* OAL_Buffer.cpp */,
+				DBF9A46B119B18C100CCFDC9 /* OAL_Device.cpp */,
+				DBF9A46C119B18C100CCFDC9 /* OAL_Effect_Reverb.cpp */,
+				DBF9A46D119B18C100CCFDC9 /* OAL_Effect.cpp */,
+				DBF9A46E119B18C100CCFDC9 /* OAL_EffectSlot.cpp */,
+				DBF9A46F119B18C100CCFDC9 /* OAL_EFX.cpp */,
+				DBF9A470119B18C100CCFDC9 /* OAL_EFXManager.cpp */,
+				DBF9A471119B18C100CCFDC9 /* OAL_Filter.cpp */,
+				DBF9A472119B18C100CCFDC9 /* OAL_Helper.cpp */,
+				DBF9A473119B18C100CCFDC9 /* OAL_Init.cpp */,
+				DBF9A474119B18C100CCFDC9 /* OAL_Loaders.cpp */,
+				DBF9A475119B18C100CCFDC9 /* OAL_LoggerObject.cpp */,
+				DBF9A476119B18C100CCFDC9 /* OAL_OggHelper.cpp */,
+				DBF9A477119B18C100CCFDC9 /* OAL_OggSample.cpp */,
+				DBF9A478119B18C100CCFDC9 /* OAL_OggStream.cpp */,
+				DBF9A479119B18C100CCFDC9 /* OAL_Playback.cpp */,
+				DBF9A47A119B18C100CCFDC9 /* OAL_Sample.cpp */,
+				DBF9A47B119B18C100CCFDC9 /* OAL_Source.cpp */,
+				DBF9A47C119B18C100CCFDC9 /* OAL_SourceManager.cpp */,
+				DBF9A47D119B18C100CCFDC9 /* OAL_Stream.cpp */,
+				DBF9A47E119B18C100CCFDC9 /* OAL_Types.cpp */,
+				DBF9A47F119B18C100CCFDC9 /* OAL_WAVSample.cpp */,
 			);
 			path = sources;
-			sourceTree = "<group>";
-		};
-		DBF9A2BD119A5FFC00CCFDC9 /* OpenAL */ = {
-			isa = PBXGroup;
-			children = (
-				DBF9A2BE119A5FFC00CCFDC9 /* OAL_AudioData.cpp */,
-				DBF9A2BF119A5FFC00CCFDC9 /* OAL_Buffer.cpp */,
-				DBF9A2C0119A5FFC00CCFDC9 /* OAL_Device.cpp */,
-				DBF9A2C1119A5FFC00CCFDC9 /* OAL_Effect.cpp */,
-				DBF9A2C2119A5FFC00CCFDC9 /* OAL_Effect_Reverb.cpp */,
-				DBF9A2C3119A5FFC00CCFDC9 /* OAL_EffectSlot.cpp */,
-				DBF9A2C4119A5FFC00CCFDC9 /* OAL_EFX.cpp */,
-				DBF9A2C5119A5FFC00CCFDC9 /* OAL_EFXManager.cpp */,
-				DBF9A2C6119A5FFC00CCFDC9 /* OAL_Filter.cpp */,
-				DBF9A2C7119A5FFC00CCFDC9 /* OAL_Helper.cpp */,
-				DBF9A2C8119A5FFC00CCFDC9 /* OAL_Init.cpp */,
-				DBF9A2C9119A5FFC00CCFDC9 /* OAL_Loaders.cpp */,
-				DBF9A2CA119A5FFC00CCFDC9 /* OAL_LoggerObject.cpp */,
-				DBF9A2CB119A5FFC00CCFDC9 /* OAL_OggHelper.cpp */,
-				DBF9A2CC119A5FFC00CCFDC9 /* OAL_OggSample.cpp */,
-				DBF9A2CD119A5FFC00CCFDC9 /* OAL_OggStream.cpp */,
-				DBF9A2CE119A5FFC00CCFDC9 /* OAL_Playback.cpp */,
-				DBF9A2CF119A5FFC00CCFDC9 /* OAL_Sample.cpp */,
-				DBF9A2D0119A5FFC00CCFDC9 /* OAL_Source.cpp */,
-				DBF9A2D1119A5FFC00CCFDC9 /* OAL_SourceManager.cpp */,
-				DBF9A2D2119A5FFC00CCFDC9 /* OAL_Stream.cpp */,
-				DBF9A2D3119A5FFC00CCFDC9 /* OAL_Types.cpp */,
-				DBF9A2D4119A5FFC00CCFDC9 /* OAL_WAVSample.cpp */,
-			);
-			path = OpenAL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,29 +235,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBF9A2DC119A602200CCFDC9 /* OAL_AudioData.cpp in Sources */,
-				DBF9A2DD119A602300CCFDC9 /* OAL_Buffer.cpp in Sources */,
-				DBF9A2DE119A602300CCFDC9 /* OAL_Device.cpp in Sources */,
-				DBF9A2DF119A602400CCFDC9 /* OAL_Effect.cpp in Sources */,
-				DBF9A2E0119A602500CCFDC9 /* OAL_Effect_Reverb.cpp in Sources */,
-				DBF9A2E1119A602500CCFDC9 /* OAL_EffectSlot.cpp in Sources */,
-				DBF9A2E2119A602600CCFDC9 /* OAL_EFX.cpp in Sources */,
-				DBF9A2E3119A602600CCFDC9 /* OAL_EFXManager.cpp in Sources */,
-				DBF9A2E4119A602700CCFDC9 /* OAL_Helper.cpp in Sources */,
-				DBF9A2E5119A602700CCFDC9 /* OAL_Init.cpp in Sources */,
-				DBF9A2E6119A602800CCFDC9 /* OAL_Filter.cpp in Sources */,
-				DBF9A2E7119A602A00CCFDC9 /* OAL_Loaders.cpp in Sources */,
-				DBF9A2E8119A602A00CCFDC9 /* OAL_LoggerObject.cpp in Sources */,
-				DBF9A2E9119A602B00CCFDC9 /* OAL_OggHelper.cpp in Sources */,
-				DBF9A2EA119A602B00CCFDC9 /* OAL_OggSample.cpp in Sources */,
-				DBF9A2EB119A602C00CCFDC9 /* OAL_OggStream.cpp in Sources */,
-				DBF9A2EC119A602C00CCFDC9 /* OAL_Playback.cpp in Sources */,
-				DBF9A2ED119A602D00CCFDC9 /* OAL_Sample.cpp in Sources */,
-				DBF9A2EE119A602D00CCFDC9 /* OAL_Source.cpp in Sources */,
-				DBF9A2EF119A602E00CCFDC9 /* OAL_SourceManager.cpp in Sources */,
-				DBF9A2F0119A602F00CCFDC9 /* OAL_Stream.cpp in Sources */,
-				DBF9A2F1119A602F00CCFDC9 /* OAL_Types.cpp in Sources */,
-				DBF9A2F2119A603000CCFDC9 /* OAL_WAVSample.cpp in Sources */,
+				DBF9A480119B18C100CCFDC9 /* OAL_AudioData.cpp in Sources */,
+				DBF9A481119B18C100CCFDC9 /* OAL_Buffer.cpp in Sources */,
+				DBF9A482119B18C100CCFDC9 /* OAL_Device.cpp in Sources */,
+				DBF9A483119B18C100CCFDC9 /* OAL_Effect_Reverb.cpp in Sources */,
+				DBF9A484119B18C100CCFDC9 /* OAL_Effect.cpp in Sources */,
+				DBF9A485119B18C100CCFDC9 /* OAL_EffectSlot.cpp in Sources */,
+				DBF9A486119B18C100CCFDC9 /* OAL_EFX.cpp in Sources */,
+				DBF9A487119B18C100CCFDC9 /* OAL_EFXManager.cpp in Sources */,
+				DBF9A488119B18C100CCFDC9 /* OAL_Filter.cpp in Sources */,
+				DBF9A489119B18C100CCFDC9 /* OAL_Helper.cpp in Sources */,
+				DBF9A48A119B18C100CCFDC9 /* OAL_Init.cpp in Sources */,
+				DBF9A48B119B18C100CCFDC9 /* OAL_Loaders.cpp in Sources */,
+				DBF9A48C119B18C100CCFDC9 /* OAL_LoggerObject.cpp in Sources */,
+				DBF9A48D119B18C100CCFDC9 /* OAL_OggHelper.cpp in Sources */,
+				DBF9A48E119B18C100CCFDC9 /* OAL_OggSample.cpp in Sources */,
+				DBF9A48F119B18C100CCFDC9 /* OAL_OggStream.cpp in Sources */,
+				DBF9A490119B18C100CCFDC9 /* OAL_Playback.cpp in Sources */,
+				DBF9A491119B18C100CCFDC9 /* OAL_Sample.cpp in Sources */,
+				DBF9A492119B18C100CCFDC9 /* OAL_Source.cpp in Sources */,
+				DBF9A493119B18C100CCFDC9 /* OAL_SourceManager.cpp in Sources */,
+				DBF9A494119B18C100CCFDC9 /* OAL_Stream.cpp in Sources */,
+				DBF9A495119B18C100CCFDC9 /* OAL_Types.cpp in Sources */,
+				DBF9A496119B18C100CCFDC9 /* OAL_WAVSample.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 #ifndef _OAL_FILTER_H
 #define _OAL_FILTER_H
 
-#include "OpenAL/OAL_Types.h"
+#include "OALWrapper/OAL_Types.h"
 #include "OAL_LowLevelObject.h"
 
 

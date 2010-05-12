@@ -5,9 +5,9 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_SourceManager.h"
-#include "OpenAL/OAL_Source.h"
-#include "OpenAL/OAL_Device.h"
+#include "OALWrapper/OAL_SourceManager.h"
+#include "OALWrapper/OAL_Source.h"
+#include "OALWrapper/OAL_Device.h"
 
 #include "system/MemoryManager.h"
 #include "system/LowLevelSystem.h"

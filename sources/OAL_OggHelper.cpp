@@ -5,7 +5,7 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_OggHelper.h"
+#include "OALWrapper/OAL_OggHelper.h"
 #include <vorbis/codec.h>
 #include <vorbis/vorbisfile.h>
 

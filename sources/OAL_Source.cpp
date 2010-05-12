@@ -14,16 +14,16 @@
 */
 
 
-#include "OpenAL/OAL_Source.h"
-#include "OpenAL/OAL_Buffer.h"
-#include "OpenAL/OAL_Sample.h"
-#include "OpenAL/OAL_Stream.h"
-#include "OpenAL/OAL_EffectSlot.h"
-#include "OpenAL/OAL_Effect.h"
-#include "OpenAL/OAL_Filter.h"
-#include "OpenAL/OAL_Device.h"
-#include "OpenAL/OAL_Helper.h"
-#include "OpenAL/OAL_SourceManager.h"
+#include "OALWrapper/OAL_Source.h"
+#include "OALWrapper/OAL_Buffer.h"
+#include "OALWrapper/OAL_Sample.h"
+#include "OALWrapper/OAL_Stream.h"
+#include "OALWrapper/OAL_EffectSlot.h"
+#include "OALWrapper/OAL_Effect.h"
+#include "OALWrapper/OAL_Filter.h"
+#include "OALWrapper/OAL_Device.h"
+#include "OALWrapper/OAL_Helper.h"
+#include "OALWrapper/OAL_SourceManager.h"
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_thread.h>

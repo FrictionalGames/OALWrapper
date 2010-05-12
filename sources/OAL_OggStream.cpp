@@ -14,8 +14,8 @@
 */
 
 
-#include "OpenAL/OAL_OggStream.h"
-#include "OpenAL/OAL_Buffer.h"
+#include "OALWrapper/OAL_OggStream.h"
+#include "OALWrapper/OAL_Buffer.h"
 #include "system/String.h"
 #include <stdio.h>
 

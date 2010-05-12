@@ -5,10 +5,10 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_EffectSlot.h"
-#include "OpenAL/OAL_Effect.h"
-#include "OpenAL/OAL_Helper.h"
-#include "OpenAL/OAL_EFXManager.h"
+#include "OALWrapper/OAL_EffectSlot.h"
+#include "OALWrapper/OAL_Effect.h"
+#include "OALWrapper/OAL_Helper.h"
+#include "OALWrapper/OAL_EFXManager.h"
 
 
 cOAL_EffectSlot::cOAL_EffectSlot( cOAL_EFXManager* apEFXManager, int alId) : iOAL_LowLevelObject("EffectSlot"),

@@ -5,12 +5,12 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_EFXManager.h"
-#include "OpenAL/OAL_EffectSlot.h"
-#include "OpenAL/OAL_Effect.h"
-#include "OpenAL/OAL_Effect_Reverb.h"
-#include "OpenAL/OAL_Filter.h"
-#include "OpenAL/OAL_Device.h"
+#include "OALWrapper/OAL_EFXManager.h"
+#include "OALWrapper/OAL_EffectSlot.h"
+#include "OALWrapper/OAL_Effect.h"
+#include "OALWrapper/OAL_Effect_Reverb.h"
+#include "OALWrapper/OAL_Filter.h"
+#include "OALWrapper/OAL_Device.h"
 
 
 #include "system/MemoryManager.h"

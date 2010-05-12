@@ -5,8 +5,8 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_Effect.h"
-#include "OpenAL/OAL_Helper.h"
+#include "OALWrapper/OAL_Effect.h"
+#include "OALWrapper/OAL_Helper.h"
 
 
 cOAL_Effect::cOAL_Effect() : iOAL_LowLevelObject("Effect"),

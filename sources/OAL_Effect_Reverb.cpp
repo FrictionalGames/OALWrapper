@@ -5,7 +5,7 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_Effect_Reverb.h"
+#include "OALWrapper/OAL_Effect_Reverb.h"
 
 void ClampValue ( float *apValue, float afMin, float afMax );
 

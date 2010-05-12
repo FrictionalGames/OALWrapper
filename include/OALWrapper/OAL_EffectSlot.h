@@ -8,8 +8,8 @@
 #ifndef _OAL_EFFECTSLOT_H
 #define _OAL_EFFECTSLOT_H
 
-#include "OpenAL/OAL_Types.h"
-#include "OpenAL/OAL_LowLevelObject.h"
+#include "OALWrapper/OAL_Types.h"
+#include "OALWrapper/OAL_LowLevelObject.h"
 
 #include <SDL/SDL.h>
 

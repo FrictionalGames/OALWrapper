@@ -5,12 +5,12 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_Types.h"
-#include "OpenAL/OAL_Device.h"
-#include "OpenAL/OAL_Helper.h"
-#include "OpenAL/OAL_Stream.h"
-#include "OpenAL/OAL_Source.h"
-#include "OpenAL/OAL_Buffer.h"
+#include "OALWrapper/OAL_Types.h"
+#include "OALWrapper/OAL_Device.h"
+#include "OALWrapper/OAL_Helper.h"
+#include "OALWrapper/OAL_Stream.h"
+#include "OALWrapper/OAL_Source.h"
+#include "OALWrapper/OAL_Buffer.h"
 
 #include "system/MemoryManager.h"
 #include "system/LowLevelSystem.h"

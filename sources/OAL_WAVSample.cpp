@@ -13,10 +13,10 @@
 	Derived class for containing WAV Sample data 
 */
 
-#include "OpenAL/OAL_WAVSample.h"
-#include "OpenAL/OAL_Buffer.h"
-#include "OpenAL/OAL_Helper.h"
-#include "OpenAL/OAL_Device.h"
+#include "OALWrapper/OAL_WAVSample.h"
+#include "OALWrapper/OAL_Buffer.h"
+#include "OALWrapper/OAL_Helper.h"
+#include "OALWrapper/OAL_Device.h"
 #include "system/LowLevelSystem.h"
 
 //------------------------------------------------------------------

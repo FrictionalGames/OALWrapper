@@ -13,10 +13,10 @@
 	Set of functions for Initialization/Shutdown, plus misc funcs
 */
 
-#include "OpenAL/OAL_Init.h"
-#include "OpenAL/OAL_Types.h"
-#include "OpenAL/OAL_Device.h"
-#include "OpenAL/OAL_SourceManager.h"
+#include "OALWrapper/OAL_Init.h"
+#include "OALWrapper/OAL_Types.h"
+#include "OALWrapper/OAL_Device.h"
+#include "OALWrapper/OAL_SourceManager.h"
 
 #include "system/MemoryManager.h"
 #include "system/LowLevelSystem.h"

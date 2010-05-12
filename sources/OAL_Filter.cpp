@@ -5,9 +5,9 @@
  *
  * For conditions of distribution and use, see copyright notice in LICENSE
  */
-#include "OpenAL/OAL_Device.h"
-#include "OpenAL/OAL_Filter.h"
-#include "OpenAL/OAL_Helper.h"
+#include "OALWrapper/OAL_Device.h"
+#include "OALWrapper/OAL_Filter.h"
+#include "OALWrapper/OAL_Helper.h"
 
 extern cOAL_Device* gpDevice;
 

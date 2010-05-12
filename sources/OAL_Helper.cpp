@@ -13,8 +13,8 @@
     Set of Helper functions
 */
 
-#include "OpenAL/OAL_Helper.h"
-#include "OpenAL/OAL_Device.h"
+#include "OALWrapper/OAL_Helper.h"
+#include "OALWrapper/OAL_Device.h"
 
 ALenum geALErrorState = AL_NO_ERROR;
 ALCenum geALCErrorState = ALC_NO_ERROR;
