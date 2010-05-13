@@ -1,3 +1,4 @@
+* Add a Visual Studio Project file for windows
 * remove dependency on HPL1Engine core
  - Memory wrappers
  - String processing (cString class)
