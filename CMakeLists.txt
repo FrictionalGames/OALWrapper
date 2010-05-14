@@ -11,6 +11,7 @@ include_directories(
 )
 file(GLOB_RECURSE all_sources
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp
+)
 
 add_library(OALWrapper STATIC ${all_sources})
 
