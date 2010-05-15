@@ -61,7 +61,9 @@
 #include <AL/alut.h>
 #include <AL/alext.h>
 #include <AL/efx.h>
-#include <AL/efx-creative.h>
+#ifdef WIN32
+	#include <AL/efx-creative.h>
+#endif
 
 using namespace std;
 
