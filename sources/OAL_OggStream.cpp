@@ -16,8 +16,9 @@
 
 #include "OALWrapper/OAL_OggStream.h"
 #include "OALWrapper/OAL_Buffer.h"
-#include "system/String.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string>
 
 
 extern ov_callbacks gCallbacks;
@@ -144,8 +145,13 @@ bool cOAL_OggStream::CreateFromFile(const wstring &asFilename)
 	if(mbStatus==false)
 		return false;
 	
+	std::string sTemp;
+	size_t needed = wcstombs(NULL,&asFilename[0],asFilename.length());
+	sTemp.resize(needed);
+	wcstombs(&sTemp[0],&asFilename[0],asFilename.length());
+
 	int lOpenResult;
-	FILE *pStreamFile = fopen(hpl::cString::To8Char(asFilename).c_str(),"rb");
+	FILE *pStreamFile = fopen(sTemp.c_str(),"rb");
 
 	if (pStreamFile == NULL)
 		return false;

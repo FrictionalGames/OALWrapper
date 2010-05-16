@@ -63,7 +63,7 @@ cOAL_Source::cOAL_Source(cOAL_SourceManager *apSourceManager, int alId, int alSe
 		LogMsg("",eOAL_LogVerbose_High, eOAL_LogMsg_Info, "", "Activating EFX Source stuff\n" );
 		for (int i=0; i<alSends; ++i)
 		{
-			cOAL_SourceSend* pSend = hplNew(cOAL_SourceSend, ());
+			cOAL_SourceSend* pSend = new cOAL_SourceSend;
 			mvSends.push_back(pSend);
 		}
 	}
@@ -95,7 +95,7 @@ cOAL_Source::~cOAL_Source()
 	if(mpFilter)
 	{
 		LogMsg("",eOAL_LogVerbose_High, eOAL_LogMsg_Info, "Destroying Filter...\n" );
-		hplDelete(mpFilter);
+		delete mpFilter;
 		mpFilter = NULL;
 	}
 	
@@ -103,7 +103,7 @@ cOAL_Source::~cOAL_Source()
 	{
 		LogMsg("",eOAL_LogVerbose_High, eOAL_LogMsg_Info, "Destroying Sends...\n" );
 		for(unsigned int i = 0; i<mvSends.size(); ++i)
-			hplDelete(mvSends[i]);
+			delete mvSends[i];
 	}
 	LogMsg("",eOAL_LogVerbose_High, eOAL_LogMsg_Info, "Destroying Low Level Object...\n" );
 	DestroyLowLevelID();

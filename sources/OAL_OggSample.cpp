@@ -15,9 +15,8 @@
 
 #include "OALWrapper/OAL_OggSample.h"
 #include "OALWrapper/OAL_Buffer.h"
-#include "system/MemoryManager.h"
-#include "system/LowLevelSystem.h"
-#include "system/String.h"
+#include <stdlib.h>
+#include <string>
 #include <cstring>
 
 //-------------------------------------------------------------------------------
@@ -50,7 +49,12 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 
 	msFilename = asFilename;
 
-	FILE *fileHandle = fopen(hpl::cString::To8Char(asFilename).c_str(),"rb");
+	std::string sTemp;
+	size_t needed = wcstombs(NULL,&asFilename[0],asFilename.length());
+	sTemp.resize(needed);
+	wcstombs(&sTemp[0],&asFilename[0],asFilename.length());
+
+	FILE *fileHandle = fopen(sTemp.c_str(),"rb");
 	
 	// If no file is present, set the error status and return
 	if(!fileHandle)
@@ -78,7 +82,7 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 
 	// Reserve memory for 'mlChannels' channels of 'mlSamples' * 2 bytes of data each
 	int lSizeInBytes = mlSamples * mlChannels * GetBytesPerSample();
-	pPCMBuffer = (char *) hplMalloc (lSizeInBytes);																
+	pPCMBuffer = (char *) malloc (lSizeInBytes);
 	memset (pPCMBuffer, 0, lSizeInBytes);
 
 	// Loop which loads chunks of decoded data into a buffer
@@ -95,7 +99,7 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 		// If we get a negative value, then something went wrong. Clean up and set error status.
 		else if(lChunkSize < 0)
 		{
-			hplFree(pPCMBuffer);
+			free(pPCMBuffer);
 			ov_clear(&ovFileHandle);
 			// ov_clear closes the file handle for us
 			mbStatus = false;
@@ -111,7 +115,7 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 		// If something went wrong, set error status. Clean up afterwards.
 		mbStatus = pBuffer->Feed((ALvoid*)pPCMBuffer, lDataSize);
 	}
-	hplFree(pPCMBuffer);																				
+	free(pPCMBuffer);
 	ov_clear(&ovFileHandle);
 	// ov_clear closes the file handle for us
 

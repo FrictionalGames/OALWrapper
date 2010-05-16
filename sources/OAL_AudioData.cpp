@@ -9,7 +9,6 @@
 
 #include "OALWrapper/OAL_Buffer.h"
 
-#include "system/LowLevelSystem.h"
 
 //-------------------------------------------------------------------------------
 
@@ -20,7 +19,7 @@ iOAL_AudioData::iOAL_AudioData(eOAL_AudioDataType aType, int alBuffersToCreate)
 {
 	mType = aType;
 	for(int i=0;i<alBuffersToCreate;++i)
-		mvBuffers.push_back(hplNew(cOAL_Buffer,(this)));
+		mvBuffers.push_back(new cOAL_Buffer(this));
 
 	Reset();
 }
@@ -28,7 +27,7 @@ iOAL_AudioData::iOAL_AudioData(eOAL_AudioDataType aType, int alBuffersToCreate)
 iOAL_AudioData::~iOAL_AudioData()
 {
 	for(int i=0;i<(int)mvBuffers.size();++i)
-		hplDelete(mvBuffers[i]);
+		delete mvBuffers[i];
 }
 
 //-------------------------------------------------------------------------------

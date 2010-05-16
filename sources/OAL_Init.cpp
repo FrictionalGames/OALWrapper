@@ -18,8 +18,6 @@
 #include "OALWrapper/OAL_Device.h"
 #include "OALWrapper/OAL_SourceManager.h"
 
-#include "system/MemoryManager.h"
-#include "system/LowLevelSystem.h"
 
 cOAL_Device* gpDevice = NULL;
 
@@ -42,7 +40,7 @@ bool	OAL_Init ( cOAL_Init_Params &acParams )
 {
 	OAL_Log(eOAL_LogVerbose_None, eOAL_LogMsg_Text,"-------------------------------------\n----- OpenAL Wrapper Log opened -----\n-------------------------------------\n");
 
-	gpDevice = hplNew( cOAL_Device, () );
+	gpDevice = new cOAL_Device;
 	bool bSuccess = gpDevice->Init( acParams );
 									/*asDeviceName , alOutputFreq, 
 									abUseThread, alUpdateFreq, 
@@ -76,7 +74,7 @@ void	OAL_Close ()
 //    OAL_Source_Stop ( OAL_ALL );
 
 	gpDevice->Close();
-	hplDelete(gpDevice);
+	delete gpDevice;
 	gpDevice = NULL;
 
     OAL_Log(eOAL_LogVerbose_Low, eOAL_LogMsg_Text,"-------------------------------------\n----- OpenAL Wrapper Log closed -----\n-------------------------------------\n");

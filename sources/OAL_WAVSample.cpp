@@ -17,7 +17,6 @@
 #include "OALWrapper/OAL_Buffer.h"
 #include "OALWrapper/OAL_Helper.h"
 #include "OALWrapper/OAL_Device.h"
-#include "system/LowLevelSystem.h"
 
 //------------------------------------------------------------------
 
@@ -70,7 +69,7 @@ bool cOAL_WAVSample::CreateFromFile(const wstring &asFilename)
 	if(pBuffer->Feed(pPCMBuffer, lSize)==false)
 	{
 		mlBuffersUsed = 1;
-		//hplFree ( pPCMBuffer );
+		//free( pPCMBuffer );
 		alutUnloadWAV( mFormat, pPCMBuffer, lSize, mlFrequency);
 		status = alutGetError();
 		mbStatus = false;
@@ -84,7 +83,7 @@ bool cOAL_WAVSample::CreateFromFile(const wstring &asFilename)
 	mfTotalTime = ((double)mlSamples)/mlFrequency;
 	
 	
-//	hplFree ( pPCMBuffer );
+//	free( pPCMBuffer );
 	alutUnloadWAV( mFormat, pPCMBuffer, lSize, mlFrequency);
 	status = alutGetError ();
 

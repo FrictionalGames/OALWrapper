@@ -13,8 +13,6 @@
 #include "OALWrapper/OAL_Device.h"
 
 
-#include "system/MemoryManager.h"
-#include "system/LowLevelSystem.h"
 
 
 int SlotUpdaterThread(void* alUnusedArg);
@@ -167,7 +165,7 @@ bool cOAL_EFXManager::Initialize(int alNumSlotsHint, int alNumSends, bool abUseT
 
 	RUN_AL_FUNC(alDeleteAuxiliaryEffectSlots ( mlNumSlots, lTempSlot ));
 	
-	mpvSlots = hplNew (tSlotVector ,());
+	mpvSlots = new tSlotVector;
 	mpvSlots->reserve(mlNumSlots);
 
 	LogMsg("",eOAL_LogVerbose_Medium, eOAL_LogMsg_Info, "Creating High Level Effect Slots\n" );
@@ -175,7 +173,7 @@ bool cOAL_EFXManager::Initialize(int alNumSlotsHint, int alNumSends, bool abUseT
 
 	for ( int i = 0; i < mlNumSlots; i++ )
 	{
-		cOAL_EffectSlot *pSlot = hplNew( cOAL_EffectSlot,(this, i) );
+		cOAL_EffectSlot *pSlot = new cOAL_EffectSlot(this, i);
 		mpvSlots->push_back(pSlot);
 	}
 
@@ -183,8 +181,8 @@ bool cOAL_EFXManager::Initialize(int alNumSlotsHint, int alNumSends, bool abUseT
 
 	
 	LogMsg("",eOAL_LogVerbose_Medium, eOAL_LogMsg_Info, "Creating Filter and Effect containers\n" );
-	mplstEffectList = hplNew( tOALEffectList, () );
-	mplstFilterList = hplNew( tOALFilterList, () );
+	mplstEffectList = new tOALEffectList;
+	mplstFilterList = new tOALFilterList;
 
 	if (!mplstEffectList || !mplstFilterList)
 	{
@@ -237,10 +235,10 @@ void cOAL_EFXManager::Destroy()
 		for ( vSlotIterator = mpvSlots->begin(); vSlotIterator != mpvSlots->end(); ++vSlotIterator )
 		{
 			(*vSlotIterator)->Reset();
-			hplDelete((*vSlotIterator));
+			delete (*vSlotIterator);
 		}
 		mpvSlots->clear();
-		hplDelete(mpvSlots);
+		delete mpvSlots;
 		
 		mpvSlots = NULL;
 	}
@@ -251,10 +249,10 @@ void cOAL_EFXManager::Destroy()
 	{
 		for ( lstEffectIterator = mplstEffectList->begin(); lstEffectIterator != mplstEffectList->end(); ++lstEffectIterator )
 		{
-			hplDelete ((*lstEffectIterator));
+			delete (*lstEffectIterator);
 		}
 		mplstEffectList->clear();
-		hplDelete(mplstEffectList);
+		delete mplstEffectList;
 		mplstEffectList = NULL;
 	}
 
@@ -264,10 +262,10 @@ void cOAL_EFXManager::Destroy()
 	{
 		for ( lstFilterIterator = mplstFilterList->begin(); lstFilterIterator != mplstFilterList->end(); ++lstFilterIterator )
 		{
-			hplDelete ((*lstFilterIterator));
+			delete (*lstFilterIterator);
 		}
 		mplstFilterList->clear();
-		hplDelete(mplstFilterList);
+		delete mplstFilterList;
 		mplstFilterList = NULL;
 	}
 
@@ -279,7 +277,7 @@ void cOAL_EFXManager::Destroy()
 
 cOAL_Filter* cOAL_EFXManager::CreateFilter()
 {
-    cOAL_Filter* pFilter = hplNew (cOAL_Filter,());
+    cOAL_Filter* pFilter = new cOAL_Filter;
 
 	if(pFilter && pFilter->GetStatus())
 	{
@@ -288,7 +286,7 @@ cOAL_Filter* cOAL_EFXManager::CreateFilter()
 	}
 	else
 	{
-		hplDelete ( pFilter );
+		delete  pFilter ;
 		pFilter = NULL;
 		
 		return NULL;
@@ -299,7 +297,7 @@ cOAL_Filter* cOAL_EFXManager::CreateFilter()
 
 cOAL_Effect_Reverb* cOAL_EFXManager::CreateReverbEffect()
 {
-	cOAL_Effect_Reverb* pEffect = hplNew (cOAL_Effect_Reverb, () );
+	cOAL_Effect_Reverb* pEffect = new cOAL_Effect_Reverb;
 
 	if (pEffect && pEffect->GetStatus())
 	{
@@ -308,7 +306,7 @@ cOAL_Effect_Reverb* cOAL_EFXManager::CreateReverbEffect()
 	}
 	else
 	{
-        hplDelete (pEffect);
+        delete pEffect;
 		pEffect = NULL;
 		
 		return NULL;
@@ -324,7 +322,7 @@ void cOAL_EFXManager::DestroyFilter ( cOAL_Filter* apFilter )
 		return;
 
 	mplstFilterList->remove(apFilter);
-	hplDelete (apFilter);
+	delete apFilter;
 }
 
 ////////////////////////////////////////////////////////////
@@ -335,7 +333,7 @@ void cOAL_EFXManager::DestroyEffect ( cOAL_Effect *apEffect )
 		return;
 
 	mplstEffectList->remove(apEffect);
-	hplDelete (apEffect);
+	delete apEffect;
 }
 
 ////////////////////////////////////////////////////////////

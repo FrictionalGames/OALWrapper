@@ -26,8 +26,6 @@ class cOAL_SourceManager;
 #include "OAL_Effect.h"
 #include "OAL_Filter.h"
 
-#include "system/MemoryManager.h"
-#include "system/LowLevelSystem.h"
 
 
 #define OAL_SEND_DIRECT 0x10000000h

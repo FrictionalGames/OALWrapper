@@ -23,7 +23,6 @@
 #include "OALWrapper/OAL_Filter.h"
 #include "OALWrapper/OAL_Effect_Reverb.h"
 
-#include "system/LowLevelSystem.h"
 #include <cstring>
 
 //-------------------------------------------------------------------------
@@ -190,18 +189,18 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
     if (acParams.mbUseEFX && IsExtensionAvailable (OAL_ALC_EXT_EFX))
 	{
 		LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Info, "Starting EFX on request\n" );
-		mpEFXManager = hplNew( cOAL_EFXManager, () );
+		mpEFXManager = new cOAL_EFXManager;
 		mbEFXActive = mpEFXManager->Initialize( acParams.mlNumSlotsHint, mlEFXSends, acParams.mbUseThread, acParams.mlSlotUpdateFreq );
 		if (!mbEFXActive)
 		{
 			mpEFXManager->Destroy();
-			hplDelete(mpEFXManager);
+			delete mpEFXManager;
 		}
 	}
 
 	LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Info, "Creating Source Manager\n" );
 	//Create The source manager
-	mpSourceManager = hplNew( cOAL_SourceManager, () );
+	mpSourceManager = new cOAL_SourceManager;
 	if ( mpSourceManager->Initialize( acParams.mbVoiceManagement, acParams.mlNumSourcesHint, acParams.mbUseThread, acParams.mlUpdateFreq, mlEFXSends ) == false)
 	{
 		LogMsg("",eOAL_LogVerbose_None, eOAL_LogMsg_Error, "Error creating Source Manager\n");
@@ -230,14 +229,14 @@ void cOAL_Device::Close ()
 	//Delete samples
 	{
 		for(tSampleListIt it = mlstSamples.begin(); it!=mlstSamples.end(); ++it )
-			hplDelete((*it));
+			delete (*it);
 		mlstSamples.clear();
 	}
 	
 	LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Info, "Cleaning up Streams...\n" );
 	{
 		for (tStreamListIt it=mlstStreams.begin();it!=mlstStreams.end(); ++it )
-			hplDelete((*it));
+			delete (*it);
 		mlstStreams.clear();
 	}
 
@@ -245,7 +244,7 @@ void cOAL_Device::Close ()
 	{
 		LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Info, "Cleaning up Source Manager...\n" );
 		mpSourceManager->Destroy();
-		hplDelete(mpSourceManager);
+		delete mpSourceManager;
 		mpSourceManager = NULL;
 	}
 
@@ -253,7 +252,7 @@ void cOAL_Device::Close ()
 	{
 		LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Info, "Cleaning up EFX Manager...\n" );
 		mpEFXManager->Destroy();
-		hplDelete(mpEFXManager);
+		delete mpEFXManager;
 		mpEFXManager = NULL;
 	}
 
@@ -309,15 +308,15 @@ cOAL_Sample* cOAL_Device::LoadSample(const wstring& asFilename)
 	// Check file format and load the sample data according to it
 	wstring strExt = GetExtensionW(asFilename);
 	if(strExt.compare(L"ogg") == 0 )						// Load an Ogg Vorbis sample
-		pSample = hplNew(cOAL_OggSample,());
+		pSample = new cOAL_OggSample;
 	else if(strExt.compare(L"wav")==0)				// Load a .WAV sample
-		pSample = hplNew(cOAL_WAVSample,());
+		pSample = new cOAL_WAVSample;
 	
 	if(pSample && pSample->CreateFromFile(asFilename) )
 		mlstSamples.push_back(pSample);
 	else
 	{
-		hplDelete(pSample);
+		delete pSample;
 		pSample = NULL;
 	}
 
@@ -340,7 +339,7 @@ cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename)
 	wstring strExt = GetExtensionW(asFilename);
 
 	if(strExt.compare(L"ogg")==0)
-		pStream = hplNew(cOAL_OggStream,());
+		pStream = new cOAL_OggStream;
 	
 	if(pStream && pStream->CreateFromFile(asFilename))
 	{
@@ -349,7 +348,7 @@ cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename)
 	}
 	else
 	{
-		hplDelete(pStream);
+		delete pStream;
 		pStream = NULL;
 	}
 
@@ -365,7 +364,7 @@ void  cOAL_Device::UnloadSample(cOAL_Sample* apSample)
 		return;
 	
 	mlstSamples.remove(apSample);
-	hplDelete(apSample);
+	delete apSample;
 }
 
 //-------------------------------------------------------------------------
@@ -376,7 +375,7 @@ void cOAL_Device::UnloadStream(cOAL_Stream* apStream)
 		return;
     
 	mlstStreams.remove(apStream);
-	hplDelete(apStream);
+	delete apStream;
 }
 
 //-------------------------------------------------------------------------

@@ -9,8 +9,6 @@
 #include "OALWrapper/OAL_Source.h"
 #include "OALWrapper/OAL_Device.h"
 
-#include "system/MemoryManager.h"
-#include "system/LowLevelSystem.h"
 
 //-----------------------------------------------------------------------------------
 
@@ -77,7 +75,7 @@ bool cOAL_SourceManager::Initialize ( bool abManageVoices, int alNumSourcesHint,
 	mvSources.resize(mlNumOfVoices);
 	for(int i=0; i<mlNumOfVoices; ++i)
 	{
-		cOAL_Source *pSource = hplNew( cOAL_Source,(this, i,alEFXSends) );
+		cOAL_Source *pSource = new cOAL_Source(this, i, alEFXSends);
 		mvSources[i] = pSource;
 	}
 
@@ -125,7 +123,7 @@ void cOAL_SourceManager::Destroy()
 		//hpl::Log("source: %d\n",pSource);
 		//hpl::Log("source id: %d\n",pSource->GetSourceID());
 		pSource->Stop();
-		hplDelete(pSource);
+		delete pSource;
 	}
 	mvSources.clear();
 
