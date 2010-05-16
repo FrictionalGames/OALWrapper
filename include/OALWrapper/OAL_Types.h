@@ -56,14 +56,20 @@
 #include <vector>
 #include <list>
 
-#include <AL/al.h>
-#include <AL/alc.h>
-#include <AL/alut.h>
+#ifdef __APPLE__
+    // system headers
+    #include <OpenAL/al.h>
+    #include <OpenAL/alc.h>
+    #include <ALUT/alut.h>
+#else
+    #include <AL/al.h>
+    #include <AL/alc.h>
+    #include <AL/alut.h>
+#endif
+// Included headers not available on all systems
 #include <AL/alext.h>
 #include <AL/efx.h>
-#ifdef WIN32
-	#include <AL/efx-creative.h>
-#endif
+#include <AL/efx-creative.h>
 
 using namespace std;
 
