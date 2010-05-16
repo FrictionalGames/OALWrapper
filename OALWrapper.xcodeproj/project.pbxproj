@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DBF4974511A0414300C8A45D /* Ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF4974311A0414300C8A45D /* Ogg.framework */; };
-		DBF4974611A0414300C8A45D /* Vorbis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF4974411A0414300C8A45D /* Vorbis.framework */; };
 		DBF9A480119B18C100CCFDC9 /* OAL_AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A469119B18C100CCFDC9 /* OAL_AudioData.cpp */; };
 		DBF9A481119B18C100CCFDC9 /* OAL_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46A119B18C100CCFDC9 /* OAL_Buffer.cpp */; };
 		DBF9A482119B18C100CCFDC9 /* OAL_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46B119B18C100CCFDC9 /* OAL_Device.cpp */; };
@@ -93,8 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBF4974511A0414300C8A45D /* Ogg.framework in Frameworks */,
-				DBF4974611A0414300C8A45D /* Vorbis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
