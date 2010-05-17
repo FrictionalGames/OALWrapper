@@ -144,14 +144,9 @@ bool cOAL_OggStream::CreateFromFile(const wstring &asFilename)
 	
 	if(mbStatus==false)
 		return false;
-	
-	std::string sTemp;
-	size_t needed = wcstombs(NULL,&asFilename[0],asFilename.length());
-	sTemp.resize(needed);
-	wcstombs(&sTemp[0],&asFilename[0],asFilename.length());
 
 	int lOpenResult;
-	FILE *pStreamFile = fopen(sTemp.c_str(),"rb");
+	FILE *pStreamFile = OpenFileW(asFilename, L"rb");
 
 	if (pStreamFile == NULL)
 		return false;

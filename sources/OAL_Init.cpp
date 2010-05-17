@@ -186,7 +186,7 @@ void OAL_LogSourcePoolStatus ()
 	//string sFilename = string("OALSources").append(num).append(".log");
 //	string sFilename("OALSources.log");
 
-//    FILE *fLogFile = fopen (sFilename.c_str(),"a");
+//    FILE *fLogFile = OpenFile (sFilename,"a");
 //	fwrite(sTemp.c_str(), sizeof(char), sTemp.size(), fLogFile );
 //	fclose(fLogFile);
 
@@ -202,11 +202,7 @@ void OAL_SetupLogging ( bool abLogSounds, eOAL_LogOutput aeOutput, eOAL_LogVerbo
 	iOAL_LoggerObject::SetLogVerbose( aeVerboseLevel );
 	iOAL_LoggerObject::SetLogFilename( asLogFilename );
 
-	#ifdef WIN32
-	FILE* pTempFile = _wfopen(iOAL_LoggerObject::GetLogFilename().c_str(), L"a");
-	#else
-	FILE* pTempFile = fopen(WString2String(iOAL_LoggerObject::GetLogFilename()).c_str(), "a");
-	#endif
+	FILE* pTempFile = OpenFileW(iOAL_LoggerObject::GetLogFilename(), L"a");
 
 	if (pTempFile)
 	{
@@ -225,7 +221,7 @@ void OAL_SetupLogging ( bool abLogSounds, eOAL_LogOutput aeOutput, eOAL_LogVerbo
 		char buffer[100];
 
 		sprintf(buffer, "./OAL/OAL_Source_%d.log", i);
-		pTempFile = fopen(buffer,"r");
+		pTempFile = OpenFile(string(buffer),"r");
 		if (pTempFile)
 		{
 			fclose(pTempFile);

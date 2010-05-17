@@ -441,7 +441,7 @@ void OAL_Source_Log ( int alSourceId, int alMessageType,  const char* asMessage,
 	sprintf(sBuffer, "./OAL/OAL_Source_%d.log", alSourceId);
     string sFileName(sBuffer);
 	
-    FILE* fSourceLog = fopen(sFileName.c_str(),"a");
+    FILE* fSourceLog = OpenFile(sFileName,"a");
 
 	if (fSourceLog != NULL)
 	{

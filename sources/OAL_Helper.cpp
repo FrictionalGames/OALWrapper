@@ -67,6 +67,29 @@ wstring String2WString(const string& asString)
 
 ///////////////////////////////////////////////////////////
 //
+// File open wrappers (to abstract out the wide character
+///////////////////////////////////////////////////////////
+
+FILE *OpenFileW(const wstring& asFileName, const wstring asMode)
+{
+#ifdef WIN32
+    return _wfopen(asFileName.c_str(), asMode.c_str());
+#else
+    string sFileName = WString2String(asFileName);
+    string sMode = WString2String(asMode);
+    
+	FILE *fileHandle = fopen(sFileName.c_str(),sMode.c_str());
+    return fileHandle;
+#endif
+}
+
+FILE *OpenFile(const string& asFileName, const string asMode)
+{
+	return fopen(asFileName.c_str(),asMode.c_str());
+}
+
+///////////////////////////////////////////////////////////
+//
 //
 ///////////////////////////////////////////////////////////
 

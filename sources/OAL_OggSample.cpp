@@ -49,12 +49,7 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 
 	msFilename = asFilename;
 
-	std::string sTemp;
-	size_t needed = wcstombs(NULL,&asFilename[0],asFilename.length());
-	sTemp.resize(needed);
-	wcstombs(&sTemp[0],&asFilename[0],asFilename.length());
-
-	FILE *fileHandle = fopen(sTemp.c_str(),"rb");
+	FILE *fileHandle = OpenFileW(asFilename, L"rb");
 	
 	// If no file is present, set the error status and return
 	if(!fileHandle)

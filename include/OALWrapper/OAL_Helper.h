@@ -64,6 +64,9 @@ string			OAL_GetALCErrorString();
 string			WString2String(const wstring& asWString);
 wstring			String2WString(const string& asString);
 
+FILE *          OpenFileW(const wstring& asFileName, const wstring asMode);
+FILE *          OpenFile(const string& asFileName, const string asMode);
+
 //-----------------------------------------------------------------------------------------
 
 void ClearALErrors( const string& asFunction );

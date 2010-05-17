@@ -84,13 +84,7 @@ void iOAL_LoggerObject::Write( const string& asMessage )
 	switch(mLogOutput)
 	{
 	case eOAL_LogOutput_File:
-		#ifdef WIN32
-		fLog = _wfopen(msLogFile.c_str(),L"a");
-		#else
-		{
-		fLog = fopen(WString2String(msLogFile).c_str(),"a");
-		}
-		#endif
+        fLog = OpenFileW(msLogFile, L"a");
 		if (fLog != NULL)
 		{
 			fwrite(asMessage.c_str(), sizeof(char), asMessage.size(), fLog);
@@ -139,11 +133,7 @@ wstring BuildLogFilename ( const string& asFilename )
 	{
 		swprintf(buffer, 100, L"_%d.log", i);
 
-		#ifdef WIN32
-		pTempFile = _wfopen(wstring(wsTemp).append(wstring(buffer)).c_str(),L"r");
-		#else
-		pTempFile = fopen(WString2String(wstring(wsTemp).append(wstring(buffer))).c_str(),"r");
-		#endif 
+		pTempFile = OpenFileW(wstring(wsTemp).append(wstring(buffer)),L"r");
 		if (pTempFile)
 		{
 			fclose(pTempFile);
