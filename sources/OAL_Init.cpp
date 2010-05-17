@@ -330,10 +330,5 @@ const bool	OAL_Info_IsEFXActive()
 
 vector<string> OAL_Info_GetOutputDevices()
 {
-	if (gpDevice)
-		return gpDevice->GetOutputDevices();
-	else {
-		vector<string> a;
-		return a;
-	}
+    return cOAL_Device::GetOutputDevices();
 }

@@ -55,8 +55,8 @@ public:
 	inline bool IsExtensionAvailable (int alWhich)	{ if ( (alWhich >= 0) && (alWhich < NUM_EXTENSIONS) ) return mvbExtensions[alWhich]; else return false; }
 	inline bool IsEFXActive ()						{ return (mbEFXActive && (mpEFXManager!=NULL)); }
 	inline int	GetEFXSends()						{ return mlEFXSends; } 
-	string& GetExtensionName(int alWhich); 
-	vector<string>GetOutputDevices();
+	static string& GetExtensionName(int alWhich); 
+	static vector<string>GetOutputDevices();
 
 	
 	
