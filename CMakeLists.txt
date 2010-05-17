@@ -7,7 +7,6 @@ set(OALWrapper_VERSION_MINOR 0)
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/include 
 	${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/include
-	${CMAKE_CURRENT_SOURCE_DIR}/../HPL1Engine/include
 )
 file(GLOB_RECURSE all_sources
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp

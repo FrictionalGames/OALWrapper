@@ -111,7 +111,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\HPL1Engine\include;..\OALWrapper\include;..\dependencies\include\AL;..\dependencies\include"
+				AdditionalIncludeDirectories="..\OALWrapper\include;..\dependencies\include"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				WarningLevel="3"
