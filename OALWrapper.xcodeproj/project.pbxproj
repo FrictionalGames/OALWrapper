@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1550E411E64CE7005799BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB1550D711E64C5E005799BB /* main.cpp */; };
+		DB1550E511E64CEC005799BB /* libOALWrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF9A2D9119A601600CCFDC9 /* libOALWrapper.a */; };
+		DB15511211E64EBE005799BB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB15511111E64EBE005799BB /* OpenAL.framework */; };
+		DB15511711E64ECC005799BB /* Ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF4974311A0414300C8A45D /* Ogg.framework */; };
+		DB15511811E64ECD005799BB /* Vorbis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF4974411A0414300C8A45D /* Vorbis.framework */; };
+		DB15511C11E64F14005799BB /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB15511B11E64F14005799BB /* SDL.framework */; };
+		DB15512211E64F20005799BB /* ALUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB15512111E64F20005799BB /* ALUT.framework */; };
+		DB15512911E64F4C005799BB /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = DB15512811E64F4C005799BB /* SDLMain.m */; };
+		DB15512D11E64F8A005799BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB15512C11E64F8A005799BB /* Cocoa.framework */; };
 		DBF9A480119B18C100CCFDC9 /* OAL_AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A469119B18C100CCFDC9 /* OAL_AudioData.cpp */; };
 		DBF9A481119B18C100CCFDC9 /* OAL_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46A119B18C100CCFDC9 /* OAL_Buffer.cpp */; };
 		DBF9A482119B18C100CCFDC9 /* OAL_Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A46B119B18C100CCFDC9 /* OAL_Device.cpp */; };
@@ -32,7 +41,25 @@
 		DBF9A496119B18C100CCFDC9 /* OAL_WAVSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A47F119B18C100CCFDC9 /* OAL_WAVSample.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DB1550E811E64CF6005799BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBF8483A0AC76CC500BB15CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBF9A2D8119A601600CCFDC9 /* OALWrapper */;
+			remoteInfo = OALWrapper;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		DB1550D711E64C5E005799BB /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DB1550DB11E64C8E005799BB /* SimpleTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB15511111E64EBE005799BB /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		DB15511B11E64F14005799BB /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = Library/Frameworks/SDL.framework; sourceTree = SDKROOT; };
+		DB15512111E64F20005799BB /* ALUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALUT.framework; path = Library/Frameworks/ALUT.framework; sourceTree = SDKROOT; };
+		DB15512711E64F4C005799BB /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
+		DB15512811E64F4C005799BB /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
+		DB15512C11E64F8A005799BB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DBF4974311A0414300C8A45D /* Ogg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogg.framework; path = ../dependencies/lib/macosx/Ogg.framework; sourceTree = SOURCE_ROOT; };
 		DBF4974411A0414300C8A45D /* Vorbis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vorbis.framework; path = ../dependencies/lib/macosx/Vorbis.framework; sourceTree = SOURCE_ROOT; };
 		DBF9A2A3119A5FFC00CCFDC9 /* OAL_AudioData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAL_AudioData.h; sourceTree = "<group>"; };
@@ -87,6 +114,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DB1550D911E64C8E005799BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB1550E511E64CEC005799BB /* libOALWrapper.a in Frameworks */,
+				DB15511211E64EBE005799BB /* OpenAL.framework in Frameworks */,
+				DB15511711E64ECC005799BB /* Ogg.framework in Frameworks */,
+				DB15511811E64ECD005799BB /* Vorbis.framework in Frameworks */,
+				DB15511C11E64F14005799BB /* SDL.framework in Frameworks */,
+				DB15512211E64F20005799BB /* ALUT.framework in Frameworks */,
+				DB15512D11E64F8A005799BB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBF9A2D7119A601600CCFDC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,11 +138,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB1550D511E64C5E005799BB /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				DB15512711E64F4C005799BB /* SDLMain.h */,
+				DB15512811E64F4C005799BB /* SDLMain.m */,
+				DB1550D611E64C5E005799BB /* Simple */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		DB1550D611E64C5E005799BB /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				DB1550D711E64C5E005799BB /* main.cpp */,
+			);
+			path = Simple;
+			sourceTree = "<group>";
+		};
 		DBF4974211A0411400C8A45D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DBF4974311A0414300C8A45D /* Ogg.framework */,
 				DBF4974411A0414300C8A45D /* Vorbis.framework */,
+				DB15511111E64EBE005799BB /* OpenAL.framework */,
+				DB15511B11E64F14005799BB /* SDL.framework */,
+				DB15512111E64F20005799BB /* ALUT.framework */,
+				DB15512C11E64F8A005799BB /* Cocoa.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,6 +172,7 @@
 		DBF848380AC76CC500BB15CD = {
 			isa = PBXGroup;
 			children = (
+				DB1550D511E64C5E005799BB /* tests */,
 				DBF9A2A1119A5FFC00CCFDC9 /* include */,
 				DBF9A2BC119A5FFC00CCFDC9 /* sources */,
 				DBF8484C0AC76D1A00BB15CD /* Products */,
@@ -120,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				DBF9A2D9119A601600CCFDC9 /* libOALWrapper.a */,
+				DB1550DB11E64C8E005799BB /* SimpleTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,6 +272,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		DB1550DA11E64C8E005799BB /* SimpleTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB1550E211E64CA0005799BB /* Build configuration list for PBXNativeTarget "SimpleTest" */;
+			buildPhases = (
+				DB1550D811E64C8E005799BB /* Sources */,
+				DB1550D911E64C8E005799BB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB1550E911E64CF6005799BB /* PBXTargetDependency */,
+			);
+			name = SimpleTest;
+			productName = OALTest;
+			productReference = DB1550DB11E64C8E005799BB /* SimpleTest */;
+			productType = "com.apple.product-type.tool";
+		};
 		DBF9A2D8119A601600CCFDC9 /* OALWrapper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBF9A2F5119A604E00CCFDC9 /* Build configuration list for PBXNativeTarget "OALWrapper" */;
@@ -238,11 +320,21 @@
 			projectRoot = "";
 			targets = (
 				DBF9A2D8119A601600CCFDC9 /* OALWrapper */,
+				DB1550DA11E64C8E005799BB /* SimpleTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DB1550D811E64C8E005799BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB1550E411E64CE7005799BB /* main.cpp in Sources */,
+				DB15512911E64F4C005799BB /* SDLMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBF9A2D6119A601600CCFDC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,7 +367,54 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DB1550E911E64CF6005799BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBF9A2D8119A601600CCFDC9 /* OALWrapper */;
+			targetProxy = DB1550E811E64CF6005799BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		DB1550DD11E64C90005799BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../dependencies/lib/macosx\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = include;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = SimpleTest;
+			};
+			name = Debug;
+		};
+		DB1550DE11E64C90005799BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../dependencies/lib/macosx\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = SimpleTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		DBF8483C0AC76CC500BB15CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -378,6 +517,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DB1550E211E64CA0005799BB /* Build configuration list for PBXNativeTarget "SimpleTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB1550DD11E64C90005799BB /* Debug */,
+				DB1550DE11E64C90005799BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DBF8483B0AC76CC500BB15CD /* Build configuration list for PBXProject "OALWrapper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
