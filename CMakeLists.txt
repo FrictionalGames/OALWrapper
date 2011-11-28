@@ -8,13 +8,86 @@ SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeScripts)
 
 OPTION(WITH_ALUT "Include alut WAVE loading" OFF)
 
-FIND_PACKAGE(OGG)
-FIND_PACKAGE(Vorbis)
-FIND_PACKAGE(VorbisFile)
-FIND_PACKAGE(OpenAL)
+SET(PRIVATE_LIB_DIR
+    CACHE PATH "Location of local private library path to use"
+)
+
+IF(PRIVATE_LIB_DIR)
+    IF(NOT EXISTS ${PRIVATE_LIB_DIR}/include)
+        MESSAGE(FATAL_ERROR "folder named include not found in private lib dir")
+    ENDIF()
+    INCLUDE_DIRECTORIES(
+        ${PRIVATE_LIB_DIR}/include}
+    )
+    FIND_LIBRARY(OGG_LIBRARY
+        ogg
+        PATH_SUFFIXES lib lib64 linux linux64
+        NO_DEFAULT_PATH
+        PATHS ${PRIVATE_LIB_DIR}
+    )
+    IF(OGG_LIBRARY STREQUAL "OGG_LIBRARY-NOTFOUND")
+        MESSAGE(FATAL_ERROR "Could not find ogg library")
+    ENDIF()
+
+    FIND_LIBRARY(VORBIS_LIBRARY
+        vorbis
+        PATH_SUFFIXES lib lib64 linux linux64
+        NO_DEFAULT_PATH
+        PATHS ${PRIVATE_LIB_DIR}
+    )
+    IF(VORBIS_LIBRARY STREQUAL "VORBIS_LIBRARY-NOTFOUND")
+        MESSAGE(FATAL_ERROR "Could not find vorbis library")
+    ENDIF()
+
+    FIND_LIBRARY(VORBISFILE_LIBRARY
+        vorbisfile
+        PATH_SUFFIXES lib lib64 linux linux64
+        NO_DEFAULT_PATH
+        PATHS ${PRIVATE_LIB_DIR}
+    )
+    IF(VORBISFILE_LIBRARY STREQUAL "VORBISFILE_LIBRARY-NOTFOUND")
+        MESSAGE(FATAL_ERROR "Could not find vorbisfile library")
+    ENDIF()
+
+    IF(WITH_ALUT)
+        FIND_LIBRARY(ALUT_LIBRARY
+            alut
+            PATH_SUFFIXES lib lib64 linux linux64
+            NO_DEFAULT_PATH
+            PATHS ${PRIVATE_LIB_DIR}
+        )
+        IF(ALUT_LIBRARY STREQUAL "ALUT_LIBRARY-NOTFOUND")
+            MESSAGE(FATAL_ERROR "Could not find alut library")
+        ENDIF()
+    ENDIF()
+
+    FIND_LIBRARY(OPENAL_LIBRARY
+        openal
+        PATH_SUFFIXES lib lib64 linux linux64
+        NO_DEFAULT_PATH
+        PATHS ${PRIVATE_LIB_DIR}
+    )
+    IF(OPENAL_LIBRARY STREQUAL "OPENAL_LIBRARY-NOTFOUND")
+        MESSAGE(FATAL_ERROR "Could not find openal library")
+    ENDIF()
+ELSE()
+    FIND_PACKAGE(OGG)
+    FIND_PACKAGE(Vorbis)
+    FIND_PACKAGE(VorbisFile)
+    FIND_PACKAGE(OpenAL)
+
+    IF(WITH_ALUT)
+        FIND_PACKAGE(ALUT)
+    ENDIF()
+    INCLUDE_DIRECTORIES(
+        ${OGG_INCLUDE_DIR}
+        ${VORBIS_INCLUDE_DIR}
+        ${VORBISFILE_INCLUDE_DIR}
+        ${OPENAL_INCLUDE_DIR}
+    )
+ENDIF()
 
 IF(WITH_ALUT)
-    FIND_PACKAGE(ALUT)
     ADD_DEFINITIONS(-DWITH_ALUT)
 ENDIF()
 
