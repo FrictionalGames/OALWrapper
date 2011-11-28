@@ -3,3 +3,9 @@
 .DS_Store
 /*.xcodeproj/*.mode1v3
 /*.xcodeproj/*.pbxuser
+/CMakeFiles
+/CMakeCache.txt
+/cmake_install.cmake
+/libOALWrapper.a
+/SimpleTest
+/Makefile
