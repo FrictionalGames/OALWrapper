@@ -56,6 +56,7 @@ public:
 	inline bool IsEFXActive ()						{ return (mbEFXActive && (mpEFXManager!=NULL)); }
 	inline int	GetEFXSends()						{ return mlEFXSends; } 
 	static string& GetExtensionName(int alWhich); 
+	static string GetDefaultDeviceName();
 	static vector<string>GetOutputDevices();
 
 	

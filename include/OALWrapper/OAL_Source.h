@@ -145,6 +145,8 @@ public:
 	// Misc methods
 	void Update();
 
+	// Special 
+	void IncRefCount();
 	// Logging 
 	//void LogMsg("",eOAL_LogVerbose aeVerboseLevelReq, eOAL_LogMsg aeMessageType, const char* asMessage, ...);
 
@@ -187,7 +189,6 @@ private:
 	bool LowLevelSet(eOAL_SourceParam aeParam);
 	void LowLevelSetMuted( bool abX );
 
-	inline void IncRefCount();
 	int GetPackedHandle(int alRef, int alId);
 };
 #endif

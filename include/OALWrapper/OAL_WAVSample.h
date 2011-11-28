@@ -16,8 +16,8 @@
 #ifndef _OAL_WAVSAMPLE_H
 #define _OAL_WAVSAMPLE_H
 
-#include "OALWrapper/OAL_Sample.h"
-#include "OALWrapper/OAL_Helper.h"
+#include "OAL_Sample.h"
+#include "OAL_Helper.h"
 
 //-----------------------------------------------------------
 

@@ -17,7 +17,7 @@ class cOAL_Stream : public iOAL_AudioData
 public:
 
 	cOAL_Stream();
-	~cOAL_Stream();
+	virtual ~cOAL_Stream();
 
 	/////////////////////////////////////
 
@@ -35,7 +35,7 @@ public:
 
 	// Streaming Config stuff
 	static inline void SetBufferCount(unsigned int alBufferCount)	{ if(alBufferCount >= 1) mlBufferCount = alBufferCount; } 
-	static inline void SetBufferSize(unsigned int alBufferSize)		{ if(alBufferSize >= 1) mlBufferSize = alBufferSize * STREAMING_BLOCK_SIZE; }
+	static inline void SetBufferSize(unsigned int alBufferSize)		{ if(alBufferSize >= 1) mlBufferSize = alBufferSize; }
 	
 	static inline unsigned int GetBufferSize()			{ return mlBufferSize; }
 	static inline unsigned int GetBufferCount()			{ return mlBufferCount; }

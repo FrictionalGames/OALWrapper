@@ -209,18 +209,13 @@ eOAL_SourceStatus cOAL_Source::GetSourceStatus ()
 		{
 			if(mpAudioData->HasBufferUnderrun())
 				return eOAL_SourceStatus_Busy_BufferUnderrun;
-			
-			/*if(mSourceType==eOAL_SourceType_Stream)
-			{
-				if ( !mpAudioData->IsEOF() ||
-					(mpAudioData->IsEOF() && (GetQueuedBuffers() > 0 ))) //!= GetProcessedBuffers())) )
-					return eOAL_SourceStatus_Busy_BufferUnderrun;
-			}*/
 		}
         return eOAL_SourceStatus_Free;
 	}
     return eOAL_SourceStatus_Busy;
 }
+
+//--------------------------------------------------------------------------------
 
 eOAL_AudioDataType cOAL_Source::GetSourceType()
 {
@@ -371,6 +366,8 @@ void cOAL_Source::IncRefCount()
 	if(++mlRefCount>=0x80000)
 		mlRefCount = 0;
 }
+
+//--------------------------------------------------------------------------------
 
 int cOAL_Source::GetPackedHandle(int alRef, int alId)
 {
@@ -541,12 +538,13 @@ void cOAL_Source::Update()
 			return;
 
 	// Check if the sound data is still healthy
-	if(mpAudioData->GetStatus()==false) {
+	if(mpAudioData==NULL || 
+		mpAudioData->GetStatus()==false) {
 		Stop();
 		return;
 	}
 
-	//hpl::Log("Updating source - mbPlaying %d status %d elapsed %f\n", mbPlaying, sourceStatus, GetElapsedTime());
+	//hpl::Log(" OAL: Updating source %p audiodata: %p - mbPlaying %d status %d elapsed %f/%f\n",this,mpAudioData, mbPlaying, sourceStatus, GetElapsedTime(),GetTotalTime());
 	mpAudioData->Update();
 
 	// If the source had a buffer underrun (this means it ran out of data and stopped), tell it to continue playing

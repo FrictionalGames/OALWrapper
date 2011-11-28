@@ -8,9 +8,9 @@
 #ifndef _OAL_EFXMANAGER_H
 #define _OAL_EFXMANAGER_H
 
-#include "OALWrapper/OAL_Types.h"
-#include "OALWrapper/OAL_Helper.h"
-#include "OALWrapper/OAL_LoggerObject.h"
+#include "OAL_Types.h"
+#include "OAL_Helper.h"
+#include "OAL_LoggerObject.h"
 
 #include <SDL/SDL.h>
 

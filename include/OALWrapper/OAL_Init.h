@@ -77,6 +77,9 @@ const int	OAL_Info_GetMajorVersion();
 const int	OAL_Info_GetMinorVersion();
 const int	OAL_Info_GetNumSources();
 const bool	OAL_Info_IsEFXActive();
+int OAL_Info_GetStreamBufferCount();
+int OAL_Info_GetStreamBufferSize();
+string		OAL_Info_GetDefaultOutputDevice();
 vector<string> OAL_Info_GetOutputDevices();
 
 void OAL_LogSourcePoolStatus();

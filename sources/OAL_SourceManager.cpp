@@ -135,23 +135,31 @@ void cOAL_SourceManager::Destroy()
 
 //-----------------------------------------------------------------------------------
 
-cOAL_Source* cOAL_SourceManager::GetSource(int alSourceHandle, bool abUsingAbsoluteIndex)
+cOAL_Source* cOAL_SourceManager::GetSource(int alSourceHandle, bool abSkipRefCountCheck)
 {
+	//////////////////////////////////
+	//Unpack source ID and refcount from the source
 	int lHandleId = GetUnpackedSourceId(alSourceHandle);
 	int lHandleRefCount = GetUnpackedRefCount(alSourceHandle);
-	int lSourceRefCount;
 	
+	//////////////////////////////////
+	//Check so handle is valid and not out of bounds
 	if( (lHandleId < 0) || (lHandleId >= (int)mvSources.size()) )
 		return NULL;
     
 	cOAL_Source* pSource = mvSources[lHandleId];
 	
-	pSource->Lock();
-	lSourceRefCount = pSource->GetRefCount();
-	pSource->Unlock();
+	//////////////////////////////////
+	// Check so that ref count is valid. (this will invalidate sources have been changed)
+	if(abSkipRefCountCheck==false)
+	{
+		pSource->Lock();
+		int lSourceRefCount = pSource->GetRefCount();
+		pSource->Unlock();
 
-	if(abUsingAbsoluteIndex==false && (lHandleRefCount!=lSourceRefCount) )
-		pSource = NULL;
+		if(lHandleRefCount!=lSourceRefCount)
+			pSource = NULL;
+	}
 
 	return pSource;
 }
@@ -236,13 +244,21 @@ cOAL_Source* cOAL_SourceManager::GetAvailableSource ( unsigned int alPriority, i
 	bool bFreeSourceFound = false;
 	eOAL_SourceStatus status;
 
+	///////////////////////
+	// Debug stuff:
 	if(!mbManageVoices)
 		alNumOfVoices = 1;
 	
+	////////////////////
+	//If number of available voices, are less than the number wanted voices, 
+	//then need to try and get voices from already active ones.
+	//Loop through and inactivate voices until the number wanted is available.
 	while(mlAvailableVoices < alNumOfVoices)
 	{
 		lLowestPrioSource = -1;
 
+		//////////////////////
+		// Find the voice with the lowest priority
 		for(int i=0; i<(int)mvSources.size(); ++i )
 		{
 			pSource = mvSources[i];
@@ -256,17 +272,26 @@ cOAL_Source* cOAL_SourceManager::GetAvailableSource ( unsigned int alPriority, i
 				lLowestPrioSource = i;
 			}
 		}
+		//////////////////////
+		// Found a source, stop it.
 		if(lLowestPrioSource != -1)
 		{
 			pSource = mvSources[lLowestPrioSource];
 			pSource->Lock();
 				pSource->Stop();
+				pSource->IncRefCount(); //Do this to make sure the source is invalidated!
 			pSource->Unlock();
 		}
+		//////////////////////
+		// No source found, leave loop
 		else
+		{
 			break;
 	}
+	}
 
+	//////////////////////
+	// If there are voices available, get one to use
 	if(mlAvailableVoices >= alNumOfVoices)
 	{
 		for(int i=0; i<(int)mvSources.size(); ++i )
@@ -285,12 +310,12 @@ cOAL_Source* cOAL_SourceManager::GetAvailableSource ( unsigned int alPriority, i
 		}
 	}
 
+	////////////////////////////
+	// Return source
 	if(lSourceHandle != -1)
-		pSource = mvSources[lSourceHandle];
+		return mvSources[lSourceHandle];
 	else
-		pSource = NULL;
-
-	return pSource;
+		return NULL;
 }
 
 //-----------------------------------------------------------------------------------

@@ -43,7 +43,10 @@ cOAL_Sample::~cOAL_Sample()
 	{
 		tSourceListIt it;
 		for(it=mlstBoundSources.begin(); it!=mlstBoundSources.end(); ++it)
-			(*it)->Stop(false);
+		{
+			cOAL_Source* pSource = *it;
+			pSource->Stop(false);
+		}
 		mlstBoundSources.clear();
 	}
 }		

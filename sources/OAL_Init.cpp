@@ -17,6 +17,7 @@
 #include "OALWrapper/OAL_Types.h"
 #include "OALWrapper/OAL_Device.h"
 #include "OALWrapper/OAL_SourceManager.h"
+#include "OALWrapper/OAL_Stream.h"
 
 
 cOAL_Device* gpDevice = NULL;
@@ -28,27 +29,12 @@ cOAL_Device* gpDevice = NULL;
 //					bool abUseThread, 	int alUpdateFreq,
 //					int alReqMajorVersion, int alReqMinorVersion)
 ///////////////////////////////////////////////////////////
-/*
-bool	OAL_Init (	const char* asDeviceName, int alOutputFreq, 
-							bool abUseThread, int alUpdateFreq, 
-							int alReqMajorVersion, int alReqMinorVersion,
-							int alNumSourcesHint, bool abVoiceManagement,
-							int alMinMonoSourceHint, int alMinStereoSourceHint,
-							int alStreamingBufferSize, int alStreamingBufferCount)
-*/
 bool	OAL_Init ( cOAL_Init_Params &acParams )
 {
 	OAL_Log(eOAL_LogVerbose_None, eOAL_LogMsg_Text,"-------------------------------------\n----- OpenAL Wrapper Log opened -----\n-------------------------------------\n");
 
 	gpDevice = new cOAL_Device;
 	bool bSuccess = gpDevice->Init( acParams );
-									/*asDeviceName , alOutputFreq, 
-									abUseThread, alUpdateFreq, 
-									true, 4, 4,
-									alReqMajorVersion, alReqMinorVersion,
-									alNumSourcesHint, abVoiceManagement,
-                                    alMinMonoSourceHint, alMinStereoSourceHint,
-									alStreamingBufferSize, alStreamingBufferCount);*/
 	if ( bSuccess )
 	{
 		atexit(OAL_Close);
@@ -207,11 +193,11 @@ void OAL_SetupLogging ( bool abLogSounds, eOAL_LogOutput aeOutput, eOAL_LogVerbo
 	if (pTempFile)
 	{
 		fclose(pTempFile);
-		#ifdef WIN32
+#ifdef WIN32
 		_wremove (iOAL_LoggerObject::GetLogFilename().c_str());
-		#else
+#else
 		remove (WString2String(iOAL_LoggerObject::GetLogFilename()).c_str());
-		#endif
+#endif
 	}
 
 	pTempFile = NULL;
@@ -322,6 +308,21 @@ const bool	OAL_Info_IsEFXActive()
 		return gpDevice->IsEFXActive();
 	else
 		return false;
+}
+
+int OAL_Info_GetStreamBufferCount()
+{
+	return cOAL_Stream::GetBufferCount();
+}
+
+int OAL_Info_GetStreamBufferSize()
+{
+	return cOAL_Stream::GetBufferSize();
+}
+
+string OAL_Info_GetDefaultOutputDevice()
+{
+	return cOAL_Device::GetDefaultDeviceName();
 }
 
 vector<string> OAL_Info_GetOutputDevices()

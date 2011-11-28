@@ -50,11 +50,11 @@ bool cOAL_WAVSample::CreateFromFile(const wstring &asFilename)
 	// Will be used when some fix is found
 	//pPCMBuffer = alutLoadMemoryFromFile ( asFilename.c_str(), &eFormat, &lDataSize, &fFrequency );
 	
-	#if defined(__APPLE__)
+#if defined(__APPLE__)
 	alutLoadWAVFile ( (ALbyte*) sFilename.c_str(), &mFormat, &pPCMBuffer, &lSize, &mlFrequency);
-	#else
+#else
 	alutLoadWAVFile ( (ALbyte*) sFilename.c_str(), &mFormat, &pPCMBuffer, &lSize, &mlFrequency, AL_FALSE);
-	#endif
+#endif
 	status = alutGetError ();
 	switch (status)
 	{

@@ -8,9 +8,9 @@
 #ifndef _OAL_EFFECT_REVERB_H
 #define _OAL_EFFECT_REVERB_H
 
-#include "OALWrapper/OAL_Effect.h"
-#include "OALWrapper/OAL_Types.h"
-#include "OALWrapper/OAL_Helper.h"
+#include "OAL_Effect.h"
+#include "OAL_Types.h"
+#include "OAL_Helper.h"
 
 class cOAL_Effect_Reverb : public cOAL_Effect
 {

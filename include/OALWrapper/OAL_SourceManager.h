@@ -21,7 +21,7 @@ public:
 	cOAL_SourceManager();
 	~cOAL_SourceManager();
 
-	cOAL_Source* GetSource ( int alSourceHandle, bool abUsingAbsoluteIndex = false );
+	cOAL_Source* GetSource ( int alSourceHandle, bool abSkipRefCountCheck = false );
 	cOAL_Source* GetAvailableSource ( unsigned int alPriority, int alNumOfVoices );
 
 	bool Initialize( bool abManageVoices, int alNumSourcesHint, bool abUseThreading, int alUpdateFreq, int alEFXSends = 0 );

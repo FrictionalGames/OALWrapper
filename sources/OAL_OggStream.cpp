@@ -25,7 +25,7 @@ extern ov_callbacks gCallbacks;
 
 //---------------------------------------------------------------------
 
-cOAL_OggStream::cOAL_OggStream()
+cOAL_OggStream::cOAL_OggStream(): mbIsValidHandle(false)
 {
 }
 
@@ -72,11 +72,9 @@ bool cOAL_OggStream::Stream(cOAL_Buffer* apDestBuffer)
 		// If we get a negative value, then something went wrong. Clean up and set error status.
 		else if(lChunkSize == OV_HOLE)										
 			;
-		else if(lChunkSize == OV_EINVAL)
-			mbStatus = false;
-		else if(lChunkSize == OV_EBADLINK)
-			mbStatus = false;
-		else if(lChunkSize<0)
+		else if(lChunkSize==OV_EINVAL || 
+				lChunkSize==OV_EBADLINK || 
+				lChunkSize<0)
 			mbStatus = false;
 		else
 			lDataSize += lChunkSize;

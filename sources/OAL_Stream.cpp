@@ -124,9 +124,17 @@ bool cOAL_Stream::HasBufferUnderrun()
 	if(mpBoundSource==NULL)
 		return false;
 
-	if(IsEOF()==false ||
-		IsEOF() && mpBoundSource->GetQueuedBuffers()>0)
+	if(IsEOF()==false)
+	{
+		//hpl::Log("Have not reached end of file\n");
 		return true;
+	}
+
+	if(mpBoundSource->GetQueuedBuffers()>0)
+	{
+		//hpl::Log("Source still has %d buffers to play\n", mpBoundSource->GetQueuedBuffers());
+		return true;
+	}
 
 	return false;
 }

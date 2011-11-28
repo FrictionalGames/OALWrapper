@@ -88,7 +88,7 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
 	
 	LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Info, "Attempting to open device...\n" );
 	// Open the device, if fails return false
-	if (strcmp( acParams.msDeviceName.c_str(), "NULL" ) == 0)
+	if(acParams.msDeviceName.empty())
 		mpDevice = alcOpenDevice(NULL);
 	else
         mpDevice = alcOpenDevice( acParams.msDeviceName.c_str() );
@@ -115,7 +115,8 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
 	ALCint lAttrList[] = 
 	{
 		ALC_FREQUENCY,		acParams.mlOutputFreq,
-#ifndef __APPLE__
+#ifdef __APPLE__
+#else
 		ALC_MONO_SOURCES,	acParams.mbVoiceManagement ? 256 : acParams.mlMinMonoSourcesHint,
 		ALC_STEREO_SOURCES,	acParams.mbVoiceManagement ? 0 : acParams.mlMinStereoSourcesHint,
 #endif
@@ -339,9 +340,17 @@ cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename)
 	wstring strExt = GetExtensionW(asFilename);
 
 	if(strExt.compare(L"ogg")==0)
+    { 
 		pStream = new cOAL_OggStream;
-	
-	if(pStream && pStream->CreateFromFile(asFilename))
+	}
+	else
+	{
+		return NULL;
+	}
+
+	/////////////////////////////////
+	//Create from file
+	if(pStream->CreateFromFile(asFilename))
 	{
 		mlstStreams.push_back(pStream);
 		//hpl::Log("Loaded stream %s\n", pStream->msName.c_str());
@@ -526,6 +535,17 @@ string& cOAL_Device::GetExtensionName(int alWhich)
 
 //-------------------------------------------------------------------------
 
+string cOAL_Device::GetDefaultDeviceName()
+{
+	DEF_FUNC_NAME(cOAL_Device::GetDefaultDeviceName);
+	FUNC_USES_ALC;
+
+	string sDev = alcGetString(NULL, ALC_DEFAULT_DEVICE_SPECIFIER);
+	
+	return sDev;
+}
+
+//-------------------------------------------------------------------------
 vector<string> cOAL_Device::GetOutputDevices()
 {
 	DEF_FUNC_NAME(cOAL_Device::GetOutputDevices);

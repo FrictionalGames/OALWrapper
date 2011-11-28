@@ -10,7 +10,8 @@ int main (int argc, char *argv[])
     int soundptr = 2;
 	if ( argc <= 2 )
 	{
-		printf ("Usage : OALTest.exe \"music.ogg\" \"sample1.ogg\" \"sample2.ogg\" ...\n\n");
+		printf ("Usage : OALTest.exe \"music.ogg\" [\"sample1.ogg\" \"sample2.ogg\" ...]\n");
+        printf ("\tSpecify one longer music audi file and 1 or more shorter voice audio files to be played at the same time\n\n");
         exit(1);
 	}
 	else
@@ -28,7 +29,7 @@ int main (int argc, char *argv[])
     OAL_SetupLogging(true,eOAL_LogOutput_File,eOAL_LogVerbose_High);
     
     cOAL_Init_Params oal_parms;
-    oal_parms.mlStreamingBufferSize = 64;
+    oal_parms.mlStreamingBufferSize = 8192;
 
     if (OAL_Init(oal_parms)==false)
     {
@@ -38,22 +39,26 @@ int main (int argc, char *argv[])
     else
         printf ("Success\n");
 
-    printf ("Loading stream \"%s\" ... \n",strFilename.c_str());
+    printf ("Loading stream \"%s\" ... ",strFilename.c_str());
 
     pStream = OAL_Stream_Load (strFilename.c_str());
+    if (pStream) {
+        printf("Success\n");
+    } else {
+        printf("Failed\n");
+    }
 
     printf ("Loading stream \"%s\" ... ",strFilename2.c_str());
 
     pStream2 = OAL_Stream_Load (strFilename2.c_str());
 
-    if ( (!pStream) || (!pStream2) )
-    {
+    if (pStream2) {
+        printf("Success\n");
+    } else {
         printf("Failed\n");
     }
-    else
-    {
-        printf("Success\n");
 
+    if ( pStream && pStream2 ) {
         printf("Playing Main Stream...\n");
         printf("\tChannels : %d\n\tFrequency : %d\n", pStream->GetChannels(), pStream->GetFrequency() );
         printf("Playing Secondary Stream...\n");
