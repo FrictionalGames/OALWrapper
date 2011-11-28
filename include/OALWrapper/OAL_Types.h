@@ -60,11 +60,15 @@
     // system headers
     #include <OpenAL/al.h>
     #include <OpenAL/alc.h>
-    #include <ALUT/alut.h>
+    #ifdef WITH_ALUT
+        #include <ALUT/alut.h>
+    #endif
 #else
     #include <AL/al.h>
     #include <AL/alc.h>
-    #include <AL/alut.h>
+    #ifdef WITH_ALUT
+        #include <AL/alut.h>
+    #endif
 #endif
 // Included headers not available on all systems
 #include <AL/alext.h>

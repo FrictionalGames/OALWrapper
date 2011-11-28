@@ -16,7 +16,9 @@
 #include "OALWrapper/OAL_Device.h"
 #include "OALWrapper/OAL_Source.h"
 #include "OALWrapper/OAL_OggSample.h"
+#ifdef WITH_ALUT
 #include "OALWrapper/OAL_WAVSample.h"
+#endif
 #include "OALWrapper/OAL_OggStream.h"
 #include "OALWrapper/OAL_SourceManager.h"
 
@@ -310,10 +312,14 @@ cOAL_Sample* cOAL_Device::LoadSample(const wstring& asFilename)
 	wstring strExt = GetExtensionW(asFilename);
 	if(strExt.compare(L"ogg") == 0 )						// Load an Ogg Vorbis sample
 		pSample = new cOAL_OggSample;
+#ifdef WITH_ALUT
 	else if(strExt.compare(L"wav")==0)				// Load a .WAV sample
 		pSample = new cOAL_WAVSample;
+#endif
+    else
+        return NULL;
 	
-	if(pSample && pSample->CreateFromFile(asFilename) )
+	if(pSample->CreateFromFile(asFilename) )
 		mlstSamples.push_back(pSample);
 	else
 	{
