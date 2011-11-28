@@ -76,7 +76,7 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
 	FUNC_USES_ALC;
 	FUNC_USES_AL;
 
-	LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Command, "Initializing device: %s...\n", (acParams.msDeviceName.c_str()==NULL)? "\"preferred\"":acParams.msDeviceName.c_str() );
+	LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Command, "Initializing device: %s...\n", (acParams.msDeviceName == "")? "\"preferred\"":acParams.msDeviceName.c_str() );
 
 	LogMsg("",eOAL_LogVerbose_High, eOAL_LogMsg_Info, "Configuring streaming options:\n");
 
