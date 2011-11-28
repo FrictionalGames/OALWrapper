@@ -28,7 +28,7 @@ public:
 	cOAL_Init_Params() :  msDeviceName("NULL"), mlMajorVersionReq(1), mlMinorVersionReq(0), 
 						mlOutputFreq(44100), mbUseThread(true), mlUpdateFreq(10), 
 						mlNumSourcesHint(32), mbVoiceManagement(true), mlMinMonoSourcesHint(0),
-						mlMinStereoSourcesHint(0), mlStreamingBufferSize(1), mlStreamingBufferCount(4),
+						mlMinStereoSourcesHint(0), mlStreamingBufferSize(STREAMING_BLOCK_SIZE), mlStreamingBufferCount(4),
 						mbUseEFX(false), mlNumSlotsHint(4), mlNumSendsHint(4), mlSlotUpdateFreq(15)
 	{
 	}
