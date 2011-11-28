@@ -10,8 +10,8 @@ int main (int argc, char *argv[])
     int soundptr = 2;
 	if ( argc <= 2 )
 	{
-		printf ("Usage : OALTest.exe \"music.ogg\" [\"sample1.ogg\" \"sample2.ogg\" ...]\n");
-        printf ("\tSpecify one longer music audi file and 1 or more shorter voice audio files to be played at the same time\n\n");
+		printf ("Usage : %s \"music.ogg\" [\"sample1.ogg\" \"sample2.ogg\" ...]\n", argv[0]);
+        printf ("\tSpecify one longer music audi file and 1 or more shorter voice audio\n\tfiles to be played at the same time\n\n");
         exit(1);
 	}
 	else
