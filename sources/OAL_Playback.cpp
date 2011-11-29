@@ -186,6 +186,40 @@ void OAL_Source_SetLoop ( int alSource, bool abLoop )
 }
 
 //////////////////////////////////////////////////////////////////
+////	void OAL_Source_Position ( const int alSource, const float* apPos )
+////	-	Sets 3D audio position for the specified source.
+//////////////////////////////////////////////////////////////////
+
+void OAL_Source_SetPosition(const int alSource, const float* apPos)
+{
+	if (gpDevice == NULL) return;
+	cOAL_Source* pSource = gpDevice->GetSource(alSource);
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetPosition(apPos);
+		pSource->Unlock();
+	}
+}
+
+//////////////////////////////////////////////////////////////////
+////	void OAL_Source_SetVelocity ( const int alSource, const float* apVel )
+////	-	Sets 3D audio velocity for the specified source.
+//////////////////////////////////////////////////////////////////
+
+void OAL_Source_SetVelocity(const int alSource, const float* apVel)
+{
+	if (gpDevice == NULL) return;
+	cOAL_Source* pSource = gpDevice->GetSource(alSource);
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetVelocity(apVel);
+		pSource->Unlock();
+	}
+}
+
+//////////////////////////////////////////////////////////////////
 ////	void OAL_Source_SetAttributes ( const int alSource, const float* apPos, const float* apVel )
 ////	-	Sets 3D audio attributes for the specified source.
 //////////////////////////////////////////////////////////////////
