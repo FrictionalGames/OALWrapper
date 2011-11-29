@@ -122,7 +122,7 @@ void OAL_Source_Stop ( int alSource )
 ////	-	Sets the volume for the specified Source
 ///////////////////////////////////////////////////////////
 
-void OAL_Source_SetVolume ( int alSource, float afVolume )
+void OAL_Source_SetGain ( int alSource, float afVolume )
 {
 	if (gpDevice == NULL) return;
 	cOAL_Source* pSource = gpDevice->GetSource(alSource);

@@ -39,7 +39,8 @@ int			OAL_Stream_Play ( int alSource, cOAL_Stream* apStream, float afVolume, boo
 
 void		OAL_Source_Stop	( int alSource );
 void		OAL_Source_SetPaused( int alSource, const bool abPaused );
-void		OAL_Source_SetVolume ( int alSource, float afVolume );
+#define OAL_Source_SetVolume OAL_Source_SetGain
+void		OAL_Source_SetGain ( int alSource, float afVolume );
 void		OAL_Source_SetPitch ( int alSource, float afPitch );
 void		OAL_Source_SetLoop ( int alSource, const bool abLoop );
 void		OAL_Source_SetAttributes ( const int alSource, const float* apPos, const float* apVel );
