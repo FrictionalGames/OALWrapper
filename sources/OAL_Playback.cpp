@@ -249,7 +249,7 @@ void OAL_Source_SetMinMaxDistance ( const int alSource, const float afMin, const
 	if (pSource)
 	{
 		pSource->Lock();
-		//pSource->SetMinMaxDistance(afMin, afMax);
+		pSource->SetMinMaxDistance(afMin, afMax);
 		pSource->Unlock();
 	}
 }

@@ -103,6 +103,7 @@ public:
 	void SetPosition(const float* apPos);
 	void SetVelocity(const float* apVel);
 	void SetLoop(bool abLoop);
+    void SetMinMaxDistance(const float afMin, const float afMax);
 
 	void SetElapsedTime(double afTime);
 

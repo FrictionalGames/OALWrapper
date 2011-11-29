@@ -640,6 +640,22 @@ void cOAL_Source::SetLoop(const bool abLoop)
 	}
 }
 
+//////////////////////////////////////////////////////
+//	void SetMinMaxDistance ( const float afMin, const float afMax )
+//	-	Sets the source falloff distances
+//////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetMinMaxDistance(const float afMin, const float afMax)
+{
+	DEF_FUNC_NAME("cOAL_Source::SeMinMaxDistance()");
+	FUNC_USES_AL;
+
+    RUN_AL_FUNC(alSourcef(mlObjectId, AL_REFERENCE_DISTANCE, afMin));
+    RUN_AL_FUNC(alSourcef(mlObjectId, AL_MAX_DISTANCE, afMax));
+}
+
 //--------------------------------------------------------------------------------
 
 void cOAL_Source::SetElapsedTime(double afTime)
