@@ -279,9 +279,9 @@ void OAL_Source_SetPositionRelative ( const int alSource, const bool abRelative 
 void OAL_Listener_SetAttributes ( const float* apPos, const float* apVel, const float* apForward, const float* apUp )
 {
 	if (gpDevice == NULL) return;
-	gpDevice->SetListenerPosition(apPos);
-	gpDevice->SetListenerVelocity(apVel);
-	gpDevice->SetListenerOrientation(apForward, apUp);
+    if (apPos) gpDevice->SetListenerPosition(apPos);
+	if (apVel) gpDevice->SetListenerVelocity(apVel);
+	if (apForward && apUp) gpDevice->SetListenerOrientation(apForward, apUp);
 }
 
 ///////////////////////////////////////////////////////////
