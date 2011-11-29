@@ -25,7 +25,7 @@
 class cOAL_Init_Params
 {
 public:
-	cOAL_Init_Params() :  msDeviceName(""), mlMajorVersionReq(1), mlMinorVersionReq(0), 
+	cOAL_Init_Params() :  msDeviceName(""), mlMajorVersionReq(1), mlMinorVersionReq(1), 
 						mlOutputFreq(44100), mbUseThread(true), mlUpdateFreq(10), 
 						mlNumSourcesHint(32), mbVoiceManagement(true), mlMinMonoSourcesHint(0),
 						mlMinStereoSourcesHint(0), mlStreamingBufferSize(STREAMING_BLOCK_SIZE), mlStreamingBufferCount(4),

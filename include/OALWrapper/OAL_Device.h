@@ -37,11 +37,6 @@ public:
 	bool Init(cOAL_Init_Params& acParams);
 	void Close();
 
-	bool ReInit ( const char* asDeviceName, const int alOutputFreq = 44100, 
-				int alSourceNumHint = 32, int alReqMajorVersion = 1, 
-				int alReqMinorVersion = 1,
-				int alMaxMonoSourceHint=0, int alMaxStereoSourceHint =0);
-
 	///////////////////////////////////////////////////////
 	// Info methods
     
