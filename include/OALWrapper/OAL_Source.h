@@ -40,6 +40,7 @@ typedef enum
 	eOAL_SourceParam_Gain,
 	eOAL_SourceParam_Pitch,
 	eOAL_SourceParam_Position,
+	eOAL_SourceParam_PositionRelative,
 	eOAL_SourceParam_Velocity,
 	eOAL_SourceParam_Buffer,
 	eOAL_SourceParam_Default
@@ -101,6 +102,7 @@ public:
 	void SetGain(float afGain);
 	void SetPitch(float afPitch);
 	void SetPosition(const float* apPos);
+    void SetPositionRelative(bool abRelative);
 	void SetVelocity(const float* apVel);
 	void SetLoop(bool abLoop);
     void SetMinMaxDistance(const float afMin, const float afMax);
@@ -175,6 +177,7 @@ private:
 	float mfPitch;
 	float mvPos[3];
 	float mvVel[3];
+    bool mbRelativePosition;
 
 	vector<cOAL_SourceSend*> mvSends;
 	

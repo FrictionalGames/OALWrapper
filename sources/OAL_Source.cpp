@@ -326,6 +326,9 @@ bool cOAL_Source::LowLevelSet(eOAL_SourceParam aParam)
 	case eOAL_SourceParam_Position:
 		RUN_AL_FUNC(alSourcefv ( mlObjectId, AL_POSITION, mvPos ));
 		break;
+	case eOAL_SourceParam_PositionRelative:
+		RUN_AL_FUNC(alSourcei ( mlObjectId, AL_SOURCE_RELATIVE, mbRelativePosition ? AL_TRUE : AL_FALSE ));
+		break;
 	case eOAL_SourceParam_Velocity:
         RUN_AL_FUNC(alSourcefv ( mlObjectId, AL_VELOCITY, mvVel ));
 		break;
@@ -704,6 +707,12 @@ void cOAL_Source::SetPosition ( const float* apPos )
 	mvPos[1] = apPos[1];
 	mvPos[2] = apPos[2];
 	LowLevelSet(eOAL_SourceParam_Position);
+}
+
+void cOAL_Source::SetPositionRelative( bool abRelative )
+{
+    mbRelativePosition = abRelative;
+    LowLevelSet(eOAL_SourceParam_PositionRelative);
 }
 
 //--------------------------------------------------------------------------------

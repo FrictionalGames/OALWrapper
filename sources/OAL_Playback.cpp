@@ -266,7 +266,7 @@ void OAL_Source_SetPositionRelative ( const int alSource, const bool abRelative 
 	if (pSource)
 	{
 		pSource->Lock();
-//		pSource->SetPositionRelative(abRelative);
+		pSource->SetPositionRelative(abRelative);
 		pSource->Unlock();
 	}
 }
