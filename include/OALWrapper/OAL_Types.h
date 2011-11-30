@@ -73,7 +73,6 @@
 // Included headers not available on all systems
 #include <AL/alext.h>
 #include <AL/efx.h>
-#include <AL/efx-creative.h>
 
 using namespace std;
 
