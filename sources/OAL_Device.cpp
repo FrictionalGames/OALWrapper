@@ -56,6 +56,7 @@ cOAL_Device::cOAL_Device ( ) : mpDevice(NULL),
 							   mpContext(NULL),
 							   mpSourceManager(NULL), 
 							   mpEFXManager(NULL),
+							   mbEFXActive(false),
 							   mlEFXSends(0)
 {
 }
