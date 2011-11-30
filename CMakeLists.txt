@@ -17,7 +17,7 @@ IF(PRIVATE_LIB_DIR)
         MESSAGE(FATAL_ERROR "folder named include not found in private lib dir")
     ENDIF()
     INCLUDE_DIRECTORIES(
-        ${PRIVATE_LIB_DIR}/include}
+        ${PRIVATE_LIB_DIR}/include
     )
     FIND_LIBRARY(OGG_LIBRARY
         ogg
