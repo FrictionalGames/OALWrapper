@@ -19,8 +19,7 @@
 #include "OAL_Stream.h"
 #include "OAL_Helper.h"
 
-#include "OAL_OggHelper.h"
-
+#include <vorbis/vorbisfile.h>
 
 //------------------------------------------------------------------------
 

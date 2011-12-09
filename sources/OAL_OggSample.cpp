@@ -19,9 +19,7 @@
 #include <string>
 #include <cstring>
 
-//-------------------------------------------------------------------------------
-
-extern ov_callbacks gCallbacks;
+#include <vorbis/vorbisfile.h>
 
 //-------------------------------------------------------------------------------
 
@@ -60,7 +58,7 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 
 	// If not an Ogg file, set status and exit
 	OggVorbis_File ovFileHandle;
-	if((lOpenResult = ov_open_callbacks(fileHandle, &ovFileHandle, NULL, 0, gCallbacks))<0)	
+	if((lOpenResult = ov_open_callbacks(fileHandle, &ovFileHandle, NULL, 0, OV_CALLBACKS_DEFAULT))<0)
 	{
 		fclose ( fileHandle );
 		mbStatus = false;

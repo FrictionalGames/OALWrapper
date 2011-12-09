@@ -18,7 +18,6 @@
 
 #include "OAL_Sample.h"
 
-#include "OAL_OggHelper.h"
 //-------------------------------------------------------------------------------
 
 class cOAL_OggSample : public cOAL_Sample

@@ -108,7 +108,6 @@ SET(all_sources
     sources/OAL_Init.cpp
     sources/OAL_Loaders.cpp
     sources/OAL_LoggerObject.cpp
-    sources/OAL_OggHelper.cpp
     sources/OAL_OggSample.cpp
     sources/OAL_OggStream.cpp
     sources/OAL_Playback.cpp

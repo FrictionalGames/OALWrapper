@@ -207,10 +207,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\sources\OAL_OggHelper.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\sources\OAL_OggSample.cpp"
 				>
 			</File>
@@ -313,10 +309,6 @@
 				</File>
 				<File
 					RelativePath=".\include\OALWrapper\OAL_LowLevelObject.h"
-					>
-				</File>
-				<File
-					RelativePath=".\include\OALWrapper\OAL_OggHelper.h"
 					>
 				</File>
 				<File

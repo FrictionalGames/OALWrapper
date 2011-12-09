@@ -20,9 +20,6 @@
 #include <stdlib.h>
 #include <string>
 
-
-extern ov_callbacks gCallbacks;
-
 //---------------------------------------------------------------------
 
 cOAL_OggStream::cOAL_OggStream(): mbIsValidHandle(false)
@@ -154,7 +151,7 @@ bool cOAL_OggStream::CreateFromFile(const wstring &asFilename)
 	// If not an Ogg file, set status and exit
 
 	lOpenResult = ov_open_callbacks(pStreamFile, &movStreamHandle,
-									NULL, 0, gCallbacks);
+									NULL, 0, OV_CALLBACKS_DEFAULT);
 	if(lOpenResult<0)	
 	{
 		fclose(pStreamFile);
