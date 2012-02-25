@@ -311,7 +311,7 @@ cOAL_Sample* cOAL_Device::LoadSample(const wstring& asFilename)
 
 	// Check file format and load the sample data according to it
 	wstring strExt = GetExtensionW(asFilename);
-	if(strExt.compare(L"ogg") == 0 )						// Load an Ogg Vorbis sample
+	if(strExt.compare(L"ogg")==0 || strExt.compare(L"oga")==0)						// Load an Ogg Vorbis sample
 		pSample = new cOAL_OggSample;
 #ifdef WITH_ALUT
 	else if(strExt.compare(L"wav")==0)				// Load a .WAV sample
@@ -346,7 +346,7 @@ cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename)
 
 	wstring strExt = GetExtensionW(asFilename);
 
-	if(strExt.compare(L"ogg")==0)
+	if(strExt.compare(L"ogg")==0 || strExt.compare(L"oga")==0)
     { 
 		pStream = new cOAL_OggStream;
 	}
