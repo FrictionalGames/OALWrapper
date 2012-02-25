@@ -137,5 +137,8 @@ TARGET_LINK_LIBRARIES(OALWrapper
 ADD_EXECUTABLE(SimpleTest tests/Simple/main.cpp)
 TARGET_LINK_LIBRARIES(SimpleTest OALWrapper)
 
+ADD_EXECUTABLE(Playlist tests/Playlist/main.cpp)
+TARGET_LINK_LIBRARIES(Playlist OALWrapper)
+
 # Exports
 SET(OALWRAPPER_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include PARENT_SCOPE)
