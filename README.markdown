@@ -1,7 +1,7 @@
 OAL Wrapper Source Code
 =======================
 
-Yes, here OpenAL C++ Wrapper that was built and used for the Penumbra series as well as the upcoming Amnesia: The Dark Descent game.
+Yes, here is the OpenAL C++ Wrapper that was built and used for the Penumbra series as well as Amnesia: The Dark Descent.
 
 Read through the TODO file for various known things that should be cleaned up / fixed.
 
