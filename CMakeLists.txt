@@ -13,6 +13,11 @@ SET(PRIVATE_LIB_DIR
 )
 
 IF(PRIVATE_LIB_DIR)
+    IF(CMAKE_SIZEOF_VOID_P MATCHES "8" AND NOT(FORCE32))
+        SET(PATH_SUFFIXES lib64 linux64)
+    else()
+        SET(PATH_SUFFIXES lib linux)
+    endif()
     IF(NOT EXISTS ${PRIVATE_LIB_DIR}/include)
         MESSAGE(FATAL_ERROR "folder named include not found in private lib dir")
     ENDIF()
@@ -21,7 +26,7 @@ IF(PRIVATE_LIB_DIR)
     )
     FIND_LIBRARY(OGG_LIBRARY
         ogg
-        PATH_SUFFIXES lib lib64 linux linux64
+        PATH_SUFFIXES ${PATH_SUFFIXES}
         NO_DEFAULT_PATH
         PATHS ${PRIVATE_LIB_DIR}
     )
@@ -31,7 +36,7 @@ IF(PRIVATE_LIB_DIR)
 
     FIND_LIBRARY(VORBIS_LIBRARY
         vorbis
-        PATH_SUFFIXES lib lib64 linux linux64
+        PATH_SUFFIXES ${PATH_SUFFIXES}
         NO_DEFAULT_PATH
         PATHS ${PRIVATE_LIB_DIR}
     )
@@ -41,7 +46,7 @@ IF(PRIVATE_LIB_DIR)
 
     FIND_LIBRARY(VORBISFILE_LIBRARY
         vorbisfile
-        PATH_SUFFIXES lib lib64 linux linux64
+        PATH_SUFFIXES ${PATH_SUFFIXES}
         NO_DEFAULT_PATH
         PATHS ${PRIVATE_LIB_DIR}
     )
@@ -52,7 +57,7 @@ IF(PRIVATE_LIB_DIR)
     IF(WITH_ALUT)
         FIND_LIBRARY(ALUT_LIBRARY
             alut
-            PATH_SUFFIXES lib lib64 linux linux64
+            PATH_SUFFIXES ${PATH_SUFFIXES}
             NO_DEFAULT_PATH
             PATHS ${PRIVATE_LIB_DIR}
         )
@@ -63,7 +68,7 @@ IF(PRIVATE_LIB_DIR)
 
     FIND_LIBRARY(OPENAL_LIBRARY
         openal
-        PATH_SUFFIXES lib lib64 linux linux64
+        PATH_SUFFIXES ${PATH_SUFFIXES}
         NO_DEFAULT_PATH
         PATHS ${PRIVATE_LIB_DIR}
     )
