@@ -13,22 +13,25 @@ SET(PRIVATE_LIB_DIR
 )
 
 IF(PRIVATE_LIB_DIR)
-    IF(CMAKE_SIZEOF_VOID_P MATCHES "8" AND NOT(FORCE32))
-        SET(PATH_SUFFIXES lib64 linux64)
-    else()
-        SET(PATH_SUFFIXES lib linux)
-    endif()
     IF(NOT EXISTS ${PRIVATE_LIB_DIR}/include)
         MESSAGE(FATAL_ERROR "folder named include not found in private lib dir")
     ENDIF()
     INCLUDE_DIRECTORIES(
         ${PRIVATE_LIB_DIR}/include
     )
+    IF(NOT PATH_SUFFIXES)
+        IF(CMAKE_SIZEOF_VOID_P MATCHES "8" AND NOT(FORCE32))
+            SET(PATH_SUFFIXES lib64 linux64)
+        ELSE()
+            SET(PATH_SUFFIXES lib linux)
+        ENDIF()
+    ENDIF()
+
     FIND_LIBRARY(OGG_LIBRARY
         ogg
         PATH_SUFFIXES ${PATH_SUFFIXES}
-        NO_DEFAULT_PATH
         PATHS ${PRIVATE_LIB_DIR}
+        NO_DEFAULT_PATH
     )
     IF(OGG_LIBRARY STREQUAL "OGG_LIBRARY-NOTFOUND")
         MESSAGE(FATAL_ERROR "Could not find ogg library")
@@ -37,8 +40,8 @@ IF(PRIVATE_LIB_DIR)
     FIND_LIBRARY(VORBIS_LIBRARY
         vorbis
         PATH_SUFFIXES ${PATH_SUFFIXES}
-        NO_DEFAULT_PATH
         PATHS ${PRIVATE_LIB_DIR}
+        NO_DEFAULT_PATH
     )
     IF(VORBIS_LIBRARY STREQUAL "VORBIS_LIBRARY-NOTFOUND")
         MESSAGE(FATAL_ERROR "Could not find vorbis library")
@@ -47,8 +50,8 @@ IF(PRIVATE_LIB_DIR)
     FIND_LIBRARY(VORBISFILE_LIBRARY
         vorbisfile
         PATH_SUFFIXES ${PATH_SUFFIXES}
-        NO_DEFAULT_PATH
         PATHS ${PRIVATE_LIB_DIR}
+        NO_DEFAULT_PATH
     )
     IF(VORBISFILE_LIBRARY STREQUAL "VORBISFILE_LIBRARY-NOTFOUND")
         MESSAGE(FATAL_ERROR "Could not find vorbisfile library")
@@ -58,8 +61,8 @@ IF(PRIVATE_LIB_DIR)
         FIND_LIBRARY(ALUT_LIBRARY
             alut
             PATH_SUFFIXES ${PATH_SUFFIXES}
-            NO_DEFAULT_PATH
             PATHS ${PRIVATE_LIB_DIR}
+            NO_DEFAULT_PATH
         )
         IF(ALUT_LIBRARY STREQUAL "ALUT_LIBRARY-NOTFOUND")
             MESSAGE(FATAL_ERROR "Could not find alut library")
@@ -69,8 +72,8 @@ IF(PRIVATE_LIB_DIR)
     FIND_LIBRARY(OPENAL_LIBRARY
         openal
         PATH_SUFFIXES ${PATH_SUFFIXES}
-        NO_DEFAULT_PATH
         PATHS ${PRIVATE_LIB_DIR}
+        NO_DEFAULT_PATH
     )
     IF(OPENAL_LIBRARY STREQUAL "OPENAL_LIBRARY-NOTFOUND")
         MESSAGE(FATAL_ERROR "Could not find openal library")
