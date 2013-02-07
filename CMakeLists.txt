@@ -11,71 +11,69 @@ OPTION(WITH_ALUT "Include alut WAVE loading" OFF)
 SET(PRIVATE_LIB_DIR
     CACHE PATH "Location of local private library path to use"
 )
+IF(NOT APP_PRIVATE_LIB_DIR AND PRIVATE_LIB_DIR)
+    SET(APP_PRIVATE_LIB_DIR ${PRIVATE_LIB_DIR})
+ENDIF()
 
-IF(PRIVATE_LIB_DIR)
-    IF(NOT EXISTS ${PRIVATE_LIB_DIR}/include)
-        MESSAGE(FATAL_ERROR "folder named include not found in private lib dir")
+IF(APP_PRIVATE_LIB_DIR)
+    IF(NOT EXISTS ${APP_PRIVATE_LIB_DIR}/include)
+        MESSAGE(FATAL_ERROR "folder named include not found in private lib dir ${APP_PRIVATE_LIB_DIR}")
     ENDIF()
     INCLUDE_DIRECTORIES(
-        ${PRIVATE_LIB_DIR}/include
+        ${APP_PRIVATE_LIB_DIR}/include
     )
-    IF(NOT PATH_SUFFIXES)
-        IF(CMAKE_SIZEOF_VOID_P MATCHES "8" AND NOT(FORCE32))
-            SET(PATH_SUFFIXES lib64 linux64)
-        ELSE()
-            SET(PATH_SUFFIXES lib linux)
-        ENDIF()
+    SET(PRIVATE_LIB_SUFFIX "")
+    IF(CMAKE_SIZEOF_VOID_P MATCHES "8" AND NOT(FORCE32))
+        if(EXISTS ${APP_PRIVATE_LIB_DIR}/linux64)
+            SET(PRIVATE_LIB_SUFFIX "linux64")
+        else(EXISTS ${APP_PRIVATE_LIB_DIR}/lib64)
+            SET(PRIVATE_LIB_SUFFIX "lib64")
+        endif()
+    ELSE()
+        if(EXISTS ${APP_PRIVATE_LIB_DIR}/linux)
+            SET(PRIVATE_LIB_SUFFIX "linux")
+        else(EXISTS ${APP_PRIVATE_LIB_DIR}/lib)
+            SET(PRIVATE_LIB_SUFFIX "lib")
+        endif()
+    ENDIF()
+    IF(NOT PRIVATE_LIB_SUFFIX)
+        MESSAGE(FATAL_ERROR "could not find lib directory in private lib dir ${APP_PRIVATE_LIB_DIR}")
     ENDIF()
 
-    FIND_LIBRARY(OGG_LIBRARY
-        ogg
-        PATH_SUFFIXES ${PATH_SUFFIXES}
-        PATHS ${PRIVATE_LIB_DIR}
-        NO_DEFAULT_PATH
-    )
-    IF(OGG_LIBRARY STREQUAL "OGG_LIBRARY-NOTFOUND")
+    IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libogg.so)
+        SET(OGG_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libogg.so" CACHE FILEPATH "Ogg")
+    ENDIF()
+    IF(NOT OGG_LIBRARY)
         MESSAGE(FATAL_ERROR "Could not find ogg library")
     ENDIF()
 
-    FIND_LIBRARY(VORBIS_LIBRARY
-        vorbis
-        PATH_SUFFIXES ${PATH_SUFFIXES}
-        PATHS ${PRIVATE_LIB_DIR}
-        NO_DEFAULT_PATH
-    )
-    IF(VORBIS_LIBRARY STREQUAL "VORBIS_LIBRARY-NOTFOUND")
+    IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libvorbis.so)
+        SET(VORBIS_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libvorbis.so" CACHE FILEPATH "Vorbis")
+    ENDIF()
+    IF(NOT VORBIS_LIBRARY)
         MESSAGE(FATAL_ERROR "Could not find vorbis library")
     ENDIF()
 
-    FIND_LIBRARY(VORBISFILE_LIBRARY
-        vorbisfile
-        PATH_SUFFIXES ${PATH_SUFFIXES}
-        PATHS ${PRIVATE_LIB_DIR}
-        NO_DEFAULT_PATH
-    )
-    IF(VORBISFILE_LIBRARY STREQUAL "VORBISFILE_LIBRARY-NOTFOUND")
+    IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libvorbisfile.so)
+        SET(VORBISFILE_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libvorbisfile.so" CACHE FILEPATH "VorbisFile")
+    ENDIF()
+    IF(NOT VORBISFILE_LIBRARY)
         MESSAGE(FATAL_ERROR "Could not find vorbisfile library")
     ENDIF()
 
     IF(WITH_ALUT)
-        FIND_LIBRARY(ALUT_LIBRARY
-            alut
-            PATH_SUFFIXES ${PATH_SUFFIXES}
-            PATHS ${PRIVATE_LIB_DIR}
-            NO_DEFAULT_PATH
-        )
-        IF(ALUT_LIBRARY STREQUAL "ALUT_LIBRARY-NOTFOUND")
+        IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libalut.so)
+            SET(ALUT_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libalut.so" CACHE FILEPATH "ALUT")
+        ENDIF()
+        IF(NOT ALUT_LIBRARY)
             MESSAGE(FATAL_ERROR "Could not find alut library")
         ENDIF()
     ENDIF()
 
-    FIND_LIBRARY(OPENAL_LIBRARY
-        openal
-        PATH_SUFFIXES ${PATH_SUFFIXES}
-        PATHS ${PRIVATE_LIB_DIR}
-        NO_DEFAULT_PATH
-    )
-    IF(OPENAL_LIBRARY STREQUAL "OPENAL_LIBRARY-NOTFOUND")
+    IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libopenal.so)
+        SET(OPENAL_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libopenal.so" CACHE FILEPATH "OpenAL")
+    ENDIF()
+    IF(NOT OPENAL_LIBRARY)
         MESSAGE(FATAL_ERROR "Could not find openal library")
     ENDIF()
 ELSE()
