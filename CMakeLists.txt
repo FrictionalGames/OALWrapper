@@ -116,6 +116,7 @@ SET(all_sources
     sources/OAL_LoggerObject.cpp
     sources/OAL_OggSample.cpp
     sources/OAL_OggStream.cpp
+    sources/OAL_WAVSample.cpp
     sources/OAL_Playback.cpp
     sources/OAL_Sample.cpp
     sources/OAL_Source.cpp
@@ -123,12 +124,6 @@ SET(all_sources
     sources/OAL_Stream.cpp
     sources/OAL_Types.cpp
 )
-
-IF(WITH_ALUT)
-    LIST(APPEND all_sources
-        sources/OAL_WAVSample.cpp
-    )
-ENDIF()
 
 add_library(OALWrapper STATIC ${all_sources})
 TARGET_LINK_LIBRARIES(OALWrapper

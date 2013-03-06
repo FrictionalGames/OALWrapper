@@ -29,6 +29,7 @@
 
 bool cOAL_WAVSample::CreateFromFile(const wstring &asFilename)
 {
+#ifdef WITH_ALUT
 	DEF_FUNC_NAME("cOAL_WAVSample::Load()");
 	FUNC_USES_AL;
 	
@@ -88,6 +89,14 @@ bool cOAL_WAVSample::CreateFromFile(const wstring &asFilename)
 	status = alutGetError ();
 
 	return true;
+#else
+	return false;
+#endif
+}
+
+bool cOAL_WAVSample::CreateFromBuffer(const void* apBuffer, size_t aSize)
+{
+	return false;
 }
 
 //------------------------------------------------------------------

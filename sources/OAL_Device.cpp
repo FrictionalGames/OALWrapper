@@ -16,9 +16,7 @@
 #include "OALWrapper/OAL_Device.h"
 #include "OALWrapper/OAL_Source.h"
 #include "OALWrapper/OAL_OggSample.h"
-#ifdef WITH_ALUT
 #include "OALWrapper/OAL_WAVSample.h"
-#endif
 #include "OALWrapper/OAL_OggStream.h"
 #include "OALWrapper/OAL_SourceManager.h"
 
@@ -304,10 +302,8 @@ static eOAL_SampleFormat DetectFormatByFileName(const wstring& asFilename)
 	wstring strExt = GetExtensionW(asFilename);
 	if(strExt.compare(L"ogg")==0 || strExt.compare(L"oga")==0)
 		return eOAL_SampleFormat_Ogg;	// Load an Ogg Vorbis sample
-#ifdef WITH_ALUT
 	else if(strExt.compare(L"wav")==0)
 		return eOAL_SampleFormat_Wav;	// Load a .WAV sample
-#endif
 	return eOAL_SampleFormat_Unknown;
 }
 
@@ -327,12 +323,10 @@ static eOAL_SampleFormat DetectFormatByMagic(const void* apBuffer, size_t aSize)
 	{
 		return eOAL_SampleFormat_Ogg;
 	}
-#ifdef WITH_ALUT
 	if (aSize >= 12 && CompareBuffer(buff, "RIFF", 4) && (CompareBuffer(&buff[8], "WAVE", 4) || CompareBuffer(&buff[8], "WAV", 3)))
 	{
 		return eOAL_SampleFormat_Wav;
 	}
-#endif
 	return eOAL_SampleFormat_Unknown;	
 }
 
@@ -356,11 +350,9 @@ cOAL_Sample* cOAL_Device::LoadSample(const wstring& asFilename, eOAL_SampleForma
 		case eOAL_SampleFormat_Ogg:
 			pSample = new cOAL_OggSample;
 			break;
-#ifdef WITH_ALUT
 		case eOAL_SampleFormat_Wav:
 			pSample = new cOAL_WAVSample;
 			break;
-#endif
 		default:
 			return NULL;
 	}
@@ -389,11 +381,9 @@ cOAL_Sample* cOAL_Device::LoadSampleFromBuffer(const void* apBuffer, size_t aSiz
 		case eOAL_SampleFormat_Ogg:
 			pSample = new cOAL_OggSample;
 			break;
-#ifdef WITH_ALUT
 		case eOAL_SampleFormat_Wav:
 			pSample = new cOAL_WAVSample;
 			break;
-#endif
 		default:
 			return NULL;
 	}
