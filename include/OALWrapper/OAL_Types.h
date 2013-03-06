@@ -76,6 +76,14 @@
 
 using namespace std;
 
+typedef enum
+{
+	eOAL_SampleFormat_Detect = 0,
+	eOAL_SampleFormat_Ogg,
+	eOAL_SampleFormat_Wav,
+	eOAL_SampleFormat_Unknown = 0xff
+} eOAL_SampleFormat;
+
 class cOAL_Source;
 class cOAL_Sample;
 class cOAL_Stream;

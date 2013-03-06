@@ -66,10 +66,11 @@ public:
 
 	///////////////////////////////////////////////////////
 	// Loaders
-	cOAL_Sample* LoadSample(const string& asFileName);
-	cOAL_Sample* LoadSample(const wstring& asFileName);
-	cOAL_Stream* LoadStream(const string& asFileName);
-	cOAL_Stream* LoadStream(const wstring& asFileName);
+	cOAL_Sample* LoadSample(const string& asFileName, eOAL_SampleFormat format);
+	cOAL_Sample* LoadSample(const wstring& asFileName, eOAL_SampleFormat format);
+	cOAL_Sample* LoadSampleFromBuffer(const void *apBuffer, size_t aSize, eOAL_SampleFormat format);
+	cOAL_Stream* LoadStream(const string& asFileName, eOAL_SampleFormat format);
+	cOAL_Stream* LoadStream(const wstring& asFileName, eOAL_SampleFormat format);
 	void UnloadSample(cOAL_Sample* apSample);
 	void UnloadStream(cOAL_Stream* apStream);
 

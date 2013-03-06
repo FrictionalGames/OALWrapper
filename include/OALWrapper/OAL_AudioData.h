@@ -33,6 +33,7 @@ public:
 
 	virtual void Reset();
 	virtual bool CreateFromFile(const wstring& asFilename) = 0;
+	virtual bool CreateFromBuffer(const void *apBuffer, size_t aSize) = 0;
 	virtual void Destroy() = 0;
 
 	inline eOAL_AudioDataType GetType() { return mType; }

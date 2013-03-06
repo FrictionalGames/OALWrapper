@@ -29,22 +29,28 @@ extern cOAL_Device* gpDevice;
 
 //------------------------------------------------------------------------
 
-cOAL_Sample* OAL_Sample_Load(const string &asFilename)
+cOAL_Sample* OAL_Sample_Load(const string &asFilename, eOAL_SampleFormat format)
 {
 	if (gpDevice == NULL) return NULL;
 
-	return gpDevice->LoadSample(asFilename);
+	return gpDevice->LoadSample(asFilename, format);
 }
 
 //------------------------------------------------------------------------
 
-cOAL_Sample* OAL_Sample_Load(const wstring& asFilename)
+cOAL_Sample* OAL_Sample_Load(const wstring& asFilename, eOAL_SampleFormat format)
 {
 	if(gpDevice==NULL) return NULL;
 
-	return gpDevice->LoadSample(asFilename);
+	return gpDevice->LoadSample(asFilename, format);
 }
 
+cOAL_Sample* OAL_Sample_LoadFromBuffer(const void* apBuffer, size_t aSize, eOAL_SampleFormat format)
+{
+	if(gpDevice==NULL) return NULL;
+
+	return gpDevice->LoadSampleFromBuffer(apBuffer, aSize, format);
+}
 //------------------------------------------------------------------------
 
 ///////////////////////////////////////////////////////////
@@ -70,20 +76,20 @@ void OAL_Sample_Unload(cOAL_Sample* apSample)
 
 //------------------------------------------------------------------------
 
-cOAL_Stream* OAL_Stream_Load(const string &asFilename)
+cOAL_Stream* OAL_Stream_Load(const string &asFilename, eOAL_SampleFormat format)
 {
 	if (gpDevice == NULL) return NULL;
 
-   	return gpDevice->LoadStream(asFilename);
+   	return gpDevice->LoadStream(asFilename, format);
 }
 
 //------------------------------------------------------------------------
 
-cOAL_Stream* OAL_Stream_Load(const wstring& asFilename)
+cOAL_Stream* OAL_Stream_Load(const wstring& asFilename, eOAL_SampleFormat fomat)
 {
 	if(gpDevice==NULL) return NULL;
 	
-	return gpDevice->LoadStream(asFilename);
+	return gpDevice->LoadStream(asFilename, fomat);
 }
 
 //------------------------------------------------------------------------

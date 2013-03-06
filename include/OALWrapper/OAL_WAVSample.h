@@ -25,6 +25,7 @@ class cOAL_WAVSample : public cOAL_Sample
 {
 public:	
 	bool CreateFromFile(const wstring& asFilename);
+	bool CreateFromBuffer(const void *apBuffer, size_t aSize);
 protected:
 };
 

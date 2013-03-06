@@ -143,6 +143,9 @@ TARGET_LINK_LIBRARIES(OALWrapper
 ADD_EXECUTABLE(SimpleTest tests/Simple/main.cpp)
 TARGET_LINK_LIBRARIES(SimpleTest OALWrapper)
 
+ADD_EXECUTABLE(PlaySound tests/PlaySound/main.cpp)
+TARGET_LINK_LIBRARIES(PlaySound OALWrapper)
+
 ADD_EXECUTABLE(Playlist tests/Playlist/main.cpp)
 TARGET_LINK_LIBRARIES(Playlist OALWrapper)
 

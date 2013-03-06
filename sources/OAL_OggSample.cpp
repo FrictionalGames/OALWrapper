@@ -21,6 +21,70 @@
 
 #include <vorbis/vorbisfile.h>
 
+typedef struct
+{
+	unsigned char* data;
+	ogg_int64_t size;
+	ogg_int64_t pos;
+} OAL_OggMemoryFile;
+
+static size_t OAL_OggBufferRead(void* dest, size_t eltSize, size_t nelts, OAL_OggMemoryFile* src)
+{
+	size_t len = eltSize * nelts;
+	if ( (src->pos + len) > src->size)
+	{
+		len = src->size - src->pos;
+	}
+	if (len > 0)
+	{
+		memcpy( dest, (src->data + src->pos), len);
+		src->pos += len;
+	}
+	return len;
+}
+
+static int OAL_OggBufferSeek(OAL_OggMemoryFile* src, ogg_int64_t pos, int whence)
+{
+	switch (whence) {
+		case SEEK_CUR:
+			src->pos += pos;
+			break;
+		case SEEK_END:
+			src->pos = src->size - pos;
+			break;
+		case SEEK_SET:
+			src->pos = pos;
+			break;
+		default:
+			return -1;
+	}
+	if (src->pos < 0) {
+		src->pos = 0;
+		return -1;
+	}
+	if (src->pos > src->size) {
+		return -1;
+	}
+	return 0;
+}
+
+static int OAL_OggBufferClose(OAL_OggMemoryFile* src)
+{
+	return 0;
+}
+
+static long OAL_OggBufferTell(OAL_OggMemoryFile *src)
+{
+	return src->pos;
+}
+
+static ov_callbacks OAL_CALLBACKS_BUFFER = {
+	(size_t (*)(void *, size_t, size_t, void *))	OAL_OggBufferRead,
+	(int (*)(void *, ogg_int64_t, int))				OAL_OggBufferSeek,
+	(int (*)(void *))								OAL_OggBufferClose,
+	(long (*)(void *))								OAL_OggBufferTell
+};
+
 //-------------------------------------------------------------------------------
 
 ///////////////////////////////////////////////////////////
@@ -31,7 +95,7 @@
 
 bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 {
-	DEF_FUNC_NAME("cOAL_OggSample::Load()");
+	DEF_FUNC_NAME("cOAL_OggSample::CreateFromFile()");
 	FUNC_USES_AL;
 
 	if(mbStatus==false)
@@ -39,11 +103,7 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 
 	Reset();
 	
-	char *pPCMBuffer;
-	bool bEOF = false;
 	int lOpenResult;
-	int lCurrent_section;
-	long lDataSize = 0;
 
 	msFilename = asFilename;
 
@@ -64,6 +124,48 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 		mbStatus = false;
 		return false;
 	}
+
+	return LoadOgg(ovFileHandle);
+}
+
+bool cOAL_OggSample::CreateFromBuffer(const void* apBuffer, size_t aSize)
+{
+	DEF_FUNC_NAME("cOAL_OggSample::CreateFromBuffer()");
+	FUNC_USES_AL;
+
+	if(mbStatus==false)
+		return false;
+
+	Reset();
+
+	int lOpenResult;
+
+	msFilename = L":buffer:";
+
+	// If no buffer is set, set the error status and return
+	if(!apBuffer)
+	{
+		mbStatus = false;
+		return false;
+	}
+
+	// If not an Ogg file, set status and exit
+	OAL_OggMemoryFile fakeFile = { (unsigned char*)apBuffer, aSize, 0 };
+	OggVorbis_File ovFileHandle;
+	if((lOpenResult = ov_open_callbacks(&fakeFile, &ovFileHandle, NULL, 0, OAL_CALLBACKS_BUFFER))<0)
+	{
+		mbStatus = false;
+		return false;
+	}
+	return LoadOgg(ovFileHandle);
+}
+
+bool cOAL_OggSample::LoadOgg(OggVorbis_File& ovFileHandle)
+{
+	char *pPCMBuffer;
+	bool bEOF = false;
+	int lCurrent_section;
+	long lDataSize = 0;
 
 	// Get file info
 	vorbis_info *viFileInfo = ov_info ( &ovFileHandle, -1 );
@@ -111,7 +213,5 @@ bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
 	free(pPCMBuffer);
 	ov_clear(&ovFileHandle);
 	// ov_clear closes the file handle for us
-
 	return true;
 }
-

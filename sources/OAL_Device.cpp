@@ -298,27 +298,72 @@ bool cOAL_Device::RegainContext()
 
 //-------------------------------------------------------------------------
 
-cOAL_Sample* cOAL_Device::LoadSample(const string &asFilename)
+static eOAL_SampleFormat DetectFormatByFileName(const wstring& asFilename)
 {
-	return LoadSample(String2WString(asFilename));
+	// Check file format and load the sample data according to it
+	wstring strExt = GetExtensionW(asFilename);
+	if(strExt.compare(L"ogg")==0 || strExt.compare(L"oga")==0)
+		return eOAL_SampleFormat_Ogg;	// Load an Ogg Vorbis sample
+#ifdef WITH_ALUT
+	else if(strExt.compare(L"wav")==0)
+		return eOAL_SampleFormat_Wav;	// Load a .WAV sample
+#endif
+	return eOAL_SampleFormat_Unknown;
+}
+
+static bool CompareBuffer(const char* apBuffer, const char* asMatch, size_t aSize)
+{
+	for (int p= 0; p < aSize; ++p)
+	{
+		if (apBuffer[p] != asMatch[p]) return false;
+	}
+	return true;
+}
+
+static eOAL_SampleFormat DetectFormatByMagic(const void* apBuffer, size_t aSize)
+{
+	const char* buff = (char*)apBuffer;
+	if (aSize >= 35 && CompareBuffer(buff, "OggS", 4) && CompareBuffer(&buff[28], "\x01vorbis", 7))
+	{
+		return eOAL_SampleFormat_Ogg;
+	}
+#ifdef WITH_ALUT
+	if (aSize >= 12 && CompareBuffer(buff, "RIFF", 4) && (CompareBuffer(&buff[8], "WAVE", 4) || CompareBuffer(&buff[8], "WAV", 3)))
+	{
+		return eOAL_SampleFormat_Wav;
+	}
+#endif
+	return eOAL_SampleFormat_Unknown;	
 }
 
 //-------------------------------------------------------------------------
 
-cOAL_Sample* cOAL_Device::LoadSample(const wstring& asFilename)
+cOAL_Sample* cOAL_Device::LoadSample(const string &asFilename, eOAL_SampleFormat format)
+{
+	return LoadSample(String2WString(asFilename), format);
+}
+
+//-------------------------------------------------------------------------
+
+cOAL_Sample* cOAL_Device::LoadSample(const wstring& asFilename, eOAL_SampleFormat format)
 {
 	cOAL_Sample *pSample = NULL;
 
-	// Check file format and load the sample data according to it
-	wstring strExt = GetExtensionW(asFilename);
-	if(strExt.compare(L"ogg")==0 || strExt.compare(L"oga")==0)						// Load an Ogg Vorbis sample
-		pSample = new cOAL_OggSample;
+	if (format == eOAL_SampleFormat_Detect) {
+		format = DetectFormatByFileName(asFilename);
+	}
+	switch(format) {
+		case eOAL_SampleFormat_Ogg:
+			pSample = new cOAL_OggSample;
+			break;
 #ifdef WITH_ALUT
-	else if(strExt.compare(L"wav")==0)				// Load a .WAV sample
-		pSample = new cOAL_WAVSample;
+		case eOAL_SampleFormat_Wav:
+			pSample = new cOAL_WAVSample;
+			break;
 #endif
-    else
-        return NULL;
+		default:
+			return NULL;
+	}
 	
 	if(pSample->CreateFromFile(asFilename) )
 		mlstSamples.push_back(pSample);
@@ -333,26 +378,61 @@ cOAL_Sample* cOAL_Device::LoadSample(const wstring& asFilename)
 
 //-------------------------------------------------------------------------
 
-cOAL_Stream* cOAL_Device::LoadStream(const string& asFilename)
+cOAL_Sample* cOAL_Device::LoadSampleFromBuffer(const void* apBuffer, size_t aSize, eOAL_SampleFormat format)
 {
-	return LoadStream(String2WString(asFilename));
+	cOAL_Sample *pSample = NULL;
+
+	if (format == eOAL_SampleFormat_Detect) {
+		format = DetectFormatByMagic(apBuffer, aSize);
+	}
+	switch(format) {
+		case eOAL_SampleFormat_Ogg:
+			pSample = new cOAL_OggSample;
+			break;
+#ifdef WITH_ALUT
+		case eOAL_SampleFormat_Wav:
+			pSample = new cOAL_WAVSample;
+			break;
+#endif
+		default:
+			return NULL;
+	}
+	
+	if(pSample->CreateFromBuffer(apBuffer, aSize) )
+		mlstSamples.push_back(pSample);
+	else
+	{
+		delete pSample;
+		pSample = NULL;
+	}
+
+	return pSample;
 }
 
 //-------------------------------------------------------------------------
 
-cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename)
+cOAL_Stream* cOAL_Device::LoadStream(const string& asFilename, eOAL_SampleFormat format)
+{
+	return LoadStream(String2WString(asFilename), format);
+}
+
+//-------------------------------------------------------------------------
+
+cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename, eOAL_SampleFormat format)
 {
    	cOAL_Stream *pStream = NULL;
 
-	wstring strExt = GetExtensionW(asFilename);
-
-	if(strExt.compare(L"ogg")==0 || strExt.compare(L"oga")==0)
-    { 
-		pStream = new cOAL_OggStream;
-	}
-	else
+	if (format == eOAL_SampleFormat_Detect)
 	{
-		return NULL;
+		format = DetectFormatByFileName(asFilename);
+	}
+
+	switch(format) {
+		case eOAL_SampleFormat_Ogg:
+			pStream = new cOAL_OggStream;
+			break;
+		default:
+			return NULL;
 	}
 
 	/////////////////////////////////
