@@ -73,6 +73,7 @@ int main (int argc, char *argv[])
 	void *buffer = malloc(pos);
 	
 	fread(buffer, pos, 1, fp);
+	fclose(fp);
 	
 	pSample = OAL_Sample_LoadFromBuffer(buffer, pos);
 	free(buffer);

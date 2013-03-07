@@ -13,7 +13,6 @@
 		DB15511711E64ECC005799BB /* Ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF4974311A0414300C8A45D /* Ogg.framework */; };
 		DB15511811E64ECD005799BB /* Vorbis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF4974411A0414300C8A45D /* Vorbis.framework */; };
 		DB15511C11E64F14005799BB /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB15511B11E64F14005799BB /* SDL.framework */; };
-		DB15512211E64F20005799BB /* ALUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB15512111E64F20005799BB /* ALUT.framework */; };
 		DB15512911E64F4C005799BB /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = DB15512811E64F4C005799BB /* SDLMain.m */; };
 		DB15512D11E64F8A005799BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB15512C11E64F8A005799BB /* Cocoa.framework */; };
 		DBF9A480119B18C100CCFDC9 /* OAL_AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBF9A469119B18C100CCFDC9 /* OAL_AudioData.cpp */; };
@@ -55,7 +54,6 @@
 		DB1550DB11E64C8E005799BB /* SimpleTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB15511111E64EBE005799BB /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DB15511B11E64F14005799BB /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = Library/Frameworks/SDL.framework; sourceTree = SDKROOT; };
-		DB15512111E64F20005799BB /* ALUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALUT.framework; path = Library/Frameworks/ALUT.framework; sourceTree = SDKROOT; };
 		DB15512711E64F4C005799BB /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		DB15512811E64F4C005799BB /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		DB15512C11E64F8A005799BB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -120,7 +118,6 @@
 				DB15511711E64ECC005799BB /* Ogg.framework in Frameworks */,
 				DB15511811E64ECD005799BB /* Vorbis.framework in Frameworks */,
 				DB15511C11E64F14005799BB /* SDL.framework in Frameworks */,
-				DB15512211E64F20005799BB /* ALUT.framework in Frameworks */,
 				DB15512D11E64F8A005799BB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,7 +157,6 @@
 				DBF4974411A0414300C8A45D /* Vorbis.framework */,
 				DB15511111E64EBE005799BB /* OpenAL.framework */,
 				DB15511B11E64F14005799BB /* SDL.framework */,
-				DB15512111E64F20005799BB /* ALUT.framework */,
 				DB15512C11E64F8A005799BB /* Cocoa.framework */,
 			);
 			name = Frameworks;

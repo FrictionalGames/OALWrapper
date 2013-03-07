@@ -6,8 +6,6 @@ set(OALWrapper_VERSION_MINOR 0)
 
 SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMakeScripts)
 
-OPTION(WITH_ALUT "Include alut WAVE loading" OFF)
-
 SET(PRIVATE_LIB_DIR
     CACHE PATH "Location of local private library path to use"
 )
@@ -61,15 +59,6 @@ IF(APP_PRIVATE_LIB_DIR)
         MESSAGE(FATAL_ERROR "Could not find vorbisfile library")
     ENDIF()
 
-    IF(WITH_ALUT)
-        IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libalut.so)
-            SET(ALUT_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libalut.so" CACHE FILEPATH "ALUT")
-        ENDIF()
-        IF(NOT ALUT_LIBRARY)
-            MESSAGE(FATAL_ERROR "Could not find alut library")
-        ENDIF()
-    ENDIF()
-
     IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libopenal.so)
         SET(OPENAL_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libopenal.so" CACHE FILEPATH "OpenAL")
     ENDIF()
@@ -82,19 +71,12 @@ ELSE()
     FIND_PACKAGE(VorbisFile)
     FIND_PACKAGE(OpenAL)
 
-    IF(WITH_ALUT)
-        FIND_PACKAGE(ALUT)
-    ENDIF()
     INCLUDE_DIRECTORIES(
         ${OGG_INCLUDE_DIR}
         ${VORBIS_INCLUDE_DIR}
         ${VORBISFILE_INCLUDE_DIR}
         ${OPENAL_INCLUDE_DIR}
     )
-ENDIF()
-
-IF(WITH_ALUT)
-    ADD_DEFINITIONS(-DWITH_ALUT)
 ENDIF()
 
 include_directories(
@@ -130,7 +112,6 @@ TARGET_LINK_LIBRARIES(OALWrapper
     ${OGG_LIBRARY}
     ${VORBIS_LIBRARY}
     ${VORBISFILE_LIBRARY}
-    ${ALUT_LIBRARY}
     ${OPENAL_LIBRARY}
     SDL
 )
