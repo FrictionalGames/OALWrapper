@@ -323,7 +323,7 @@ static eOAL_SampleFormat DetectFormatByMagic(const void* apBuffer, size_t aSize)
 	{
 		return eOAL_SampleFormat_Ogg;
 	}
-	if (aSize >= 12 && CompareBuffer(buff, "RIFF", 4) && (CompareBuffer(&buff[8], "WAVE", 4) || CompareBuffer(&buff[8], "WAV", 3)))
+	if (aSize >= 12 && CompareBuffer(buff, "RIFF", 4) && CompareBuffer(&buff[8], "WAVE", 4))
 	{
 		return eOAL_SampleFormat_Wav;
 	}
