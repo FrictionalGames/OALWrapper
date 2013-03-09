@@ -69,7 +69,41 @@ struct WAVE_Data {
   ogg_int32_t subChunkSize; //Stores the size of the data block
 };
 
-#define readStruct(dest, src, s) memcpy(&dest, src, sizeof(s)); src += sizeof(s)
+struct RIFF_SubChunk {
+  char subChunkID[4]; //should contain the word data
+  ogg_int32_t subChunkSize; //Stores the size of the data block
+};
+
+static const char* find_chunk(const char* start, const char* end, const char* chunkID)
+{
+	RIFF_SubChunk chunk;
+	const char* ptr = start;
+	while (ptr < (end - sizeof(RIFF_SubChunk)))
+	{
+		memcpy(&chunk, ptr, sizeof(RIFF_SubChunk));
+
+		if (chunk.subChunkID[0] == chunkID[0] &&
+			chunk.subChunkID[1] == chunkID[1] &&
+			chunk.subChunkID[2] == chunkID[2] &&
+			chunk.subChunkID[3] == chunkID[3])
+		{
+			return ptr;
+		}
+		ptr += sizeof(RIFF_SubChunk) + chunk.subChunkSize;
+	}
+	return 0;
+}
+
+template<typename T>
+inline const char*readStruct(T& dest, const char*& ptr)
+{
+	const char* ret;
+	memcpy(&dest, ptr, sizeof(T));
+	ptr += sizeof(RIFF_SubChunk);
+	ret = ptr;
+	ptr += dest.subChunkSize;
+	return ret;
+}
 
 bool cOAL_WAVSample::CreateFromBuffer(const void* apBuffer, size_t aSize)
 {
@@ -80,7 +114,9 @@ bool cOAL_WAVSample::CreateFromBuffer(const void* apBuffer, size_t aSize)
 	WAVE_Format wave_format;
 	WAVE_Data wave_data;
 
-	readStruct(riff_header, ptr, RIFF_Header);
+	memcpy(&riff_header, ptr, sizeof(RIFF_Header));
+	ptr += sizeof(RIFF_Header);
+
 	if (riff_header.chunkID[0] != 'R' ||
 		riff_header.chunkID[1] != 'I' ||
 		riff_header.chunkID[2] != 'F' ||
@@ -92,44 +128,26 @@ bool cOAL_WAVSample::CreateFromBuffer(const void* apBuffer, size_t aSize)
 	{
 		return false;
 	}
-	readStruct(wave_format, ptr, WAVE_Format);
-	if (wave_format.subChunkID[0] != 'f' ||
-		wave_format.subChunkID[1] != 'm' ||
-		wave_format.subChunkID[2] != 't' ||
-		wave_format.subChunkID[3] != ' ')
-	{
+	
+	ptr = find_chunk(ptr, end, "fmt ");
+	if (!ptr) {
 		return false;
 	}
+	readStruct(wave_format, ptr);
 	
 	if (wave_format.audioFormat != 1) {
 		return false;
 	}
 
-	if (wave_format.subChunkSize > 16)
-	{
-		ptr += wave_format.subChunkSize - 16;
+	ptr = find_chunk(ptr, end, "data");
+	if (!ptr) {
+		return false;
 	}
 
-	bool found = false;
-
-	while (!found)
-	{
-		if (ptr > end) return false;
-
-		readStruct(wave_data, ptr, WAVE_Data);
-		if (wave_data.subChunkID[0] == 'd' &&
-			wave_data.subChunkID[1] == 'a' &&
-			wave_data.subChunkID[2] == 't' &&
-			wave_data.subChunkID[3] == 'a')
-		{
-			found = true;
-		} else {
-			ptr += wave_data.subChunkSize;
-		}
-	}
+	const char* base = readStruct(wave_data, ptr);
 
 	size_t size = wave_data.subChunkSize;
-	if (size > (end - ptr)) {
+	if (size > (end - base)) {
 		return false;
 	}
 
@@ -163,7 +181,7 @@ bool cOAL_WAVSample::CreateFromBuffer(const void* apBuffer, size_t aSize)
 	mfTotalTime = float(mlSamples) / float(mlFrequency);
 	
 	cOAL_Buffer* pBuffer = mvBuffers[0];
-	mbStatus = pBuffer->Feed((ALvoid*)ptr, size);
+	mbStatus = pBuffer->Feed((ALvoid*)base, size);
 
 	return true;
 }
