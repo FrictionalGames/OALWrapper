@@ -66,6 +66,10 @@ int main (int argc, char *argv[])
 	
 	printf("Testing loading from memory buffer ...");
 	FILE *fp = fopen(strFilename.c_str(), "rb");
+	if (!fp) {
+		printf("Failed file not found\n");
+		return 128;
+	}
 	fseek(fp, 0, SEEK_END);
 	size_t pos = ftell(fp);
 	fseek(fp, 0, SEEK_SET);
