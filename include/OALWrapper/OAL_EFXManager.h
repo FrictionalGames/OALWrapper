@@ -70,7 +70,7 @@ public:
 	inline bool IsThreadAlive () { return mbUsingThread; }
 	int	GetThreadWaitTime();
 
-	string GetIDString();
+	std::string GetIDString();
 
 private:
 

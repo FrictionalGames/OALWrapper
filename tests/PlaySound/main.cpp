@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string>
 
+using namespace std;
+
 void playSample(cOAL_Sample* pSample)
 {
 	if (pSample) {

@@ -32,12 +32,12 @@ public:
 	virtual ~iOAL_AudioData();
 
 	virtual void Reset();
-	virtual bool CreateFromFile(const wstring& asFilename) = 0;
+	virtual bool CreateFromFile(const std::wstring& asFilename) = 0;
 	virtual bool CreateFromBuffer(const void *apBuffer, size_t aSize) = 0;
 	virtual void Destroy() = 0;
 
 	inline eOAL_AudioDataType GetType() { return mType; }
-	inline wstring& GetFilename()	{ return msFilename; }
+	inline std::wstring& GetFilename()	{ return msFilename; }
 
 	inline ALint GetChannels()	{ return mlChannels;	}
 	inline ALenum GetFormat()		{ return mFormat;	}
@@ -79,7 +79,7 @@ protected:
 	ALint mlChannels;
 	ALenum mFormat;
 	
-	wstring msFilename;
+	std::wstring msFilename;
 };
 
 //-------------------------------------------------------------------------------

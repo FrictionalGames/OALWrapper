@@ -28,7 +28,7 @@ extern void OAL_Source_Log(int mlSourceId, int alMessageType, const char *asMess
 
 //-----------------------------------------------------------------------------------------
 
-#define DEF_FUNC_NAME(X) string sFuncName(#X);
+#define DEF_FUNC_NAME(X) std::string sFuncName(#X);
 
 #define FUNC_USES_AL  bool bALError = false; ClearALErrors(sFuncName);
 #define FUNC_USES_ALC bool bALCError = false; ClearALCErrors(sFuncName);
@@ -50,29 +50,29 @@ extern void OAL_Source_Log(int mlSourceId, int alMessageType, const char *asMess
 
 //-----------------------------------------------------------------------------------------
 
-string	GetExtension(const string& asFilename);
-wstring GetExtensionW(const wstring& asFilename);
+std::string	GetExtension(const std::string& asFilename);
+std::wstring GetExtensionW(const std::wstring& asFilename);
 
 //-----------------------------------------------------------------------------------------
 
 bool			OAL_GetALError ();
-string			OAL_GetALErrorString();	
+std::string			OAL_GetALErrorString();	
 
 bool			OAL_GetALCError ();
-string			OAL_GetALCErrorString();	
+std::string			OAL_GetALCErrorString();	
 
-string			WString2String(const wstring& asWString);
-wstring			String2WString(const string& asString);
+std::string			WString2String(const std::wstring& asWString);
+std::wstring			String2WString(const std::string& asString);
 
-FILE *          OpenFileW(const wstring& asFileName, const wstring asMode);
-FILE *          OpenFile(const string& asFileName, const string asMode);
+FILE *          OpenFileW(const std::wstring& asFileName, const std::wstring asMode);
+FILE *          OpenFile(const std::string& asFileName, const std::string asMode);
 
 //-----------------------------------------------------------------------------------------
 
-void ClearALErrors( const string& asFunction );
-bool CheckALErrors( const string& asFunc1, const string& asFunc2 );
-void ClearALCErrors( const string& asFunction );
-bool CheckALCErrors( const string& asFunction );
+void ClearALErrors( const std::string& asFunction );
+bool CheckALErrors( const std::string& asFunc1, const std::string& asFunc2 );
+void ClearALCErrors( const std::string& asFunction );
+bool CheckALCErrors( const std::string& asFunction );
 
 //-----------------------------------------------------------------------------------------
 

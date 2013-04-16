@@ -32,7 +32,7 @@ public:
 	void Seek(float afWhere, bool abForceRebuffer);
 	
 protected:
-	bool CreateFromFile(const wstring &asFileName);
+	bool CreateFromFile(const std::wstring &asFileName);
 	bool CreateFromBuffer(const void *apBuffer, size_t aSize) { return false; };
 	void Destroy();
 

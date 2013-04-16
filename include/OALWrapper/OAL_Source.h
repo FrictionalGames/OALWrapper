@@ -179,7 +179,7 @@ private:
 	float mvVel[3];
     bool mbRelativePosition;
 
-	vector<cOAL_SourceSend*> mvSends;
+	std::vector<cOAL_SourceSend*> mvSends;
 	
 	cOAL_Filter*	mpFilter;
 	cOAL_Filter*	mpDirectFilter;

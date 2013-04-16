@@ -22,7 +22,7 @@ class iOAL_LowLevelObject : public iOAL_LoggerObject
 {
 public:
 
-	iOAL_LowLevelObject(const string& asObjType) {}
+	iOAL_LowLevelObject(const std::string& asObjType) {}
 	~iOAL_LowLevelObject() {}
 
 	////////////////////////////////////////////

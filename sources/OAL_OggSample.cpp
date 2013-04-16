@@ -21,6 +21,8 @@
 
 #include <vorbis/vorbisfile.h>
 
+using namespace std;
+
 typedef struct
 {
 	unsigned char* data;

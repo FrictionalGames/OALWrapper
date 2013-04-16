@@ -18,18 +18,7 @@
 
 #include "OAL_Types.h"
 
-//
-
-//#include "OAL_Sample.h"
-//#include "OAL_Stream.h"
-
 #include <string>
-
-//class cOAL_Sample;
-//class cOAL_Stream;
-
-using namespace std;
-
 
 void		OAL_Test_Sample_Play ( cOAL_Sample* apSample );
 void		OAL_Test_Stream_Play ( cOAL_Stream* apStream );

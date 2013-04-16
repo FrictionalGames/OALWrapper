@@ -19,6 +19,8 @@
 #include <shlobj.h>
 #endif
 
+using namespace std;
+
 static wstring BuildLogFilename ( const string& asFilename );
 
 

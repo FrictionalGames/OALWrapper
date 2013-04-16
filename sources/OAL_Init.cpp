@@ -19,6 +19,7 @@
 #include "OALWrapper/OAL_SourceManager.h"
 #include "OALWrapper/OAL_Stream.h"
 
+using namespace std;
 
 cOAL_Device* gpDevice = NULL;
 

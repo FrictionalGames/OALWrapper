@@ -44,26 +44,26 @@ typedef enum
 class iOAL_LoggerObject
 {
 public:
-	static void LogMsg(const string& asIDStr,eOAL_LogVerbose aVerbose, eOAL_LogMsg aType, const char* asMessage, ...);
+	static void LogMsg(const std::string& asIDStr,eOAL_LogVerbose aVerbose, eOAL_LogMsg aType, const char* asMessage, ...);
 	
-	static void Write(const string& asMessage);
+	static void Write(const std::string& asMessage);
 
 	inline static void SetLogEnabled ( bool abEnable ) { mbLogEnabled = abEnable; }
 	inline static void SetLogOutput ( eOAL_LogOutput aOutput ) { mLogOutput = aOutput; }
 	inline static void SetLogVerbose ( eOAL_LogVerbose aLevel ) { mLogVerboseLevel = aLevel; }
-	static void SetLogFilename ( const string& asLogFilename );
+	static void SetLogFilename ( const std::string& asLogFilename );
 
 
 	inline static bool IsLogEnabled () { return mbLogEnabled; }
 	inline static eOAL_LogOutput GetLogOutput ( ) { return mLogOutput; }
 	inline static eOAL_LogVerbose GetLogVerboseLevel () { return mLogVerboseLevel; }
-	inline static wstring GetLogFilename ( ) { return msLogFile; }
+	inline static std::wstring GetLogFilename ( ) { return msLogFile; }
 
 protected:
 	static bool					mbLogEnabled;
 	static eOAL_LogOutput		mLogOutput;
 	static eOAL_LogVerbose		mLogVerboseLevel;
-	static wstring				msLogFile;
+	static std::wstring				msLogFile;
 
 };
 

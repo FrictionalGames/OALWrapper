@@ -16,6 +16,8 @@
 #include "OALWrapper/OAL_Helper.h"
 #include "OALWrapper/OAL_Device.h"
 
+using namespace std;
+
 ALenum geALErrorState = AL_NO_ERROR;
 ALCenum geALCErrorState = ALC_NO_ERROR;
 

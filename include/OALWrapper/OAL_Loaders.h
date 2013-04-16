@@ -18,14 +18,14 @@
 
 #include "OAL_Types.h"
 
-cOAL_Sample*	OAL_Sample_Load		( const string &asFilename, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
-cOAL_Sample*	OAL_Sample_Load		( const wstring &asFilename, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
+cOAL_Sample*	OAL_Sample_Load		( const std::string &asFilename, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
+cOAL_Sample*	OAL_Sample_Load		( const std::wstring &asFilename, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
 cOAL_Sample*	OAL_Sample_LoadFromBuffer ( const void* apBuffer, size_t aSize, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
 void			OAL_Sample_Unload	( cOAL_Sample* apSample );
 
 
-cOAL_Stream*	OAL_Stream_Load		( const string &asFilename, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
-cOAL_Stream*	OAL_Stream_Load		( const wstring &asFilename, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
+cOAL_Stream*	OAL_Stream_Load		( const std::string &asFilename, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
+cOAL_Stream*	OAL_Stream_Load		( const std::wstring &asFilename, eOAL_SampleFormat format = eOAL_SampleFormat_Detect );
 void			OAL_Stream_Unload	( cOAL_Stream* apStream );
 
 void OAL_Sample_SetLoop ( cOAL_Sample* apSample, bool abLoop );

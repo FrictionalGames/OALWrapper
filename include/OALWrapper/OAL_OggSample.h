@@ -25,7 +25,7 @@ struct OggVorbis_File;
 class cOAL_OggSample : public cOAL_Sample
 {
 public:
-	bool CreateFromFile(const wstring& asFilename);
+	bool CreateFromFile(const std::wstring& asFilename);
 	bool CreateFromBuffer(const void *apBuffer, size_t aSize);
 protected:
 private:

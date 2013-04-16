@@ -18,6 +18,8 @@
 #include "OALWrapper/OAL_Sample.h"
 #include "OALWrapper/OAL_Stream.h"
 
+using namespace std;
+
 extern cOAL_Device* gpDevice;
 
 //------------------------------------------------------------------------
