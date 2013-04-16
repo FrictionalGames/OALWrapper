@@ -46,7 +46,6 @@ cOAL_OggStream::~cOAL_OggStream()
 bool cOAL_OggStream::Stream(cOAL_Buffer* apDestBuffer)
 {
 	DEF_FUNC_NAME("cOAL_OggStream::Stream()");
-	FUNC_USES_AL;
 
 	long lDataSize = 0;
 
@@ -79,15 +78,9 @@ bool cOAL_OggStream::Stream(cOAL_Buffer* apDestBuffer)
 	}
 	// Bind the data to the Buffer Object
 	if(lDataSize) 
-		apDestBuffer->Feed(mpPCMBuffer, lDataSize, fStartTime);
+		mbStatus = apDestBuffer->Feed(mpPCMBuffer, lDataSize, fStartTime);
 	else 
 		mbEOF = true;
-
-	if(AL_ERROR_OCCURED)
-	{
-		//hpl::Log("%s\n", OAL_GetALErrorString().c_str());
-		mbStatus = false;
-	}
 
 	return (lDataSize != 0);
 }
