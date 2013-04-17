@@ -81,6 +81,22 @@ class cOAL_Sample;
 class cOAL_Stream;
 class cOAL_Buffer;
 
+typedef struct {
+	void(*Init)(void *data);
+	double(*GetTime)(void *data);
+	void(*Seek)(void *data, float afWhere, bool abForceRebuffer);
+	bool(*Stream)(void *data, cOAL_Buffer* apDestBuffer, char *buffer, unsigned int bufferSize, bool& eof);
+	void(*Destroy)(void *data);
+} tStreamCallbacks;
+
+typedef struct {
+	ALint channels;
+	ALint frequency;
+	ALenum format;
+	long int samples;
+	double totalTime;
+} tStreamInfo;
+
 typedef std::vector<cOAL_Source*>			tSourceVec;
 typedef tSourceVec::iterator			tSourceVecIt;
 

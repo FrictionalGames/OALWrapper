@@ -99,6 +99,7 @@ SET(all_sources
     sources/OAL_OggSample.cpp
     sources/OAL_OggStream.cpp
     sources/OAL_WAVSample.cpp
+    sources/OAL_CustomStream.cpp
     sources/OAL_Playback.cpp
     sources/OAL_Sample.cpp
     sources/OAL_Source.cpp
@@ -124,6 +125,9 @@ TARGET_LINK_LIBRARIES(PlaySound OALWrapper)
 
 ADD_EXECUTABLE(Playlist tests/Playlist/main.cpp)
 TARGET_LINK_LIBRARIES(Playlist OALWrapper)
+
+ADD_EXECUTABLE(CustomStream tests/CustomStream/main.cpp)
+TARGET_LINK_LIBRARIES(CustomStream OALWrapper)
 
 # Exports
 SET(OALWRAPPER_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include PARENT_SCOPE)

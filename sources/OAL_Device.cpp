@@ -18,6 +18,7 @@
 #include "OALWrapper/OAL_OggSample.h"
 #include "OALWrapper/OAL_WAVSample.h"
 #include "OALWrapper/OAL_OggStream.h"
+#include "OALWrapper/OAL_CustomStream.h"
 #include "OALWrapper/OAL_SourceManager.h"
 
 #include "OALWrapper/OAL_Filter.h"
@@ -442,6 +443,15 @@ cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename, eOAL_SampleForma
 
 	return pStream;
 
+}
+
+//-------------------------------------------------------------------------
+
+cOAL_Stream* cOAL_Device::LoadCustomStream(const tStreamCallbacks& aCallback, const tStreamInfo& aInfo, void* apData)
+{
+	cOAL_Stream *pStream = new cOAL_CustomStream(aCallback, aInfo, apData);
+	mlstStreams.push_back(pStream);
+	return pStream;
 }
 
 //-------------------------------------------------------------------------

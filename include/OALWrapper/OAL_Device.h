@@ -71,6 +71,7 @@ public:
 	cOAL_Sample* LoadSampleFromBuffer(const void *apBuffer, size_t aSize, eOAL_SampleFormat format);
 	cOAL_Stream* LoadStream(const std::string& asFileName, eOAL_SampleFormat format);
 	cOAL_Stream* LoadStream(const std::wstring& asFileName, eOAL_SampleFormat format);
+	cOAL_Stream* LoadCustomStream(const tStreamCallbacks& aCallback, const tStreamInfo& aInfo, void* apData);
 	void UnloadSample(cOAL_Sample* apSample);
 	void UnloadStream(cOAL_Stream* apStream);
 
