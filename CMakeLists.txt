@@ -17,22 +17,21 @@ IF(APP_PRIVATE_LIB_DIR AND "${CMAKE_SYSTEM}" MATCHES "Linux")
     IF(NOT EXISTS ${APP_PRIVATE_LIB_DIR}/include)
         MESSAGE(FATAL_ERROR "folder named include not found in private lib dir ${APP_PRIVATE_LIB_DIR}")
     ENDIF()
-    INCLUDE_DIRECTORIES(
-        ${APP_PRIVATE_LIB_DIR}/include
-    )
-    SET(PRIVATE_LIB_SUFFIX "")
-    IF(CMAKE_SIZEOF_VOID_P MATCHES "8" AND NOT(FORCE32))
-        if(EXISTS ${APP_PRIVATE_LIB_DIR}/linux64)
-            SET(PRIVATE_LIB_SUFFIX "linux64")
-        else(EXISTS ${APP_PRIVATE_LIB_DIR}/lib64)
-            SET(PRIVATE_LIB_SUFFIX "lib64")
-        endif()
-    ELSE()
-        if(EXISTS ${APP_PRIVATE_LIB_DIR}/linux)
-            SET(PRIVATE_LIB_SUFFIX "linux")
-        else(EXISTS ${APP_PRIVATE_LIB_DIR}/lib)
-            SET(PRIVATE_LIB_SUFFIX "lib")
-        endif()
+    SET(EXTRA_INCLUDE_DIR ${APP_PRIVATE_LIB_DIR}/include)
+    IF(NOT PRIVATE_LIB_SUFFIX)
+        IF(CMAKE_SIZEOF_VOID_P MATCHES "8" AND NOT(FORCE32))
+            if(EXISTS ${APP_PRIVATE_LIB_DIR}/linux64)
+                SET(PRIVATE_LIB_SUFFIX "linux64")
+            else(EXISTS ${APP_PRIVATE_LIB_DIR}/lib64)
+                SET(PRIVATE_LIB_SUFFIX "lib64")
+            endif()
+        ELSE()
+            if(EXISTS ${APP_PRIVATE_LIB_DIR}/linux)
+                SET(PRIVATE_LIB_SUFFIX "linux")
+            else(EXISTS ${APP_PRIVATE_LIB_DIR}/lib)
+                SET(PRIVATE_LIB_SUFFIX "lib")
+            endif()
+        ENDIF()
     ENDIF()
     IF(NOT PRIVATE_LIB_SUFFIX)
         MESSAGE(FATAL_ERROR "could not find lib directory in private lib dir ${APP_PRIVATE_LIB_DIR}")
@@ -65,6 +64,18 @@ IF(APP_PRIVATE_LIB_DIR AND "${CMAKE_SYSTEM}" MATCHES "Linux")
     IF(NOT OPENAL_LIBRARY)
         MESSAGE(FATAL_ERROR "Could not find openal library")
     ENDIF()
+
+    IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libSDL.so)
+        SET(OPENAL_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libSDL.so" CACHE FILEPATH "SDL")
+    ENDIF()
+    IF(NOT OPENAL_LIBRARY)
+        MESSAGE(FATAL_ERROR "Could not find SDL library")
+    ENDIF()
+ELSEIF(APP_PRIVATE_LIB_DIR AND APPLE)
+    FIND_LIBRARY(OGG_LIBRARY Ogg PATHS ${APP_PRIVATE_LIB_DIR} NO_DEFAULT_PATH)
+    FIND_LIBRARY(VORBIS_LIBRARY Vorbis PATHS ${APP_PRIVATE_LIB_DIR} NO_DEFAULT_PATH)
+    FIND_LIBRARY(SDL_LIBRARY SDL PATHS ${APP_PRIVATE_LIB_DIR} NO_DEFAULT_PATH)
+    FIND_PACKAGE(OpenAL)
 ELSE()
     FIND_PACKAGE(OGG)
     FIND_PACKAGE(Vorbis)
@@ -72,17 +83,20 @@ ELSE()
         FIND_PACKAGE(VorbisFile)
     ENDIF()
     FIND_PACKAGE(OpenAL)
+    FIND_PACKAGE(SDL)
 
     INCLUDE_DIRECTORIES(
         ${OGG_INCLUDE_DIR}
         ${VORBIS_INCLUDE_DIR}
         ${VORBISFILE_INCLUDE_DIR}
         ${OPENAL_INCLUDE_DIR}
+        ${SDL_INCLUDE_DIR}
     )
 ENDIF()
 
 include_directories(
-	include
+    include
+    ${EXTRA_INCLUDE_DIR}
 )
 SET(all_sources
     sources/OAL_AudioData.cpp
@@ -116,19 +130,19 @@ TARGET_LINK_LIBRARIES(OALWrapper
     ${VORBIS_LIBRARY}
     ${VORBISFILE_LIBRARY}
     ${OPENAL_LIBRARY}
-    SDL
+    ${SDL_LIBRARY}
 )
 
-ADD_EXECUTABLE(SimpleTest tests/Simple/main.cpp)
+ADD_EXECUTABLE(SimpleTest EXCLUDE_FROM_ALL tests/Simple/main.cpp)
 TARGET_LINK_LIBRARIES(SimpleTest OALWrapper)
 
-ADD_EXECUTABLE(PlaySound tests/PlaySound/main.cpp)
+ADD_EXECUTABLE(PlaySound EXCLUDE_FROM_ALL tests/PlaySound/main.cpp)
 TARGET_LINK_LIBRARIES(PlaySound OALWrapper)
 
-ADD_EXECUTABLE(Playlist tests/Playlist/main.cpp)
+ADD_EXECUTABLE(Playlist EXCLUDE_FROM_ALL tests/Playlist/main.cpp)
 TARGET_LINK_LIBRARIES(Playlist OALWrapper)
 
-ADD_EXECUTABLE(CustomStream tests/CustomStream/main.cpp)
+ADD_EXECUTABLE(CustomStream EXCLUDE_FROM_ALL tests/CustomStream/main.cpp)
 TARGET_LINK_LIBRARIES(CustomStream OALWrapper)
 
 # Exports
