@@ -28,16 +28,22 @@ void playSample(cOAL_Sample* pSample)
 int main (int argc, char *argv[])
 {
     string strFilename;
+	bool useMemory = false;
 
 	if ( argc <= 1 )
 	{
-		printf ("Usage : %s \"sample.(ogg|wav)\"\n", argv[0]);
+		printf ("Usage : [memory] %s \"sample.(ogg|wav)\"\n", argv[0]);
         printf ("\tSpecify a sample file to play\n\n");
         exit(1);
 	}
-	else
+	else if (argc <= 2)
 	{
 		strFilename.assign(argv[1]);
+	} else {
+		if (string(argv[1]) == "memory") {
+			useMemory = true;
+		}
+		strFilename.assign(argv[2]);
 	}
 
 	cOAL_Sample *pSample = NULL;
@@ -58,34 +64,31 @@ int main (int argc, char *argv[])
         printf ("Success\n");
 	}
 
-    printf ("Loading sample (via file handlers) \"%s\" ... ", strFilename.c_str());
+	if (useMemory) {
+		printf ("Loading \"%s\" from memory buffer ... ", strFilename.c_str());
 
-    pSample = OAL_Sample_Load (strFilename);
+		FILE *fp = fopen(strFilename.c_str(), "rb");
+		if (!fp) {
+			printf("Failed file not found\n");
+			return 128;
+		}
+		fseek(fp, 0, SEEK_END);
+		size_t pos = ftell(fp);
+		fseek(fp, 0, SEEK_SET);
+		void *buffer = malloc(pos);
+	
+		fread(buffer, pos, 1, fp);
+		fclose(fp);
 
-	playSample(pSample);
-	
-	if (pSample) OAL_Sample_Unload ( pSample );
-	
-	printf("Testing loading from memory buffer ...");
-	FILE *fp = fopen(strFilename.c_str(), "rb");
-	if (!fp) {
-		printf("Failed file not found\n");
-		return 128;
+		pSample = OAL_Sample_LoadFromBuffer(buffer, pos);
+		free(buffer);
+	} else {
+		printf ("Loading sample \"%s\" ... ", strFilename.c_str());
+		pSample = OAL_Sample_Load (strFilename);
 	}
-	fseek(fp, 0, SEEK_END);
-	size_t pos = ftell(fp);
-	fseek(fp, 0, SEEK_SET);
-
-	void *buffer = malloc(pos);
-	
-	fread(buffer, pos, 1, fp);
-	fclose(fp);
-	
-	pSample = OAL_Sample_LoadFromBuffer(buffer, pos);
-	free(buffer);
 
 	playSample(pSample);
-	
+
 	if (pSample) OAL_Sample_Unload ( pSample );
 
     printf ("Cleaning up...\n");
