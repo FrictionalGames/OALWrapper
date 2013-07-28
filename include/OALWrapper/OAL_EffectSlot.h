@@ -11,8 +11,6 @@
 #include "OAL_Types.h"
 #include "OAL_LowLevelObject.h"
 
-#include <SDL/SDL.h>
-
 class cOAL_EFXManager;
 
 class cOAL_EffectSlot : public iOAL_LowLevelObject

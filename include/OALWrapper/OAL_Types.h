@@ -56,6 +56,10 @@
 #include <vector>
 #include <list>
 
+// SDL forward declares
+struct SDL_mutex;
+struct SDL_Thread;
+
 #ifdef __APPLE__
     // system headers
     #include <OpenAL/al.h>

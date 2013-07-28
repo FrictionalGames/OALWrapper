@@ -10,8 +10,6 @@
 
 #include "OAL_LowLevelObject.h"
 
-#include <SDL/SDL.h>
-
 class cOAL_Effect : public iOAL_LowLevelObject
 {
 public:

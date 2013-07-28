@@ -12,8 +12,6 @@
 #include "OAL_Helper.h"
 #include "OAL_LoggerObject.h"
 
-#include <SDL/SDL.h>
-
 class cOAL_SourceManager : public iOAL_LoggerObject
 {
 public:

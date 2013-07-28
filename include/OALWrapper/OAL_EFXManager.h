@@ -12,8 +12,6 @@
 #include "OAL_Helper.h"
 #include "OAL_LoggerObject.h"
 
-#include <SDL/SDL.h>
-
 typedef enum
 {
 	OAL_Effect_Type_Reverb,

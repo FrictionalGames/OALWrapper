@@ -25,8 +25,7 @@
 #include "OALWrapper/OAL_Helper.h"
 #include "OALWrapper/OAL_SourceManager.h"
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_thread.h>
+#include <SDL_mutex.h>
 
 //--------------------------------------------------------------------------------
 
