@@ -20,6 +20,9 @@
 
 // Pull in for OAL Types
 #include <ogg/ogg.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
 
 using namespace std;
 

@@ -9,10 +9,9 @@
 #include "OALWrapper/OAL_LoggerObject.h"
 #include "OALWrapper/OAL_Helper.h"
 
-#include <stdlib.h>
-//#include <tchar.h>
-#include <stdio.h>
-#include <stdarg.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cstdarg>
 
 #if defined(WIN32)
 #define UNICODE

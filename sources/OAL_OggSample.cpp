@@ -15,7 +15,7 @@
 
 #include "OALWrapper/OAL_OggSample.h"
 #include "OALWrapper/OAL_Buffer.h"
-#include <stdlib.h>
+#include <cstdlib>
 #include <string>
 #include <cstring>
 

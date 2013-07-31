@@ -1,7 +1,7 @@
 #include "OALWrapper/OAL_Funcs.h"
 #include "OALWrapper/OAL_Stream.h"
 #include "OALWrapper/OAL_Buffer.h"
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include <unistd.h>
 

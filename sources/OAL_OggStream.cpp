@@ -16,8 +16,8 @@
 
 #include "OALWrapper/OAL_OggStream.h"
 #include "OALWrapper/OAL_Buffer.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
 using namespace std;
 

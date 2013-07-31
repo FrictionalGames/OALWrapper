@@ -1,6 +1,6 @@
 #include "OALWrapper/OAL_Funcs.h"
 #include "OALWrapper/OAL_Sample.h"
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 
 using namespace std;

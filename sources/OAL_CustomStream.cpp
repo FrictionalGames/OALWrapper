@@ -16,8 +16,8 @@
 
 #include "OALWrapper/OAL_CustomStream.h"
 #include "OALWrapper/OAL_Buffer.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
 cOAL_CustomStream::cOAL_CustomStream(const tStreamCallbacks& aCallbacks, const tStreamInfo& aInfo, void *apData)
 	: mCallbacks(aCallbacks), mInfo(aInfo), mpData(apData)

@@ -67,10 +67,26 @@ IF(APP_PRIVATE_LIB_DIR AND "${CMAKE_SYSTEM}" MATCHES "Linux")
         MESSAGE(FATAL_ERROR "Could not find openal library")
     ENDIF()
 
-    IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libSDL.so)
-        SET(OPENAL_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libSDL.so" CACHE FILEPATH "SDL")
+    if(USE_SDL2)
+        IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libSDL2.so)
+            SET(SDL_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libSDL2.so" CACHE FILEPATH "SDL")
+            FIND_PATH(SDL_INCLUDE_DIR SDL.h
+                PATHS ${APP_PRIVATE_LIB_DIR}/include
+                PATH_SUFFIXES SDL2
+                NO_DEFAULT_PATH
+            )
+        ENDIF()
+    ELSE()
+        IF(EXISTS ${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libSDL.so)
+            SET(SDL_LIBRARY "${APP_PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/libSDL.so" CACHE FILEPATH "SDL")
+            FIND_PATH(SDL_INCLUDE_DIR SDL.h
+                PATHS ${APP_PRIVATE_LIB_DIR}/include
+                PATH_SUFFIXES SDL
+                NO_DEFAULT_PATH
+            )
+        ENDIF()
     ENDIF()
-    IF(NOT OPENAL_LIBRARY)
+    IF(NOT SDL_LIBRARY)
         MESSAGE(FATAL_ERROR "Could not find SDL library")
     ENDIF()
 ELSEIF(APP_PRIVATE_LIB_DIR AND APPLE)
@@ -85,9 +101,6 @@ ELSEIF(APP_PRIVATE_LIB_DIR AND APPLE)
         PATHS ${SDL_LIBRARY}
         PATH_SUFFIXES Headers
         NO_DEFAULT_PATH)
-    INCLUDE_DIRECTORIES(
-        ${SDL_INCLUDE_DIR}
-    )
     FIND_PACKAGE(OpenAL)
 ELSE()
     FIND_PACKAGE(OGG)
@@ -107,12 +120,12 @@ ELSE()
         ${VORBIS_INCLUDE_DIR}
         ${VORBISFILE_INCLUDE_DIR}
         ${OPENAL_INCLUDE_DIR}
-        ${SDL_INCLUDE_DIR}
     )
 ENDIF()
 
 include_directories(
     include
+    ${SDL_INCLUDE_DIR}
     ${EXTRA_INCLUDE_DIR}
 )
 SET(all_sources

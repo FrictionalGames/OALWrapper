@@ -12,6 +12,7 @@
 #include "OALWrapper/OAL_Source.h"
 #include "OALWrapper/OAL_Buffer.h"
 
+#include <cstdlib>
 
 //-----------------------------------------------------------------------------------
 
