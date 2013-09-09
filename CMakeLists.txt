@@ -162,11 +162,42 @@ SET(all_sources
     sources/OAL_Types.cpp
 )
 
+SET(all_includes
+    include//OALWrapper/OAL_AudioData.h
+    include//OALWrapper/OAL_Buffer.h
+    include//OALWrapper/OAL_CustomStream.h
+    include//OALWrapper/OAL_Device.h
+    include//OALWrapper/OAL_Effect.h
+    include//OALWrapper/OAL_Effect_Reverb.h
+    include//OALWrapper/OAL_EffectSlot.h
+    include//OALWrapper/OAL_EFX.h
+    include//OALWrapper/OAL_EFXManager.h
+    include//OALWrapper/OAL_Filter.h
+    include//OALWrapper/OAL_Funcs.h
+    include//OALWrapper/OAL_Helper.h
+    include//OALWrapper/OAL_Init.h
+    include//OALWrapper/OAL_Loaders.h
+    include//OALWrapper/OAL_LoggerObject.h
+    include//OALWrapper/OAL_LowLevelObject.h
+    include//OALWrapper/OAL_OggSample.h
+    include//OALWrapper/OAL_OggStream.h
+    include//OALWrapper/OAL_Playback.h
+    include//OALWrapper/OAL_Sample.h
+    include//OALWrapper/OAL_Source.h
+    include//OALWrapper/OAL_SourceManager.h
+    include//OALWrapper/OAL_Stream.h
+    include//OALWrapper/OAL_Types.h
+    include//OALWrapper/OAL_WAVSample.h
+)
+
 IF(USE_SDL2)
     add_definitions(-DUSE_SDL2)
 ENDIF()
 
-add_library(OALWrapper STATIC ${all_sources})
+add_library(OALWrapper STATIC
+    ${all_sources}
+    ${all_includes}
+)
 TARGET_LINK_LIBRARIES(OALWrapper
     ${OGG_LIBRARY}
     ${VORBIS_LIBRARY}
