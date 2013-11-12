@@ -60,15 +60,9 @@
 struct SDL_mutex;
 struct SDL_Thread;
 
-#ifdef __APPLE__
-    // system headers
-    #include <OpenAL/al.h>
-    #include <OpenAL/alc.h>
-#else
-    #include <AL/al.h>
-    #include <AL/alc.h>
-#endif
-// Included headers not available on all systems
+// This expects the headers from the OALWrapper source (to keep things consistent and clean)
+#include <AL/al.h>
+#include <AL/alc.h>
 #include <AL/alext.h>
 #include <AL/efx.h>
 
