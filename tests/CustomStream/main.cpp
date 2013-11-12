@@ -2,6 +2,7 @@
 #include "OALWrapper/OAL_Stream.h"
 #include "OALWrapper/OAL_Buffer.h"
 #include <cstdio>
+#include <cstdlib>
 #include <string>
 #include <unistd.h>
 

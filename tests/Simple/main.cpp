@@ -2,6 +2,7 @@
 #include "OALWrapper/OAL_Stream.h"
 
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 

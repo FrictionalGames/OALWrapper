@@ -4,6 +4,7 @@
 #include <SDL/SDL.h>
 
 #include <string>
+#include <cstdlib>
 #include <list>
 
 #include <signal.h>
