@@ -130,7 +130,11 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
 
 	LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Info, "Creating context\n");
 	// Create and set a context
+#ifdef __EMSCRIPTEN__
+	mpContext = RUN_ALC_FUNC(alcCreateContext ( mpDevice, NULL ));
+#else
 	mpContext = RUN_ALC_FUNC(alcCreateContext ( mpDevice, lAttrList ));
+#endif
 
 	RUN_ALC_FUNC(alcMakeContextCurrent ( mpContext ));
 
