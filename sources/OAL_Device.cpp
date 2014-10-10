@@ -451,6 +451,34 @@ cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename, eOAL_SampleForma
 
 //-------------------------------------------------------------------------
 
+cOAL_Stream* cOAL_Device::LoadStreamFromBuffer(const void* apBuffer, size_t aSize, eOAL_SampleFormat format)
+{
+	cOAL_Stream *pStream = NULL;
+
+	if (format == eOAL_SampleFormat_Detect) {
+		format = DetectFormatByMagic(apBuffer, aSize);
+	}
+	switch(format) {
+		case eOAL_SampleFormat_Ogg:
+			pStream = new cOAL_OggStream;
+			break;
+		default:
+			return NULL;
+	}
+
+	if(pStream->CreateFromBuffer(apBuffer, aSize) )
+		mlstStreams.push_back(pStream);
+	else
+	{
+		delete pStream;
+		pStream = NULL;
+	}
+
+	return pStream;
+}
+
+//-------------------------------------------------------------------------
+
 cOAL_Stream* cOAL_Device::LoadCustomStream(const tStreamCallbacks& aCallback, const tStreamInfo& aInfo, void* apData)
 {
 	cOAL_Stream *pStream = new cOAL_CustomStream(aCallback, aInfo, apData);

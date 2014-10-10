@@ -21,6 +21,82 @@
 
 using namespace std;
 
+struct tMemoryReader {
+	char* buff;
+	ogg_int64_t buff_size;
+	ogg_int64_t buff_pos;
+
+	tMemoryReader(const void* aBuff, size_t aBuffSize) : buff(NULL), buff_size(aBuffSize), buff_pos(0)
+	{
+		buff = new char[buff_size];
+		memcpy(buff, aBuff, buff_size);
+	}
+	~tMemoryReader()
+	{
+		delete [] buff;
+	}
+};
+
+size_t memoryRead(void * buff, size_t b, size_t nelts, void *data)
+{
+	tMemoryReader *of = reinterpret_cast<tMemoryReader*>(data);
+	size_t len = b * nelts;
+	if (of->buff_pos + len > of->buff_size) {
+		len = of->buff_size - of->buff_pos;
+	}
+	memcpy(buff, of->buff + of->buff_pos, len );
+	of->buff_pos += len;
+	return len;
+}
+
+int memorySeek(void *data, ogg_int64_t seek, int type)
+{
+	tMemoryReader *of = reinterpret_cast<tMemoryReader*>(data);
+
+	switch (type) {
+		case SEEK_CUR:
+			of->buff_pos += seek;
+			break;
+		case SEEK_END:
+			of->buff_pos = of->buff_size - seek;
+			break;
+		case SEEK_SET:
+			of->buff_pos = seek;
+			break;
+		default:
+			return -1;
+	}
+	if ( of->buff_pos < 0) {
+		of->buff_pos = 0;
+		return -1;
+	}
+	if ( of->buff_pos > of->buff_size) {
+		of->buff_pos = of->buff_size;
+		return -1;
+	}
+	return 0;
+}
+
+long memoryTell(void* data)
+{
+	tMemoryReader *of = reinterpret_cast<tMemoryReader*>(data);
+	return of->buff_pos;
+}
+
+int memoryClose(void* data)
+{
+	tMemoryReader *of = reinterpret_cast<tMemoryReader*>(data);
+	delete of;
+	return 0;
+}
+
+static ov_callbacks OV_MEMORY_CALLBACKS = {
+	memoryRead,
+	memorySeek,
+	memoryClose,
+	memoryTell
+};
+
 //---------------------------------------------------------------------
 
 cOAL_OggStream::cOAL_OggStream(): mbIsValidHandle(false)
@@ -129,7 +205,7 @@ double cOAL_OggStream::GetTime()
 
 bool cOAL_OggStream::CreateFromFile(const wstring &asFilename)
 {
-	DEF_FUNC_NAME("cOAL_OggStream::Load()");
+	DEF_FUNC_NAME("cOAL_OggStream::CreateFromFile()");
 	
 	if(mbStatus==false)
 		return false;
@@ -149,6 +225,45 @@ bool cOAL_OggStream::CreateFromFile(const wstring &asFilename)
 	if(lOpenResult<0)	
 	{
 		fclose(pStreamFile);
+		mbIsValidHandle = false;
+		mbStatus = false;
+		return false;
+	}
+	mbIsValidHandle = true;
+
+	// Get file info
+	vorbis_info *viFileInfo = ov_info ( &movStreamHandle, -1 );
+
+	mlChannels = viFileInfo->channels;
+	mlFrequency = viFileInfo->rate;
+	mlSamples = (long) ov_pcm_total ( &movStreamHandle, -1 );
+	mFormat = (mlChannels == 2) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
+
+	mfTotalTime = ov_time_total( &movStreamHandle, -1 );
+
+	return true;
+}
+
+//---------------------------------------------------------------------
+
+bool cOAL_OggStream::CreateFromBuffer(const void *apBuffer, size_t aSize)
+{
+	DEF_FUNC_NAME("cOAL_OggStream::CreateFromBuffer()");
+
+	if(mbStatus==false)
+		return false;
+
+	if (apBuffer == NULL)
+		return false;
+
+	// If not an Ogg file, set status and exit
+	tMemoryReader *pBufferStream = new tMemoryReader(apBuffer, aSize);
+
+	int lOpenResult = ov_open_callbacks(pBufferStream, &movStreamHandle,
+									NULL, 0, OV_MEMORY_CALLBACKS);
+	if(lOpenResult<0)
+	{
+		delete pBufferStream;
 		mbIsValidHandle = false;
 		mbStatus = false;
 		return false;

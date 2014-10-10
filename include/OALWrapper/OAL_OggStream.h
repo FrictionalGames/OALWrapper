@@ -33,7 +33,7 @@ public:
 	
 protected:
 	bool CreateFromFile(const std::wstring &asFileName);
-	bool CreateFromBuffer(const void *apBuffer, size_t aSize) { return false; };
+	bool CreateFromBuffer(const void *apBuffer, size_t aSize);
 	void Destroy();
 
 	bool Stream(cOAL_Buffer* apDestBuffer);

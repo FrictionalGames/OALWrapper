@@ -96,6 +96,15 @@ cOAL_Stream* OAL_Stream_Load(const wstring& asFilename, eOAL_SampleFormat fomat)
 
 //------------------------------------------------------------------------
 
+cOAL_Stream* OAL_Stream_LoadFromBuffer(const void* apBuffer, size_t aSize, eOAL_SampleFormat format)
+{
+	if(gpDevice==NULL) return NULL;
+
+	return gpDevice->LoadStreamFromBuffer(apBuffer, aSize, format);
+}
+
+//------------------------------------------------------------------------
+
 cOAL_Stream*	OAL_Stream_LoadCustom ( const tStreamCallbacks& aCallback, const tStreamInfo& aInfo, void* apData )
 {
 	if(gpDevice==NULL) return NULL;
