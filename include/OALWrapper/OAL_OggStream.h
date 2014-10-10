@@ -30,7 +30,6 @@ public:
 	~cOAL_OggStream();
 	
 	void Seek(float afWhere, bool abForceRebuffer);
-	
 protected:
 	bool CreateFromFile(const std::wstring &asFileName);
 	bool CreateFromBuffer(const void *apBuffer, size_t aSize);

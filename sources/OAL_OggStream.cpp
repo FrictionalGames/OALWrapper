@@ -181,7 +181,7 @@ void cOAL_OggStream::Seek(float afWhere, bool abForceRebuffer)
 
 	afWhere = afWhere*mlSamples;
 
-    // Move the pointer to the desired offset
+	// Move the pointer to the desired offset
 	ov_pcm_seek_page_lap(&movStreamHandle, (long int) afWhere);
 	if(abForceRebuffer)
 		mbNeedsRebuffering = true;

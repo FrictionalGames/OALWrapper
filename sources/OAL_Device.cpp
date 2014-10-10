@@ -95,8 +95,8 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
 	if(acParams.msDeviceName.empty())
 		mpDevice = alcOpenDevice(NULL);
 	else
-        mpDevice = alcOpenDevice( acParams.msDeviceName.c_str() );
-	
+		mpDevice = alcOpenDevice( acParams.msDeviceName.c_str() );
+
 	if(mpDevice == NULL)
 	{
 		LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Error, "Error opening device\n" );
@@ -195,7 +195,7 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
 
 	/////////////////////////////////////////////////
 	//Start EFX if requested
-    if (acParams.mbUseEFX && IsExtensionAvailable (OAL_ALC_EXT_EFX))
+	if (acParams.mbUseEFX && IsExtensionAvailable (OAL_ALC_EXT_EFX))
 	{
 		LogMsg("",eOAL_LogVerbose_Low, eOAL_LogMsg_Info, "Starting EFX on request\n" );
 		mpEFXManager = new cOAL_EFXManager;
@@ -417,7 +417,7 @@ cOAL_Stream* cOAL_Device::LoadStream(const string& asFilename, eOAL_SampleFormat
 
 cOAL_Stream* cOAL_Device::LoadStream(const wstring &asFilename, eOAL_SampleFormat format)
 {
-   	cOAL_Stream *pStream = NULL;
+	cOAL_Stream *pStream = NULL;
 
 	if (format == eOAL_SampleFormat_Detect)
 	{

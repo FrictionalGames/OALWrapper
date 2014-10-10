@@ -39,7 +39,7 @@ public:
 
 	///////////////////////////////////////////////////////
 	// Info methods
-    
+
 	inline std::string& GetDeviceName ()				{ return msDeviceName;	}
 	inline std::string& GetVendorName ()				{ return msVendorName;	}
 	inline std::string& GetRenderer ()					{ return msRenderer;	}
@@ -84,7 +84,7 @@ public:
 	cOAL_Source* GetSource ( int alSourceHandle );
 
 	///////////////////////////////////////////////////////
-    // Listener Management
+	// Listener Management
 	void SetListenerGain ( const float afGain );
 	void SetListenerPosition (const float* apPos );
 	void SetListenerVelocity (const float* apVel );
@@ -102,7 +102,7 @@ private:
 	int					mlMajorVersion;
 	int					mlMinorVersion;
 	bool				mvbExtensions[NUM_EXTENSIONS];
-    ALCdevice*			mpDevice;
+	ALCdevice*			mpDevice;
 	ALCcontext*			mpContext;
 
 
@@ -111,7 +111,7 @@ private:
 	cOAL_EFXManager*	mpEFXManager;
 	bool				mbEFXActive;
 	int					mlEFXSends;
-   
+
 	tSampleList mlstSamples;
 	tStreamList	mlstStreams;
 };

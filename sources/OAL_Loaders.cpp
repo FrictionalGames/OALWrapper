@@ -82,7 +82,7 @@ cOAL_Stream* OAL_Stream_Load(const string &asFilename, eOAL_SampleFormat format)
 {
 	if (gpDevice == NULL) return NULL;
 
-   	return gpDevice->LoadStream(asFilename, format);
+	return gpDevice->LoadStream(asFilename, format);
 }
 
 //------------------------------------------------------------------------
@@ -131,7 +131,7 @@ void OAL_Stream_Unload(cOAL_Stream* apStream)
 void OAL_Sample_SetLoop(cOAL_Sample* apSample, bool abLoop)
 {
 	if (gpDevice == NULL) return;
-    
+
 	if (apSample) 
 		apSample->SetLoop(abLoop);
 }
@@ -141,7 +141,7 @@ void OAL_Sample_SetLoop(cOAL_Sample* apSample, bool abLoop)
 void OAL_Stream_SetLoop(cOAL_Stream* apStream, bool abLoop)
 {
 	if (gpDevice == NULL) return;
-    
+
 	if (apStream) 
 		apStream->SetLoop(abLoop);
 }
