@@ -98,7 +98,7 @@ void cOAL_Stream::Update()
 		}
 		else
 		{
-            if(mbEOF && (mbLoop || mpBoundSource->mbLoop))
+			if(mbEOF && (mbLoop || mpBoundSource->mbLoop))
 			{
 				Seek(0, false);
 				Stream(pBuffer);
@@ -125,13 +125,13 @@ bool cOAL_Stream::HasBufferUnderrun()
 	if(mpBoundSource==NULL)
 		return false;
 
-	if(IsEOF()==false)
+	if(mbEOF==false)
 	{
 		//hpl::Log("Have not reached end of file\n");
 		return true;
 	}
 
-	if(mpBoundSource->GetQueuedBuffers()>0)
+	if(mpBoundSource->GetQueuedBuffers() != mpBoundSource->GetProcessedBuffers())
 	{
 		//hpl::Log("Source still has %d buffers to play\n", mpBoundSource->GetQueuedBuffers());
 		return true;
