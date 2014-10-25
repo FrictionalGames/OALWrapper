@@ -106,6 +106,10 @@ public:
 	void SetVelocity(const float* apVel);
 	void SetLoop(bool abLoop);
     void SetMinMaxDistance(const float afMin, const float afMax);
+    void SetConeOuterGain(const float afGain);
+    void setConeInnerAngle(const float afAngle);
+    void setConeOuterAngle(const float afAngle);
+    void SetDirection(const float* apDir);
 
 	void SetElapsedTime(double afTime);
 
@@ -134,6 +138,12 @@ public:
 	void SetAuxSend(int alSendId, cOAL_EffectSlot* apSlot, cOAL_Filter* apFilter);
 	void SetAuxSendSlot(int alSendId, cOAL_EffectSlot* apSlot );
 	void SetAuxSendFilter(int alSendId, cOAL_Filter* apFilter );
+	void SetConeOuterGainHF(const float afGain);
+	void SetAirAbsorptionFactor(const float afFactor);
+	void SetRoomRolloffFactor(const float afFactor);
+	void SetDirectFilterGainHFAuto(bool abAuto = true);
+	void SetAuxSendFilterGainAuto(bool abAuto = true);
+	void SetAuxSendFilterGainHFAuto(bool abAuto = true);
 
 	// Built in filter methods
 	void SetFilterType ( eOALFilterType aeType );

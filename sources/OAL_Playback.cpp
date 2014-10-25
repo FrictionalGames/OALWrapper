@@ -296,6 +296,17 @@ void OAL_Listener_SetMasterVolume ( float afVolume )
 }
 
 ///////////////////////////////////////////////////////////
+////	void OAL_Listener_SetMetersPerUnit (const float afValue )
+////	-	the relationship between the units passed to OpenAL calls such as positions and the real-world
+///////////////////////////////////////////////////////////
+
+void OAL_Listener_SetMetersPerUnit (const float afValue )
+{
+	if (gpDevice == NULL) return;
+	gpDevice->SetListenerMetersPerUnit(afValue);
+}
+
+///////////////////////////////////////////////////////////
 ////	void OAL_Source_SetPriority ( const int alSource, const unsigned int alPriority )
 ////	-	Sets the priority of the specified source
 ///////////////////////////////////////////////////////////
@@ -331,6 +342,74 @@ unsigned int OAL_Source_GetPriority ( const int alSource )
 	
 	return lPriority;
 
+}
+
+///////////////////////////////////////////////////////////
+////	void OAL_Source_SetConeOuterGain ( const int alSource, const float afGain )
+////	-	the factor with which AL_GAIN is multiplied to determine the effective gain outside the cone defined by the outer angle
+///////////////////////////////////////////////////////////
+
+void OAL_Source_SetConeOuterGain ( const int alSource, const float afGain )
+{
+	if (gpDevice == NULL) return;
+	cOAL_Source* pSource = gpDevice->GetSource(alSource);
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetConeOuterGain(afGain);
+		pSource->Unlock();
+	}
+}
+
+///////////////////////////////////////////////////////////
+////	void OAL_Source_setConeInnerAngle ( const int alSource, const float afAngle )
+////	-	Sets inner angle of the sound cone, in degrees
+///////////////////////////////////////////////////////////
+
+void OAL_Source_setConeInnerAngle ( const int alSource, const float afAngle )
+{
+	if (gpDevice == NULL) return;
+	cOAL_Source* pSource = gpDevice->GetSource(alSource);
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->setConeInnerAngle(afAngle);
+		pSource->Unlock();
+	}
+}
+
+///////////////////////////////////////////////////////////
+////	void OAL_Source_setConeOuterAngle ( const int alSource, const float afAngle )
+////	-	Sets outer angle of the sound cone, in degrees
+///////////////////////////////////////////////////////////
+
+void OAL_Source_setConeOuterAngle ( const int alSource, const float afAngle )
+{
+	if (gpDevice == NULL) return;
+	cOAL_Source* pSource = gpDevice->GetSource(alSource);
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->setConeOuterAngle(afAngle);
+		pSource->Unlock();
+	}
+}
+
+///////////////////////////////////////////////////////////
+////	void OAL_Source_SetDirection ( const int alSource, const float* apDir )
+////	-	Sets sound direction for the source
+///////////////////////////////////////////////////////////
+
+void OAL_Source_SetDirection ( const int alSource, const float* apDir )
+{
+	if (gpDevice == NULL) return;
+	cOAL_Source* pSource = gpDevice->GetSource(alSource);
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetDirection(apDir);
+		pSource->Unlock();
+	}
 }
 
 ///////////////////////////////////////////////////////////

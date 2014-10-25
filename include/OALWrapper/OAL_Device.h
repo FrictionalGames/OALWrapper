@@ -89,6 +89,7 @@ public:
 	void SetListenerPosition (const float* apPos );
 	void SetListenerVelocity (const float* apVel );
 	void SetListenerOrientation (const float* apForward, const float* apUp);
+	void SetListenerMetersPerUnit (const float afValue );
 
 
 	////////////////////////////////////////////////////////

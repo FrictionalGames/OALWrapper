@@ -369,6 +369,96 @@ void OAL_Source_SetFilterGainHF( int alSourceHandle, float afGainHF)
 	}
 }
 
+void OAL_Source_SetConeOuterGainHF ( const int alSourceHandle, const float afGain )
+{
+	if (gpDevice == NULL)
+		return;
+
+	cOAL_Source* pSource = gpDevice->GetSource(alSourceHandle);
+
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetConeOuterGainHF(afGain);
+		pSource->Unlock();
+	}
+}
+
+void OAL_Source_SetAirAbsorptionFactor ( const int alSourceHandle, const float afFactor )
+{
+	if (gpDevice == NULL)
+		return;
+
+	cOAL_Source* pSource = gpDevice->GetSource(alSourceHandle);
+
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetAirAbsorptionFactor(afFactor);
+		pSource->Unlock();
+	}
+}
+
+void OAL_Source_SetRoomRolloffFactor ( const int alSourceHandle, const float afFactor )
+{
+	if (gpDevice == NULL)
+		return;
+
+	cOAL_Source* pSource = gpDevice->GetSource(alSourceHandle);
+
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetRoomRolloffFactor(afFactor);
+		pSource->Unlock();
+	}
+}
+
+void OAL_Source_SetDirectFilterGainHFAuto ( const int alSourceHandle, bool abAuto )
+{
+	if (gpDevice == NULL)
+		return;
+
+	cOAL_Source* pSource = gpDevice->GetSource(alSourceHandle);
+
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetDirectFilterGainHFAuto(abAuto);
+		pSource->Unlock();
+	}
+}
+
+void OAL_Source_SetAuxSendFilterGainAuto ( const int alSourceHandle, bool abAuto )
+{
+	if (gpDevice == NULL)
+		return;
+
+	cOAL_Source* pSource = gpDevice->GetSource(alSourceHandle);
+
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetAuxSendFilterGainAuto(abAuto);
+		pSource->Unlock();
+	}
+}
+
+void OAL_Source_SetAuxSendFilterGainHFAuto ( const int alSourceHandle, bool abAuto )
+{
+	if (gpDevice == NULL)
+		return;
+
+	cOAL_Source* pSource = gpDevice->GetSource(alSourceHandle);
+
+	if (pSource)
+	{
+		pSource->Lock();
+		pSource->SetAuxSendFilterGainHFAuto(abAuto);
+		pSource->Unlock();
+	}
+}
+
 
 ///////////////////////////////////////////////////////////////
 /*
