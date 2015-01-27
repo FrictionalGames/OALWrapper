@@ -18,6 +18,7 @@
 #include "OALWrapper/OAL_Buffer.h"
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 
 using namespace std;
 
@@ -44,7 +45,8 @@ size_t memoryRead(void * buff, size_t b, size_t nelts, void *data)
 	if (of->buff_pos + len > of->buff_size) {
 		len = of->buff_size - of->buff_pos;
 	}
-	memcpy(buff, of->buff + of->buff_pos, len );
+	if (len)
+		memcpy(buff, of->buff + of->buff_pos, len );
 	of->buff_pos += len;
 	return len;
 }

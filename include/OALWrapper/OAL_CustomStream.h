@@ -13,7 +13,7 @@
 	Declaration of class for containing Custom streams
 */
 
-#ifndef _OAL_CUSTMSTREAM_H
+#ifndef _OAL_CUSTOMSTREAM_H
 #define _OAL_CUSTOMSTREAM_H
 
 #include "OAL_Stream.h"

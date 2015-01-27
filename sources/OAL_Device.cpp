@@ -721,8 +721,8 @@ void cOAL_Device::SetDistanceModel(eOAL_DistanceModel aModel)
 		distModel = AL_EXPONENT_DISTANCE_CLAMPED;
 		break;
 	case eOAL_DistanceModel_None:
-		distModel = AL_NONE;
 	default:
+		distModel = AL_NONE;
 		break;
 	}
 
