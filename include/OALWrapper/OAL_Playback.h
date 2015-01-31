@@ -38,6 +38,10 @@ void		OAL_Source_SetAttributes ( const int alSource, const float* apPos, const f
 void		OAL_Source_SetMinMaxDistance ( const int alSource, const float afMin, const float afMax );
 void		OAL_Source_SetPositionRelative ( const int alSource, const bool abRelative );
 void		OAL_Source_SetPriority ( const int alSource, const unsigned int alPriority );
+void		OAL_Source_SetConeOuterGain ( const int alSource, const float afGain );
+void		OAL_Source_setConeInnerAngle ( const int alSource, const float afAngle );
+void		OAL_Source_setConeOuterAngle ( const int alSource, const float afAngle );
+void		OAL_Source_SetDirection ( const int alSource, const float* apDir );
 
 unsigned  int	OAL_Source_GetPriority ( const int alSource );
 float OAL_Source_GetPitch(const int alSource);
@@ -49,7 +53,7 @@ const bool	OAL_Source_IsBufferUnderrun ( const int alSource );
 
 void		OAL_Listener_SetAttributes ( const float* apPos, const float* apVel, const float* apForward, const float* apUpward ); 
 void		OAL_Listener_SetMasterVolume ( const float afVolume );
-
+void		OAL_Listener_SetMetersPerUnit (const float afValue );
 
 void	OAL_Source_SetElapsedTime( const int alSource, double afTime );
 double	OAL_Source_GetElapsedTime( const int alSource );

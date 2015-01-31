@@ -658,6 +658,111 @@ void cOAL_Source::SetMinMaxDistance(const float afMin, const float afMax)
     RUN_AL_FUNC(alSourcef(mlObjectId, AL_MAX_DISTANCE, afMax));
 }
 
+//////////////////////////////////////////////////////
+//	void SetConeOuterGain(const float afGain)
+//	-	the factor with which AL_GAIN is multiplied to determine the effective gain outside the cone defined by the outer angle
+//////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetConeOuterGain(const float afGain)
+{
+	DEF_FUNC_NAME("cOAL_Source::SetConeOuterGain()");
+	FUNC_USES_AL;
+
+    RUN_AL_FUNC(alSourcef(mlObjectId, AL_CONE_OUTER_GAIN , afGain));
+}
+
+//////////////////////////////////////////////////////
+//	void SetConeOuterGainHF(const float afGain)
+//	-	enhances the directivity effect by attenuating high frequencies more than low frequencies in the rear of the source
+//////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetConeOuterGainHF(const float afGain)
+{
+	DEF_FUNC_NAME("cOAL_Source::SetConeOuterGainHF()");
+	FUNC_USES_AL;
+
+    RUN_AL_FUNC(alSourcef(mlObjectId, AL_CONE_OUTER_GAINHF , afGain));
+}
+
+//////////////////////////////////////////////////////
+//	void setConeInnerAngle(const float afAngle)
+//	-	Inside angle of the sound cone, in degrees
+//////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::setConeInnerAngle(const float afAngle)
+{
+	DEF_FUNC_NAME("cOAL_Source::setConeInnerAngle()");
+	FUNC_USES_AL;
+
+    RUN_AL_FUNC(alSourcef(mlObjectId, AL_CONE_INNER_ANGLE, afAngle));
+}
+
+//////////////////////////////////////////////////////
+//	void setConeOuterAngle(const float afAngle)
+//	-	Outer angle of the sound cone, in degrees. 
+//////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::setConeOuterAngle(const float afAngle)
+{
+	DEF_FUNC_NAME("cOAL_Source::setConeOuterAngle()");
+	FUNC_USES_AL;
+
+    RUN_AL_FUNC(alSourcef(mlObjectId, AL_CONE_OUTER_ANGLE, afAngle));
+}
+
+//////////////////////////////////////////////////////
+//	void SetDirection(const float* apDir)
+//	-	The sound emission is presumed to be symmetric around the direction vector (cylinder symmetry)
+//////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetDirection(const float* apDir)
+{
+	DEF_FUNC_NAME("cOAL_Source::SetDirection()");
+	FUNC_USES_AL;
+
+	RUN_AL_FUNC(alSourcefv ( mlObjectId, AL_DIRECTION, apDir ));
+}
+
+//////////////////////////////////////////////////////
+//	void SetAirAbsortionFactor(const float afFactor)
+//	-	a multiplier on the amount of Air Absorption applied to the Source (0 by default)
+//////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetAirAbsorptionFactor(const float afFactor)
+{
+	DEF_FUNC_NAME("cOAL_Source::SetAirAbsorptionFactor()");
+	FUNC_USES_AL;
+
+    RUN_AL_FUNC(alSourcef(mlObjectId, AL_AIR_ABSORPTION_FACTOR, afFactor));
+}
+
+//////////////////////////////////////////////////////
+//	void SetRoomRolloffFactor(const float afFactor)
+//	-	attenuate the reflected sound of this source according to source-listener distance
+//////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetRoomRolloffFactor(const float afFactor)
+{
+	DEF_FUNC_NAME("cOAL_Source::SetRoomRolloffFactor()");
+	FUNC_USES_AL;
+
+    RUN_AL_FUNC(alSourcef(mlObjectId, AL_ROOM_ROLLOFF_FACTOR, afFactor));
+}
+
 //--------------------------------------------------------------------------------
 
 void cOAL_Source::SetElapsedTime(double afTime)
@@ -805,6 +910,45 @@ void cOAL_Source::SetAuxSendFilter( int alSendId, cOAL_Filter* apFilter )
 	pSend->SetFilter(apFilter);
 	
 	RUN_AL_FUNC(alSource3i(mlObjectId, AL_AUXILIARY_SEND_FILTER, pSend->GetSlot(), alSendId, pSend->GetFilter()));
+}
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetDirectFilterGainHFAuto(bool abAuto)
+{
+	if(!gpDevice->IsEFXActive())
+		return;
+
+	DEF_FUNC_NAME("SetDirectFilterGainHFAuto");
+	FUNC_USES_AL;
+	
+	RUN_AL_FUNC(alSourcei(mlObjectId, AL_DIRECT_FILTER_GAINHF_AUTO, (ALint)abAuto));
+}
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetAuxSendFilterGainAuto(bool abAuto)
+{
+	if(!gpDevice->IsEFXActive())
+		return;
+
+	DEF_FUNC_NAME("SetAuxSendFilterGainAuto");
+	FUNC_USES_AL;
+	
+	RUN_AL_FUNC(alSourcei(mlObjectId, AL_AUXILIARY_SEND_FILTER_GAIN_AUTO, (ALint)abAuto));
+}
+
+//--------------------------------------------------------------------------------
+
+void cOAL_Source::SetAuxSendFilterGainHFAuto(bool abAuto)
+{
+	if(!gpDevice->IsEFXActive())
+		return;
+
+	DEF_FUNC_NAME("SetAuxSendFilterGainHFAuto");
+	FUNC_USES_AL;
+	
+	RUN_AL_FUNC(alSourcei(mlObjectId, AL_AUXILIARY_SEND_FILTER_GAINHF_AUTO, (ALint)abAuto));
 }
 
 //--------------------------------------------------------------------------------

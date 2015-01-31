@@ -66,6 +66,12 @@ void OAL_Source_SetDirectFilter( int alSourceHandle, cOAL_Filter* apFilter );
 void OAL_Source_SetAuxSend ( int alSourceHandle, int alAuxSend, int alSlotHandle, cOAL_Filter* apFilter );
 void OAL_Source_SetAuxSendSlot ( int alSourceHandle, int alAuxSend, int alSlotHandle);
 void OAL_Source_SetAuxSendFilter ( int alSourceHandle, int alAuxSend, cOAL_Filter* apFilter );
+void OAL_Source_SetConeOuterGainHF ( const int alSourceHandle, const float afGain );
+void OAL_Source_SetAirAbsorptionFactor ( const int alSourceHandle, const float afFactor );
+void OAL_Source_SetRoomRolloffFactor ( const int alSourceHandle, const float afFactor );
+void OAL_Source_SetDirectFilterGainHFAuto ( const int alSourceHandle, bool abAuto = true );
+void OAL_Source_SetAuxSendFilterGainAuto ( const int alSourceHandle, bool abAuto = true);
+void OAL_Source_SetAuxSendFilterGainHFAuto ( const int alSourceHandle, bool abAuto = true );
 
 void OAL_Source_SetFiltering( int alSourceHandle, bool abEnabled, int alFlags);
 void OAL_Source_SetFilterType( int alSourceHandle, eOALFilterType aeType);

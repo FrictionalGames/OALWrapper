@@ -565,6 +565,18 @@ void cOAL_Device::SetListenerOrientation(const float* apForward, const float* ap
 
 //-------------------------------------------------------------------------
 
+void cOAL_Device::SetListenerMetersPerUnit (const float afValue )
+{
+	if (!mbEFXActive)
+		return;
+	DEF_FUNC_NAME ("cOAL_Device::SetListenerMetersPerUnit()");
+	FUNC_USES_AL;
+
+	RUN_AL_FUNC(alListenerf ( AL_METERS_PER_UNIT, afValue ));
+}
+
+//-------------------------------------------------------------------------
+
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 // Playback Management
