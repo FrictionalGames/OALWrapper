@@ -20,6 +20,7 @@
 #include "OALWrapper/OAL_OggStream.h"
 #include "OALWrapper/OAL_CustomStream.h"
 #include "OALWrapper/OAL_SourceManager.h"
+#include "alext.h"
 
 #include "OALWrapper/OAL_Filter.h"
 #include "OALWrapper/OAL_Effect_Reverb.h"
@@ -118,6 +119,7 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
 
 	ALCint lAttrList[] = 
 	{
+		ALC_HRTF_SOFT, ALC_TRUE,
 		ALC_FREQUENCY,		acParams.mlOutputFreq,
 #ifdef __APPLE__
 #else
