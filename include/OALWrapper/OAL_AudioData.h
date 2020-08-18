@@ -58,6 +58,7 @@ public:
 	virtual void RemoveBoundSource(cOAL_Source* apSource) = 0;
 
 	inline int GetBuffersUsed() { return mlBuffersUsed; }
+	void ResetBuffersUsed() { mlBuffersUsed = 0; }
 
 	inline bool IsEOF() { return mbEOF; }
 	virtual bool HasBufferUnderrun()=0;
