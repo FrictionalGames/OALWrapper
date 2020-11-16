@@ -13,7 +13,7 @@
 #include <cstdio>
 #include <cstdarg>
 
-#if defined(WIN32)
+#if defined(_WIN32)
 #define UNICODE
 #include <shlobj.h>
 #endif
@@ -108,7 +108,7 @@ wstring BuildLogFilename ( const string& asFilename )
 	wstring wsTemp;
 	wsName = String2WString(asFilename);
 	
-	#if defined(WIN32)
+	#if defined(_WIN32)
 
 		WCHAR sPath[MAX_PATH];
 		if(SUCCEEDED(SHGetFolderPath(NULL, 

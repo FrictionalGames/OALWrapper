@@ -77,7 +77,7 @@ wstring String2WString(const string& asString)
 
 FILE *OpenFileW(const wstring& asFileName, const wstring asMode)
 {
-#ifdef WIN32
+#ifdef _WIN32
     return _wfopen(asFileName.c_str(), asMode.c_str());
 #else
     string sFileName = WString2String(asFileName);

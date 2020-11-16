@@ -198,7 +198,7 @@ void OAL_SetupLogging ( bool abLogSounds, eOAL_LogOutput aeOutput, eOAL_LogVerbo
 	if (pTempFile)
 	{
 		fclose(pTempFile);
-#ifdef WIN32
+#ifdef _WIN32
 		_wremove (iOAL_LoggerObject::GetLogFilename().c_str());
 #else
 		remove (WString2String(iOAL_LoggerObject::GetLogFilename()).c_str());

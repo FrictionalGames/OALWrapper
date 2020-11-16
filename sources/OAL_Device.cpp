@@ -119,7 +119,8 @@ bool cOAL_Device::Init( cOAL_Init_Params& acParams )
 
 	ALCint lAttrList[] = 
 	{
-		ALC_HRTF_SOFT, ALC_TRUE,
+//		ALC_HRTF_SOFT,
+		ALC_TRUE,
 		ALC_FREQUENCY,		acParams.mlOutputFreq,
 #ifdef __APPLE__
 #else
