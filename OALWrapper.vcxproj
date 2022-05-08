@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{6F50ED2A-585C-4B70-A595-69E149364A8E}</ProjectGuid>
+    <RootNamespace>OALWrapper</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.32203.90</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\Build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Build\$(Configuration)\int\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\Build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Build\$(Configuration)\int\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\OALWrapper\include;..\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\OALWrapper\include;..\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="sources\OAL_AudioData.cpp" />
+    <ClCompile Include="sources\OAL_Buffer.cpp" />
+    <ClCompile Include="sources\OAL_Device.cpp" />
+    <ClCompile Include="sources\OAL_Effect.cpp" />
+    <ClCompile Include="sources\OAL_EffectSlot.cpp" />
+    <ClCompile Include="sources\OAL_Effect_Reverb.cpp" />
+    <ClCompile Include="sources\OAL_EFX.cpp" />
+    <ClCompile Include="sources\OAL_EFXManager.cpp" />
+    <ClCompile Include="sources\OAL_Filter.cpp" />
+    <ClCompile Include="sources\OAL_Helper.cpp" />
+    <ClCompile Include="sources\OAL_Init.cpp" />
+    <ClCompile Include="sources\OAL_Loaders.cpp" />
+    <ClCompile Include="sources\OAL_LoggerObject.cpp" />
+    <ClCompile Include="sources\OAL_OggSample.cpp" />
+    <ClCompile Include="sources\OAL_OggStream.cpp" />
+    <ClCompile Include="sources\OAL_Playback.cpp" />
+    <ClCompile Include="sources\OAL_Sample.cpp" />
+    <ClCompile Include="sources\OAL_Source.cpp" />
+    <ClCompile Include="sources\OAL_SourceManager.cpp" />
+    <ClCompile Include="sources\OAL_Stream.cpp" />
+    <ClCompile Include="sources\OAL_Types.cpp" />
+    <ClCompile Include="sources\OAL_WAVSample.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\OALWrapper\OAL_AudioData.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Buffer.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Device.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Effect.h" />
+    <ClInclude Include="include\OALWrapper\OAL_EffectSlot.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Effect_Reverb.h" />
+    <ClInclude Include="include\OALWrapper\OAL_EFX.h" />
+    <ClInclude Include="include\OALWrapper\OAL_EFXManager.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Filter.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Funcs.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Helper.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Init.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Loaders.h" />
+    <ClInclude Include="include\OALWrapper\OAL_LoggerObject.h" />
+    <ClInclude Include="include\OALWrapper\OAL_LowLevelObject.h" />
+    <ClInclude Include="include\OALWrapper\OAL_OggSample.h" />
+    <ClInclude Include="include\OALWrapper\OAL_OggStream.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Playback.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Sample.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Source.h" />
+    <ClInclude Include="include\OALWrapper\OAL_SourceManager.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Stream.h" />
+    <ClInclude Include="include\OALWrapper\OAL_Types.h" />
+    <ClInclude Include="include\OALWrapper\OAL_WAVSample.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
