@@ -9,3 +9,5 @@
 /libOALWrapper.a
 /SimpleTest
 /Makefile
+/.vs
+*.vcxproj.user
